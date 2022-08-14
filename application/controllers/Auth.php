@@ -7,7 +7,7 @@ class Auth extends CI_Controller{
         $this->load->model('User_model', 'udel');
     }
     // recall saat user baru buka site
-    public function index($session){
+    public function index(){
         if($this->session->userdata('authenticated')){
             redirect('home');
         } else {
