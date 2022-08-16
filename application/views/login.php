@@ -30,8 +30,8 @@
           <div class="card-body">
             <h2 class="card-title text-center mb-4">Login to your account</h2>
             <div class="mb-3">
-              <label class="form-label">Email address</label>
-              <input type="email" class="form-control" placeholder="Enter email">
+              <label class="form-label">NIK</label>
+              <input type="text" class="form-control" placeholder="Enter NIK">
             </div>
             <div class="mb-2">
               <label class="form-label">

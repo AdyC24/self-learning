@@ -6,18 +6,46 @@ class Page extends CI_Controller{
         parent::__construct();
         $this->load->model('User_model', 'udel');
     }
-
     public function home(){
         $this->load->view('template/head');
         $this->load->view('template/navbar');
         $this->load->view('page/home');
         $this->load->view('template/foot');
     }
-
+    public function userHome(){
+        $this->load->view('template/userHead');
+        $this->load->view('template/userNavbar');
+        $this->load->view('user/home');
+        $this->load->view('template/foot');
+    }
     public function movie(){
         $this->load->view('template/head');
         $this->load->view('template/navbar');
         $this->load->view('page/movie');
         $this->load->view('template/foot');
     }
-}
+    public function theater(){
+        $this->load->view('template/head');
+        $this->load->view('template/navbar');
+        $this->load->view('page/theater');
+        $this->load->view('template/foot');
+    }
+    public function subordinate(){
+        $this->load->view('template/userHead');
+        $this->load->view('template/userNavbar');
+        $this->load->view('user/subordinate');
+        $this->load->view('template/foot');
+    }
+    public function selfLearning(){
+        $this->load->view('template/userHead');
+        $this->load->view('template/userNavbar');
+        $this->load->view('user/selfLearning');
+        $this->load->view('template/foot');
+    }
+    public function ticket(){
+        $this->load->view('template/userHead');
+        $this->load->view('template/userNavbar');
+        $this->load->view('user/ticket');
+        $this->load->view('template/foot');
+    }
+}   
