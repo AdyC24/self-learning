@@ -42,11 +42,7 @@
               <?= form_error('nik', '<small class="text-danger pl-3">', '</small>');?>
             </div>
             <div class="mb-2">
-              <label class="form-label required">Password
-                <span class="form-label-description">
-                  <a href="./forgot-password.html">I forgot password</a>
-                </span>
-              </label>
+              <label class="form-label required">Password</label>
               <div class="input-group input-group-flat">
                 <input type="password" class="form-control"  id="password" name="password" placeholder="Password"  autocomplete="off">
                 <span class="input-group-text">

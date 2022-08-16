@@ -27,14 +27,27 @@ class Auth extends CI_Controller{
             $this->session->set_flashdata('message', 'NIK tidak ditemukan'); 
             redirect('Auth');
         }else{
-            if(password_verify($pass, $user['KAR_PASSWORD'])){
+            if($pass == $user['KAR_PASSWORD']){
+                $direct = $this->udel->getDirect($user['KAR_ID']);
+
+                if($direct){
+                    $dirName = $direct['KAR_NAME'];
+                    $dirNik = $direct['KAR_NIK'];
+                } else {
+                    $dirName = 'No Direct Assigned';
+                    $dirNik = '-';
+                }
                 $session = [
                     'nik' => $user['KAR_NIK'],
                     'name' => $user['KAR_NAME'],
                     'email' => $user['KAR_EMAIL'],
-                    'photo' => $user['KAR_PHOTE'],
+                    'photo' => $user['KAR_PHOTO'],
                     'role' => $user['KAR_ROLE'],
-                    'phone' => $user['KAR_HP']
+                    'phone' => $user['KAR_HP'],
+                    'position' => $user['JAB_NAME'],
+                    'section' => $user['SEC_NAME'],
+                    'direct_name' => $dirName,
+                    'direct_nik' => $dirNik
                 ];
                 $this->session->set_userdata($session);
             } else {
