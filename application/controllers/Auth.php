@@ -50,6 +50,7 @@ class Auth extends CI_Controller{
                     'direct_nik' => $dirNik
                 ];
                 $this->session->set_userdata($session);
+                redirect('home');
             } else {
                 $this->session->set_flashdata('message', 'Password salah'); 
                 redirect('Auth');
