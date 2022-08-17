@@ -36,12 +36,22 @@
                         <a class="dropdown-item" href="<?= base_url('Page/movie');?>" >
                           Movies 
                         </a>
-                        <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >
-                          Theaters
-                        </a>
-                        <a class="dropdown-item" href="#" >
-                          Quiz
-                        </a>
+                        <?php if ($role != 'lvl345'){ ?>
+                          <?php if($role != 'lvl12') { ?>
+                            <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >
+                              Theaters
+                            </a>
+                            <a class="dropdown-item" href="#" >
+                              Quiz
+                            </a>
+                          <?php };?>
+                        <?php };?>
+                        <?php if($role != 'hr'){?>
+                          <a class="dropdown-item" href="#" >
+                            Tickets
+                          </a>
+                        <?php };?>
+
                       </div>
                     </div>
                   </div>

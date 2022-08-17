@@ -12,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title><?= $title;?> - SLD.</title>
+    <title><?= $title;?> - SLD</title>
     <!-- CSS files -->
     <link href="<?= base_url('assets');?>/dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="<?= base_url('assets');?>/dist/css/tabler-flags.min.css" rel="stylesheet"/>
@@ -71,7 +71,7 @@
                 <a href="#" class="dropdown-item">Feedback</a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">Settings</a>
-                <a href="#" class="dropdown-item">Logout</a>
+                <a href="<?=base_url('Auth/logout');?>" class="dropdown-item">Logout</a>
               </div>
             </div>
           </div>

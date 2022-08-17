@@ -28,9 +28,7 @@
                         <a class="dropdown-item" href="#" >
                           Movies
                         </a>
-                        <a class="dropdown-item" href="#" >
-                          Tickets
-                        </a>
+                        
                 <li class="nav-item">
                   <a class="nav-link" href="./form-elements.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
