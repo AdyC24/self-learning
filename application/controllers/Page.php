@@ -7,8 +7,12 @@ class Page extends CI_Controller{
         $this->load->model('User_model', 'udel');
     }
     public function home(){
-        $this->load->view('template/head');
-        $this->load->view('template/navbar');
+        $data['title'] = 'Home';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
         $this->load->view('page/home');
         $this->load->view('template/foot');
     }
@@ -19,14 +23,22 @@ class Page extends CI_Controller{
         $this->load->view('template/foot');
     }
     public function movie(){
-        $this->load->view('template/head');
-        $this->load->view('template/navbar');
+        $data['title'] = 'Movies';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
         $this->load->view('page/movie');
         $this->load->view('template/foot');
     }
     public function theater(){
-        $this->load->view('template/head');
-        $this->load->view('template/navbar');
+        $data['title'] = 'Theaters';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
         $this->load->view('page/theater');
         $this->load->view('template/foot');
     }

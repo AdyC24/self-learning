@@ -38,7 +38,7 @@
             ?> 
             <div class="mb-3">
               <label class="form-label required">NIK</label>
-              <input type="text" class="form-control" id="nik" name="nik" placeholder="Enter NIK" onkeypress="return event.charCode >= 48 && event.charCode <=57">
+              <input type="text" class="form-control" id="nik" name="nik" placeholder="Enter NIK">
               <?= form_error('nik', '<small class="text-danger pl-3">', '</small>');?>
             </div>
             <div class="mb-2">
