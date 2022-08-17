@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="<?= base_url('Page/movie');?>" >
                           Movies 
                         </a>
-                        <?php if ($role != 'lvl345'){ ?>
+                        <?php if($role != 'lvl345'){ ?>
                           <?php if($role != 'lvl12') { ?>
                             <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >
                               Theaters

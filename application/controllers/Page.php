@@ -27,6 +27,7 @@ class Page extends CI_Controller{
         $data['title'] = 'Movies';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
@@ -37,6 +38,7 @@ class Page extends CI_Controller{
         $data['title'] = 'Theaters';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
