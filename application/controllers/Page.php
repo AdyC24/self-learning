@@ -17,17 +17,12 @@ class Page extends CI_Controller{
         $this->load->view('page/home');
         $this->load->view('template/foot');
     }
-    public function userHome(){
-        $this->load->view('template/userHead');
-        $this->load->view('template/userNavbar');
-        $this->load->view('user/home');
-        $this->load->view('template/foot');
-    }
     public function movie(){
         $data['title'] = 'Movies';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
+        $data['movies'] = $this->udel->getMovies();
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

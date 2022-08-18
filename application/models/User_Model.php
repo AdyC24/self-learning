@@ -24,4 +24,10 @@ class User_Model extends CI_MODEL{
         $db1->where('KAR_BAWAHAN', $id);
         return $db1->get()->row_array();
     }
+    public function getMovies(){
+        $this->db->from('movie as m');
+        $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+        return $this->db->get()->result_array();
+
+    }
 }
