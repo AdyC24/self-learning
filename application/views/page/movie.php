@@ -45,8 +45,17 @@
                   <div class="card-body">
                     <div class="d-flex align-items-center">
                       <div>
-                        <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
-                        <span class="text-muted"><?= $movie['competenceName'] ;?></span>
+
+                        <?php if($movie['movieActive'] != 'Tidak'){?>
+                          <span class="badge bg-yellow">Active</span>
+                          <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
+                          <span class="text-muted"><?= $movie['competenceName'] ;?></span>
+                        <?php } else {?>
+                          <span class="badge bg-red">Inactive</span>
+                          <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
+                          <span class="text-muted"><?= $movie['competenceName'] ;?></span>
+                        <?php };?>
+
                       </div>
                       <div class="ms-auto">
                         <a href="#" class="text-muted">
