@@ -44,6 +44,9 @@
                             <a class="dropdown-item" href="#" >
                               Quiz
                             </a>
+                            <a class="dropdown-item" href="#" >
+                              Absense
+                            </a>
                           <?php };?>
                         <?php };?>
                         <?php if($role != 'hr'){?>

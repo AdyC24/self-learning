@@ -19,10 +19,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3" style="padding-left: 16px;">
+                        <div class="col-lg-3 col-sm-12" style="padding-left: 16px;">
                             <img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" alt="<?= $movie['movieName'];?>">
                         </div>
-                        <div class="col-9 px-4">
+                        <div class="col-lg-9 col-sm-12 px-4">
                             <div class="mt-3">
                                 <h1>
                                     <?= $movie['movieName'];?>
@@ -38,11 +38,10 @@
                             <div">
                                 <h2>Details</h2>
                                 <p><strong>Genre : </strong><?= $movie['genreName'];?></p>
-                                <p><strong>IMDb Rating : </strong><?= $movie['movieRank'];?></p>
+                                <p><strong>IMDb Rating : </strong><?= $movie['movieRank'];?> / 10</p>
                                 <p><strong>Language : </strong><?= $movie['movieLanguage'];?></p>
                                 <p><strong>Competence : </strong><?= $movie['competenceName'];?></p>
-                                <p><strong>Watches : </strong><?= $movie['movieCount'];?></p>
-                                <p><strong>Likes : </strong><?= $movie['movieLikes'];?></p>                  
+                                <p><strong>Watches : </strong><?= $movie['movieCount'];?></p>        
                             </div> 
                         </div>
                         <div class="col-12 px-4">
@@ -53,7 +52,53 @@
                         </div>
                         <div class="col-12 px-4">
                             <h2>Theaters</h2>
-
+                            <div class="table-responsive">
+                              <table class="table card-table table-vcenter text-nowrap datatable">
+                                <thead>
+                                  <tr>
+                                    <th>Action</th>
+                                    <th>Date/ Time</th>
+                                    <th>Location</th>
+                                    <th>Created By</th>
+                                    <th>Registered</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                  <td class="text-start">
+                                      <?php if($role != 'lvl345'){?>
+                                        <?php if($role != 'lvl12'){?>
+                                          <span class="dropdown">
+                                            <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                              <a class="dropdown-item" href="#">
+                                                Edit
+                                              </a>
+                                              <a class="dropdown-item" href="#">
+                                                Delete
+                                              </a>                                         
+                                          </div>
+                                        </span>
+                                      <?php };?>
+                                    <?php };?>
+                                    <?php if($role != 'hr'){?>
+                                      <span>
+                                        <button class="btn align-text-top" data-bs-boundary="viewport">Register</button>
+                                      </span>
+                                    <?php };?>
+                                    </td>
+                                    <td>5-10-2022 09:00:00</td>
+                                    <td>Ruang meeting - TOS Q3</td>
+                                    <td>Srinita Surbakti</td>
+                                    <td>20/20 tickets</td>
+                                    <td><span class="badge bg-danger me-1"></span> Full</td>
+                                    
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </div>
                         </div>
                     </div>
                 </div>
