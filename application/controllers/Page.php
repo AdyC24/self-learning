@@ -66,9 +66,14 @@ class Page extends CI_Controller{
         $this->load->view('template/foot');
     }
     public function subordinate(){
-        $this->load->view('template/userHead');
-        $this->load->view('template/userNavbar');
-        $this->load->view('user/subordinate');
+        $data['title'] = 'Subordinates';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/subordinates', $data);
         $this->load->view('template/foot');
     }
     public function selfLearning(){
