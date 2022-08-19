@@ -26,7 +26,21 @@ class Page extends CI_Controller{
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
-        $this->load->view('page/movie');
+        $this->load->view('page/movie', $data);
+        $this->load->view('template/foot');
+    }
+    public function movieDetail(){
+        $movieId = $this->uri->segment('3');
+
+        $data['title'] = 'Movie Details';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['movie'] = $this->udel->getMovie($movieId);
+       
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/movieDetail', $data);
         $this->load->view('template/foot');
     }
     public function theater(){

@@ -28,6 +28,12 @@ class User_Model extends CI_MODEL{
         $this->db->from('movie as m');
         $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
         return $this->db->get()->result_array();
-
+    }
+    public function getMovie($id){
+        $this->db->from('movie as m');
+        $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+        $this->db->join('genre as g', 'm.genreId = g.genreId', 'LEFT');
+        $this->db->where('movieId', $id);
+        return $this->db->get()->row_array();
     }
 }
