@@ -54,6 +54,17 @@ class Page extends CI_Controller{
         $this->load->view('page/theater');
         $this->load->view('template/foot');
     }
+    public function ticket(){
+        $data['title'] = 'Tickets';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/tickets', $data);
+        $this->load->view('template/foot');
+    }
     public function subordinate(){
         $this->load->view('template/userHead');
         $this->load->view('template/userNavbar');
@@ -66,10 +77,5 @@ class Page extends CI_Controller{
         $this->load->view('user/selfLearning');
         $this->load->view('template/foot');
     }
-    public function ticket(){
-        $this->load->view('template/userHead');
-        $this->load->view('template/userNavbar');
-        $this->load->view('user/ticket');
-        $this->load->view('template/foot');
-    }
+    
 }   

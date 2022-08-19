@@ -59,7 +59,11 @@
                                     <th>Action</th>
                                     <th>Date/ Time</th>
                                     <th>Location</th>
-                                    <th>Created By</th>
+                                    <?php if($role != 'lvl345'){?>
+                                        <?php if($role != 'lvl12'){?>
+                                          <th>Created By</th>
+                                      <?php };?>
+                                    <?php };?>
                                     <th>Registered</th>
                                     <th>Status</th>
                                     <th></th>
@@ -91,7 +95,11 @@
                                     </td>
                                     <td>5-10-2022 09:00:00</td>
                                     <td>Ruang meeting - TOS Q3</td>
-                                    <td>Srinita Surbakti</td>
+                                    <?php if($role != 'lvl345'){?>
+                                        <?php if($role != 'lvl12'){?>
+                                          <td>Srinita Surbakti</td>
+                                      <?php };?>
+                                    <?php };?>
                                     <td>20/20 tickets</td>
                                     <td><span class="badge bg-danger me-1"></span> Full</td>
                                     
