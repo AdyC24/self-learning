@@ -36,8 +36,7 @@
         <div class="page-body">
           <div class="container-xl">
             <div class="row row-cards" id="movieShow">
-
-              <!-- pasang looping dari table movie-->
+                <!-- pasang looping dari table movie-->
               <?php foreach($movies as $movie){?>
               <div class="col-sm-6 col-lg-4">
                 <div class="card card-sm">
@@ -70,6 +69,8 @@
               </div>
               <?php };?>
 
+              
+
             </div>
             <div class="d-flex">
               <ul class="pagination ms-auto">
@@ -95,4 +96,16 @@
             </div>
           </div>
         </div>
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#movieSearch').keyup(function(){
+              var str = $('#movieSearch').val();
+              if()
+       
+            })
+
+          });
+          
+        </script>
         

@@ -44,4 +44,10 @@ class User_Model extends CI_MODEL{
         $this->db->where('movieId', $id);
         return $this->db->get()->row_array();
     }
+    public function getMoviesSearch($val){
+        $this->db->from('movie as m');
+        $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+        $this->db->where('movieName', $val);
+        return $this->db->get()->result_array();
+    }
 }

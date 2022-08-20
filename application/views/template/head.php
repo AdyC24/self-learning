@@ -19,6 +19,7 @@
     <link href="<?= base_url('assets');?>/dist/css/tabler-payments.min.css" rel="stylesheet"/>
     <link href="<?= base_url('assets');?>/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="<?= base_url('assets');?>/dist/css/demo.min.css" rel="stylesheet"/>
+    <script src="<?= base_url('assets');?>/dist/js/jquery-3.6.0.min.js"></script>
   </head>
   <body >
 
