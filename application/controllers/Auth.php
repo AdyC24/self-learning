@@ -38,6 +38,7 @@ class Auth extends CI_Controller{
                     $dirNik = '-';
                 }
                 $session = [
+                    'id' => $user['KAR_ID'],
                     'nik' => $user['KAR_NIK'],
                     'name' => $user['KAR_NAME'],
                     'email' => $user['KAR_EMAIL'],

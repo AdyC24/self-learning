@@ -66,10 +66,14 @@ class Page extends CI_Controller{
         $this->load->view('template/foot');
     }
     public function subordinate(){
+        $id = $this->session->userdata('id');
+
         $data['title'] = 'Subordinates';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
+        $data['subordinates'] = $this->udel->getSubordinate($id);
+
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
