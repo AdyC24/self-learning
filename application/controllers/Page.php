@@ -80,11 +80,24 @@ class Page extends CI_Controller{
         $this->load->view('page/subordinates', $data);
         $this->load->view('template/foot');
     }
+    public function competences(){
+        $data['title'] = 'Competences';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['competences'] = $this->udel->getCompetences();
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/competences', $data);
+        $this->load->view('template/foot');
+    }
     public function selfLearning(){
         $this->load->view('template/userHead');
         $this->load->view('template/userNavbar');
         $this->load->view('user/selfLearning');
         $this->load->view('template/foot');
     }
+    
     
 }   

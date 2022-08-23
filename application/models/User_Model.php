@@ -53,4 +53,7 @@ class User_Model extends CI_MODEL{
             return $this->db->get()->result_array();
         }
     }
+    public function getCompetences(){
+        return $this->db->get('competence')->result_array();
+    }
 }
