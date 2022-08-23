@@ -17,7 +17,7 @@
                     </span>
                   </a>
                 </li>
-                <?php if($title == 'Movies' || $title == 'Theaters'){
+                <?php if($title == 'Movies' || $title == 'Theaters' || $title == 'Movie Details'){
                   echo '<li class="nav-item dropdown active">';
                 } else {
                   echo '<li class="nav-item dropdown">';
