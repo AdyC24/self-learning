@@ -48,10 +48,13 @@ class Page extends CI_Controller{
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
+        $data['movies'] = $this->udel->getMovies();
+        $data['PICs'] = $this->udel->getPIC();
+
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
-        $this->load->view('page/theater');
+        $this->load->view('page/theater', $data);
         $this->load->view('template/foot');
     }
     public function ticket(){

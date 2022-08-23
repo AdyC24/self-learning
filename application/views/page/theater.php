@@ -38,11 +38,11 @@
                               </span>
                             </div>
                           </div>
-                          <a href="#" class="btn btn-primary">
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTheater">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
                             Add Theater
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -275,6 +275,52 @@
                     </ul>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addTheater" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Theater</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <fieldset class="form-fieldset">
+                            <div class="mb-3">
+                              <label class="form-label required">Movie Title</label>
+                              <select type="text" class="form-select" id="select-tags" value="">
+                                <?php foreach($movies as $movie) :?>
+                                <option value="<?= $movie['movieId'];?>"><?= $movie['movieName'];?> / <?= $movie['competenceName'];?></option>
+                                <?php endforeach; ?>
+                              </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                              <label class="form-label required" >Date</label>
+                              <input type="datetime-local" class="form-control"/>
+                            </div>
+
+                            <div class="mb-3">
+                              <label class="form-label required">Location</label>
+                              <input type="text" class="form-control" placeholder="Set theater's location">
+                            </div>
+
+                            <div class="mb-3">
+                              <label class="form-label required">Created By</label>
+                              <select type="text" class="form-select" id="select-tags" value="">
+                                <?php foreach($PICs as $PIC) : ?>
+                                <option value="<?= $PIC['KAR_ID'];?>"><?= $PIC['KAR_NAME'];?></option>
+                                <?php endforeach; ?>
+                              </select>
+                            </div>
+                          </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Create</button>
               </div>
             </div>
           </div>

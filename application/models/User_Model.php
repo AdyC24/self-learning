@@ -16,6 +16,11 @@ class User_Model extends CI_MODEL{
         $db1->where('KAR_NIK', $nik);
         return $db1->get()->row_array();
     }
+    public function getPIC(){
+        $db1 = $this->load->database('db2', TRUE);
+        $db1->where('KAR_PIC', 'Ya');   
+        return $db1->get('karyawan')->result_array();
+    }
     public function getDirect($id){
         $db1 = $this->load->database('db2', TRUE);
 
