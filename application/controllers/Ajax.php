@@ -1,48 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller{
+class Ajax extends CI_Controller
+{
     public function __construct(){
         parent::__construct();
         $this->load->model('User_model', 'udel');
     }
     public function movieSearch(){
-        $val = $this->input->post('search');
-        $movies = $this->udel->getMoviesSearch($val);
-        var_dump($movies);
-        die;
-        
-        foreach($movies as $movie){?>
-            <div class="col-sm-6 col-lg-4">
-                <div class="card card-sm">
-                  <a href="<?= base_url('Page/movieDetail/').$movie['movieId']?>" class="d-block"><img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" class="card-img-top"></a>
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
-                      <div>
+      $val = $this->input->post('search');
+      if($val){
+        $data['movies'] = $this->udel->getMoviesSearch($val);
 
-                        <?php if($movie['movieActive'] != 'Tidak'){?>
-                          <span class="badge bg-yellow">Active</span>
-                          <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
-                          <span class="text-muted"><?= $movie['competenceName'] ;?></span>
-                        <?php } else {?>
-                          <span class="badge bg-red">Inactive</span>
-                          <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
-                          <span class="text-muted"><?= $movie['competenceName'] ;?></span>
-                        <?php };?>
-
-                      </div>
-                      <div class="ms-auto">
-                        <a href="#" class="text-muted">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
-                          <?= $movie['movieCount'];?>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-         <?}
-        
+        $this->load->view('ajax/movie', $data);
+      } else {
+        redirect('movie');
+      }
+    }       
+    public function showMovie(){
+      $data['movies'] = $this->udel->getMovies();
+      $this->load->view('ajax/movie', $data);
     }
 }

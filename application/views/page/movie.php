@@ -100,9 +100,16 @@
         <script type="text/javascript">
           $(document).ready(function(){
             $('#movieSearch').keyup(function(){
-              var str = $('#movieSearch').val();
-              if()
-       
+              $.ajax({
+                url: '<?= base_url('Ajax/movieSearch');?>',
+                type: 'POST',
+                data: {
+                  search: $(this).val()
+                },
+                success: function(data){
+                  $('#movieShow').html(data)
+                } 
+              })
             })
 
           });

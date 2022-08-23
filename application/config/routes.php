@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['Auth'] = 'Auth/index';
 $route['home'] = 'Page/home';
+$route['movies'] = 'Ajax/showMovie';
