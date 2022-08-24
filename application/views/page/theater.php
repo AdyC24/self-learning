@@ -288,35 +288,37 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <fieldset class="form-fieldset">
-                            <div class="mb-3">
-                              <label class="form-label required">Movie Title</label>
-                              <select type="text" class="form-select" id="select-tags" value="">
-                                <?php foreach($movies as $movie) :?>
-                                <option value="<?= $movie['movieId'];?>"><?= $movie['movieName'];?> / <?= $movie['competenceName'];?></option>
-                                <?php endforeach; ?>
-                              </select>
-                            </div>
-                            
-                            <div class="mb-3">
-                              <label class="form-label required" >Date</label>
-                              <input type="datetime-local" class="form-control"/>
-                            </div>
+                <form action="<?= base_url('Page/insertTheater');?>" method="post">
+                  <fieldset class="form-fieldset">
+                    <div class="mb-3">
+                      <label class="form-label required">Movie Title</label>
+                      <select type="text" class="form-select" id="movie" name="movie">
+                        <?php foreach($movies as $movie) :?>
+                        <option value="<?= $movie['movieId'];?>"><?= $movie['movieName'];?> / <?= $movie['competenceName'];?></option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label class="form-label required" >Date</label>
+                      <input type="datetime-local" class="form-control" id="datetime" name="datetime"/>
+                    </div>
 
-                            <div class="mb-3">
-                              <label class="form-label required">Location</label>
-                              <input type="text" class="form-control" placeholder="Set theater's location">
-                            </div>
+                    <div class="mb-3">
+                      <label class="form-label required">Location</label>
+                      <input type="text" class="form-control" placeholder="Set theater's location" id="location" name="location">
+                    </div>
 
-                            <div class="mb-3">
-                              <label class="form-label required">Created By</label>
-                              <select type="text" class="form-select" id="select-tags" value="">
-                                <?php foreach($PICs as $PIC) : ?>
-                                <option value="<?= $PIC['KAR_ID'];?>"><?= $PIC['KAR_NAME'];?></option>
-                                <?php endforeach; ?>
-                              </select>
-                            </div>
-                          </fieldset>
+                    <div class="mb-3">
+                      <label class="form-label required">Created By</label>
+                      <select type="text" class="form-select" id="select-tags" id="createdBy" name="createdBy">
+                        <?php foreach($PICs as $PIC) : ?>
+                        <option value="<?= $PIC['KAR_ID'];?>"><?= $PIC['KAR_NAME'];?></option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+                  </fieldset>
+                </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
