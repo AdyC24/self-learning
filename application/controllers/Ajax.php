@@ -21,4 +21,10 @@ class Ajax extends CI_Controller
       $data['movies'] = $this->udel->getMovies();
       $this->load->view('ajax/movie', $data);
     }
+    public function editTheater(){
+      $theaterId = $this->input->post('theaterId');
+      if($theaterId){
+        
+      }
+    }
 }
