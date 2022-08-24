@@ -66,20 +66,20 @@
                       <tbody>
 
                         <?php foreach($theaters as $theater):?>
-                          <tr>
+                          <tr id="<?= $theater['theaterId'];?>">
                             <td><span class="text-muted"><?= $theater['theaterId'];?></span></td>
-                            <td><a href="#" class="text-reset" tabindex="-1"><?= $theater['movieName'];?></a></td>
-                            <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
+                            <td data-target="movieName"><a href="<?= base_url('Page/movieDetail/').$theater['movieId'];?>" class="text-reset" tabindex="-1"><?= $theater['movieName'];?></a></td>
+                            <td data-target="competenceName"><a href="<?= base_url('Page/competences');?>" class="text-reset" tabindex="-1"><?= $theater['competenceName'];?></a></td>
                             <td><?= $theater['theaterTime'];?></td>
                             <td><?= $theater['theaterLocation'];?></td>
-                            <td><?= $theater['KAR_NAME'];?></td>
+                            <td data-target="karName"><?= $theater['KAR_NAME'];?></td>
                             <td>15/20 tickets</td>
                             <td><span class="badge bg-success me-1"></span> Open</td>
                             <td class="text-end">
                               <span class="dropdown">
                                 <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                  <a class="dropdown-item" href="#">
+                                  <a class="dropdown-item" href="#" data-role="edit" data-id="<?= $theater['theaterId'];?>">
                                     Edit
                                   </a>
                                   <a class="dropdown-item" href="#">
@@ -123,6 +123,8 @@
           </div>
         </div>
 
+    <!-- Modals -->
+        <!-- Add Theater Modal -->
         <div class="modal fade" id="addTheater" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hiddem="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -170,4 +172,88 @@
             </div>
           </div>
         </div>
-        
+
+        <!-- Edit Theater Modal -->
+        <div class="modal fade" id="editTheater"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Theater</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="<?= base_url('CRUD/editTheater');?>" method="post" enctype="multipart/form-data" id="ModalForm"> 
+                <div class="modal-body">
+                    <fieldset class="form-fieldset">
+                      <input type="hidden" id="theaterId">
+                      <div class="mb-3">
+                        <label class="form-label required">Movie Title</label>
+                        <input type="text" class="form-control" name="movieName" id="movieName" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Competence</label>
+                        <input type="text" class="form-control" name="competenceName" id="competenceName" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Date</label>
+                        <input type="datetime-local" class="form-control" id="editDatetime" name="editDatetime" required/>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label required">Location</label>
+                        <input type="text" class="form-control" placeholder="Set theater's location" id="editLocation" name="editLocation">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Created By</label>
+                        <input type="text" class="form-control" name="karName" id="karName" readonly>
+                      </div>
+                    </fieldset>  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <a href="#" class="btn btn-primary" id="editTheater">Change</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    // siapkan value di input field di modal
+    $(document).on('click','a[data-role=edit]',function(){
+      var id = $(this).data('id');
+      var movieName = $('#'+id).children('td[data-target=movieName]').text();
+      var competenceName = $('#'+id).children('td[data-target=competenceName]').text();
+      var karName = $('#'+id).children('td[data-target=karName]').text();
+
+      $('#movieName').val(movieName);
+      $('#competenceName').val(competenceName);
+      $('#karName').val(karName);
+      $('#theaterId').val(id);
+      $('#editTheater').modal('toggle');
+
+    // buat event ambil data dari input field lalu kirimkan ke database
+      $('#editTheater').click(function(){
+        var id = $('#theaterId').val();
+        var datetime = $('#editDatetime').val();
+        var location = $('#editLocation').val();
+
+        $.ajax({
+            url     : '<?= base_url('Ajax/editTheater');?>',
+            method  : 'post',
+            data    : {
+              theaterId   : id,
+              datetime    : datetime,
+              location    : location
+            },
+            success : function(response){
+              console.log(response);
+            } 
+        })
+      })
+
+    })
+  });
+    
+</script>
