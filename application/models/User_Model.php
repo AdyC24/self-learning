@@ -5,7 +5,7 @@ class User_Model extends CI_MODEL{
         parent::__construct();
     }
 
-    // [Auth/login]
+// DISPLAY DATA
     public function getUser($nik){
         $db1 = $this->load->database('db2', TRUE);
 
@@ -62,6 +62,16 @@ class User_Model extends CI_MODEL{
     public function getCompetences(){
         return $this->db->get('competence')->result_array();
     }
+    public function getTheaters(){
+
+        $this->db->from('theater as t');
+        $this->db->join('movie as m','t.movieId = m.movieId','LEFT');
+        $this->db->join('bumalati_sld.karyawan as k','t.theaterPIC = k.KAR_ID','LEFT');
+        return $this->db->get()->result_array();
+    }
+
+
+// CRUD DATA
     public function insertTheater($data){
         $this->db->insert('theater', $data);
     }

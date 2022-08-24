@@ -64,190 +64,33 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td><span class="text-muted">1</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
-                          <td>20-9-2022 13:00:00</td>
-                          <td>Ruang Jawa -  Bigshop</td>
-                          <td>Harmansyah</td>
-                          <td>15/20 tickets</td>
-                          <td><span class="badge bg-success me-1"></span> Open</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">2</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 2</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Business Sense</a></td>
-                          <td>5-10-2022 09:00:00</td>
-                          <td>Ruang meeting - TOS Q3</td>
-                          <td>Srinita Surbakti</td>
-                          <td>20/20 tickets</td>
-                          <td><span class="badge bg-danger me-1"></span> Full</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">3</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 3</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Continous Improvement</a></td>
-                          <td>20-8-2022 15:00:00</td>
-                          <td>Ruang Jawa -  Bigshop</td>
-                          <td>Srinita Surbakti</td>
-                          <td>15/20 tickets</td>
-                          <td><span class="badge bg-secondary me-1"></span> Close</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">4</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 4</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Leadership</a></td>
-                          <td>14-9-2022 08:00:00</td>
-                          <td>Ruang Bali -  Bigshop</td>
-                          <td>Yola</td>
-                          <td>20/20 tickets</td>
-                          <td><span class="badge bg-danger me-1"></span> Full</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">5</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 5</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Teamwork and Collaboration</a></td>
-                          <td>19-9-2022 13:00:00</td>
-                          <td>Ruang Induksi -  LC</td>
-                          <td>Ryan Alif Syahrial</td>
-                          <td>5/20 tickets</td>
-                          <td><span class="badge bg-success me-1"></span> Open</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">6</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 6</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Decivieness</a></td>
-                          <td>20-9-2022 13:00:00</td>
-                          <td>Ruang Bali -  Bigshop</td>
-                          <td>Diaz</td>
-                          <td>7/20 tickets</td>
-                          <td><span class="badge bg-success me-1"></span> Open</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">7</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 7</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Integrity</a></td>
-                          <td>20-10-2022 13:00:00</td>
-                          <td>Ruang Jawa -  Bigshop</td>
-                          <td>Harmansyah</td>
-                          <td>0/20 tickets</td>
-                          <td><span class="badge bg-success me-1"></span> Open</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">8</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 8</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
-                          <td>20-9-2022 13:00:00</td>
-                          <td>Ruang Kalimantan -  Bigshop</td>
-                          <td>Muh Ilham Usman</td>
-                          <td>17/20 tickets</td>
-                          <td><span class="badge bg-success me-1"></span> Open</td>
-                          <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Delete
-                                </a>
-                              </div>
-                            </span>
-                          </td>
-                        </tr>
+
+                        <?php foreach($theaters as $theater):?>
+                          <tr>
+                            <td><span class="text-muted"><?= $theater['theaterId'];?></span></td>
+                            <td><a href="#" class="text-reset" tabindex="-1"><?= $theater['movieName'];?></a></td>
+                            <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
+                            <td><?= $theater['theaterTime'];?></td>
+                            <td><?= $theater['theaterLocation'];?></td>
+                            <td><?= $theater['KAR_NAME'];?></td>
+                            <td>15/20 tickets</td>
+                            <td><span class="badge bg-success me-1"></span> Open</td>
+                            <td class="text-end">
+                              <span class="dropdown">
+                                <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <a class="dropdown-item" href="#">
+                                    Edit
+                                  </a>
+                                  <a class="dropdown-item" href="#">
+                                    Delete
+                                  </a>
+                                </div>
+                              </span>
+                            </td>
+                          </tr>
+                        <?php endforeach;?>
+                        
                       </tbody>
                     </table>
                   </div>

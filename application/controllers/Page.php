@@ -50,7 +50,7 @@ class Page extends CI_Controller{
         $data['role'] = $this->session->userdata('role');
         $data['movies'] = $this->udel->getMovies();
         $data['PICs'] = $this->udel->getPIC();
-
+        $data['theaters'] = $this->udel->getTheaters();
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
