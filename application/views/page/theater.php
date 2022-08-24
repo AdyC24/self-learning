@@ -287,43 +287,43 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Add Theater</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <form action="<?= base_url('Page/insertTheater');?>" method="post">
-                  <fieldset class="form-fieldset">
-                    <div class="mb-3">
-                      <label class="form-label required">Movie Title</label>
-                      <select type="text" class="form-select" id="movie" name="movie">
-                        <?php foreach($movies as $movie) :?>
-                        <option value="<?= $movie['movieId'];?>"><?= $movie['movieName'];?> / <?= $movie['competenceName'];?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                      <label class="form-label required" >Date</label>
-                      <input type="datetime-local" class="form-control" id="datetime" name="datetime"/>
-                    </div>
+              <form action="<?= base_url('CRUD/insertTheater');?>" method="post">
+                <div class="modal-body">
+                    <fieldset class="form-fieldset">
+                      <div class="mb-3">
+                        <label class="form-label required">Movie Title</label>
+                        <select type="text" class="form-select" id="movie" name="movie">
+                          <?php foreach($movies as $movie) :?>
+                          <option value="<?= $movie['movieId'];?>"><?= $movie['movieName'];?> / <?= $movie['competenceName'];?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label class="form-label required" >Date</label>
+                        <input type="datetime-local" class="form-control" id="datetime" name="datetime"/>
+                      </div>
 
-                    <div class="mb-3">
-                      <label class="form-label required">Location</label>
-                      <input type="text" class="form-control" placeholder="Set theater's location" id="location" name="location">
-                    </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Location</label>
+                        <input type="text" class="form-control" placeholder="Set theater's location" id="location" name="location">
+                      </div>
 
-                    <div class="mb-3">
-                      <label class="form-label required">Created By</label>
-                      <select type="text" class="form-select" id="select-tags" id="createdBy" name="createdBy">
-                        <?php foreach($PICs as $PIC) : ?>
-                        <option value="<?= $PIC['KAR_ID'];?>"><?= $PIC['KAR_NAME'];?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-                  </fieldset>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Create</button>
-              </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Created By</label>
+                        <select type="text" class="form-select" id="select-tags" id="createdBy" name="createdBy">
+                          <?php foreach($PICs as $PIC) : ?>
+                          <option value="<?= $PIC['KAR_ID'];?>"><?= $PIC['KAR_NAME'];?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                    </fieldset>  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

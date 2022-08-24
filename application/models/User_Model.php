@@ -62,4 +62,7 @@ class User_Model extends CI_MODEL{
     public function getCompetences(){
         return $this->db->get('competence')->result_array();
     }
+    public function insertTheater($data){
+        $this->db->insert('theater', $data);
+    }
 }

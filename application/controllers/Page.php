@@ -101,6 +101,7 @@ class Page extends CI_Controller{
         $this->load->view('user/selfLearning');
         $this->load->view('template/foot');
     }
+
     
     
 }   
