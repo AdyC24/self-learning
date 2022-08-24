@@ -34,6 +34,7 @@ class User_Model extends CI_MODEL{
 
         $db1->from('relasi as r');
         $db1->join('karyawan as k', 'r.KAR_BAWAHAN = k.KAR_ID', 'LEFT');
+        $db1->join('jabatan as j', 'k.JAB_ID = j.JAB_ID', 'LEFT');
         $db1->where('KAR_ATASAN', $id);
         return $db1->get()->result_array();
     }
