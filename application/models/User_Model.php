@@ -69,6 +69,13 @@ class User_Model extends CI_MODEL{
         $this->db->join('competence as c','m.competenceId = c.competenceId','LEFT');
         return $this->db->get()->result_array();
     }
+    public function getTheater($movieId){
+        $this->db->from('theater as t');
+        $this->db->join('bumalati_sld.karyawan as k', 't.theaterPIC = k.KAR_ID', 'LEFT');
+        $this->db->where('movieId', $movieId);
+        $this->db->order_by('theaterTime', 'ASC');
+        return $this->db->get()->result_array();
+    }
 
 
 // CRUD DATA

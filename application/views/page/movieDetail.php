@@ -53,25 +53,29 @@
                         <div class="col-12 px-4">
                             <h2>Theaters</h2>
                             <div class="table-responsive">
+
                               <table class="table card-table table-vcenter text-nowrap datatable">
                                 <thead>
                                   <tr>
                                     <th>Action</th>
                                     <th>Date/ Time</th>
                                     <th>Location</th>
+
                                     <?php if($role != 'lvl345'){?>
                                         <?php if($role != 'lvl12'){?>
                                           <th>Created By</th>
                                       <?php };?>
                                     <?php };?>
+
                                     <th>Registered</th>
                                     <th>Status</th>
                                     <th></th>
                                   </tr>
                                 </thead>
                                 <tbody>
+                                <?php foreach($theaters as $theater):?>
                                   <tr>
-                                  <td class="text-start">
+                                    <td class="text-start">
                                       <?php if($role != 'lvl345'){?>
                                         <?php if($role != 'lvl12'){?>
                                           <span class="dropdown">
@@ -93,19 +97,20 @@
                                       </span>
                                     <?php };?>
                                     </td>
-                                    <td>5-10-2022 09:00:00</td>
-                                    <td>Ruang meeting - TOS Q3</td>
+                                    <td><?= $theater['theaterTime'];?></td>
+                                    <td><?= $theater['theaterLocation'];?></td>
                                     <?php if($role != 'lvl345'){?>
                                         <?php if($role != 'lvl12'){?>
-                                          <td>Srinita Surbakti</td>
+                                          <td><?= $theater['KAR_NAME'];?></td>
                                       <?php };?>
                                     <?php };?>
                                     <td>20/20 tickets</td>
                                     <td><span class="badge bg-danger me-1"></span> Full</td>
-                                    
                                   </tr>
+                                  <?php endforeach;?>
                                   </tbody>
                               </table>
+
                           </div>
                         </div>
                     </div>
