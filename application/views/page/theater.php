@@ -70,8 +70,8 @@
                             <td><span class="text-muted"><?= $theater['theaterId'];?></span></td>
                             <td data-target="movieName"><a href="<?= base_url('Page/movieDetail/').$theater['movieId'];?>" class="text-reset" tabindex="-1"><?= $theater['movieName'];?></a></td>
                             <td data-target="competenceName"><a href="<?= base_url('Page/competences');?>" class="text-reset" tabindex="-1"><?= $theater['competenceName'];?></a></td>
-                            <td><?= $theater['theaterTime'];?></td>
-                            <td><?= $theater['theaterLocation'];?></td>
+                            <td data-target="datetime"><?= $theater['theaterTime'];?></td>
+                            <td data-target="location"><?= $theater['theaterLocation'];?></td>
                             <td data-target="karName"><?= $theater['KAR_NAME'];?></td>
                             <td>15/20 tickets</td>
                             <td><span class="badge bg-success me-1"></span> Open</td>
@@ -226,9 +226,13 @@
       var movieName = $('#'+id).children('td[data-target=movieName]').text();
       var competenceName = $('#'+id).children('td[data-target=competenceName]').text();
       var karName = $('#'+id).children('td[data-target=karName]').text();
+      var datetime = $('#'+id).children('td[data-target=datetime]').text();
+      var location = $('#'+id).children('td[data-target=location]').text();
 
       $('#movieName').val(movieName);
       $('#competenceName').val(competenceName);
+      $('#editDatetime').val(datetime);
+      $('#editLocation').val(location);
       $('#karName').val(karName);
       $('#theaterId').val(id);
       $('#editTheater').modal('toggle');
