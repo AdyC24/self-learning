@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ajax extends CI_Controller
 {
+  var $pre = 'theater';
+
     public function __construct(){
         parent::__construct();
         $this->load->model('User_model', 'udel');
@@ -21,10 +23,5 @@ class Ajax extends CI_Controller
       $data['movies'] = $this->udel->getMovies();
       $this->load->view('ajax/movie', $data);
     }
-    public function editTheater(){
-      $theaterId = $this->input->post('theaterId');
-      if($theaterId){
-        
-      }
-    }
+    
 }

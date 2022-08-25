@@ -210,7 +210,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <a href="#" class="btn btn-primary" id="editTheater">Change</a>
+                  <button type="submit" class="btn btn-primary" id="editTheater">Change</button>
                 </div>
               </form>
             </div>
@@ -240,7 +240,7 @@
         var location = $('#editLocation').val();
 
         $.ajax({
-            url     : '<?= base_url('Ajax/editTheater');?>',
+            url     : '<?= base_url('CRUD/editTheater');?>',
             method  : 'post',
             data    : {
               theaterId   : id,
