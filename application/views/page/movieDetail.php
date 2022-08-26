@@ -73,8 +73,9 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+
                                 <?php foreach($theaters as $theater):?>
-                                  <tr>
+                                  <tr id="<?= $theater['theaterId'];?>">
                                     <td class="text-start">
                                       <?php if($role != 'lvl345'){?>
                                         <?php if($role != 'lvl12'){?>
@@ -93,12 +94,14 @@
                                     <?php };?>
                                     <?php if($role != 'hr'){?>
                                       <span>
-                                        <button class="btn align-text-top" data-bs-boundary="viewport">Register</button>
+                                        <a class="btn align-text-top" data-bs-boundary="viewport" data-role="register" data-id="<?= $theater['theaterId'];?>">Register</a>
                                       </span>
                                     <?php };?>
                                     </td>
-                                    <td><?= $theater['theaterTime'];?></td>
-                                    <td><?= $theater['theaterLocation'];?></td>
+                                    <td hidden data-target="movieName"><?= $movie['movieName'];?></td>
+                                    <td hidden data-target="competenceName"><?= $movie['competenceName'];?></td>
+                                    <td data-target="datetime"><?= $theater['theaterTime'];?></td>
+                                    <td data-target="location"><?= $theater['theaterLocation'];?></td>
                                     <?php if($role != 'lvl345'){?>
                                         <?php if($role != 'lvl12'){?>
                                           <td><?= $theater['KAR_NAME'];?></td>
@@ -108,6 +111,7 @@
                                     <td><span class="badge bg-danger me-1"></span> Full</td>
                                   </tr>
                                   <?php endforeach;?>
+
                                   </tbody>
                               </table>
 
@@ -118,3 +122,71 @@
             </div>
           </div>
         </div>
+
+<!-- Modal -->
+
+        <!-- Edit Theater Modal -->
+        <div class="modal fade" id="registerModal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="<?= base_url('CRUD/register');?>" method="post" enctype="multipart/form-data" id="ModalForm"> 
+                <div class="modal-body">
+
+                    <fieldset class="form-fieldset">
+                      <input type="hidden" id="theaterId">
+                      <div class="mb-3">
+                        <label class="form-label required">Subordinate</label>
+                        <select type="text" class="form-select" name="subordinateId" id="subordianteId">
+                          <option value=""></option>
+                          <option value="">Syamsuddin</option>
+                          <option value="">Pesulap Merah</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Movie Title</label>
+                        <input type="text" class="form-control" name="movieName" id="movieName" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Competence</label>
+                        <input type="text" class="form-control" name="competenceName" id="competenceName" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Date & Time</label>
+                        <input type="datetime-local" class="form-control" id="datetime" name="datetime" readonly/>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Location</label>
+                        <input type="text" class="form-control"  id="location" name="location" readonly>
+                      </div>
+                    </fieldset>  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary" id="register">Register</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(document).on('click','a[data-role=register]',function(){
+      var id = $(this).data('id');
+      var movieName = $('#'+id).children('td[data-target=movieName]').text();
+      var competenceName = $('#'+id).children('td[data-target=competenceName]').text();
+      var datetime = $('#'+id).children('td[data-target=datetime]').text();
+      var location = $('#'+id).children('td[data-target=location]').text();
+
+      $('#movieName').val(movieName);
+      $('#competenceName').val(competenceName);
+      $('#datetime').val(datetime);
+      $('#location').val(location);
+      $('#registerModal').modal('toggle');
+    })
+  });
+</script>
