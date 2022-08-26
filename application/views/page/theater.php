@@ -138,6 +138,7 @@
                       <div class="mb-3">
                         <label class="form-label required">Movie Title</label>
                         <select type="text" class="form-select" id="movie" name="movie">
+                          <option value=""></option>
                           <?php foreach($movies as $movie) :?>
                           <option value="<?= $movie['movieId'];?>"><?= $movie['movieName'];?> / <?= $movie['competenceName'];?></option>
                           <?php endforeach; ?>
@@ -157,6 +158,7 @@
                       <div class="mb-3">
                         <label class="form-label required">Created By</label>
                         <select type="text" class="form-select" id="select-tags" id="createdBy" name="createdBy">
+                          <option value=""></option>
                           <?php foreach($PICs as $PIC) : ?>
                           <option value="<?= $PIC['KAR_ID'];?>"><?= $PIC['KAR_NAME'];?></option>
                           <?php endforeach; ?>
