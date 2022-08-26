@@ -99,12 +99,7 @@ class Page extends CI_Controller{
         $this->load->view('page/competences', $data);
         $this->load->view('template/foot');
     }
-    public function selfLearning(){
-        $this->load->view('template/userHead');
-        $this->load->view('template/userNavbar');
-        $this->load->view('user/selfLearning');
-        $this->load->view('template/foot');
-    }
+
 
     
     

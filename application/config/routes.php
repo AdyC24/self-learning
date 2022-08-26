@@ -57,3 +57,4 @@ $route['Auth'] = 'Auth/index';
 $route['home'] = 'Page/home';
 $route['movies'] = 'Ajax/showMovie';
 $route['theater'] = 'Page/theater';
+$route['ticket'] = 'Page/ticket';
