@@ -20,7 +20,7 @@ class CRUD extends CI_Controller{
             'theaterPIC' => $createdBy,
         );
 
-        $this->udel->insertTheater($data);
+        $this->udel->insert('theater',$data);
         redirect('theater');
     }
 
@@ -45,10 +45,12 @@ class CRUD extends CI_Controller{
 
         $theaterId = $this->input->post('theaterId');
         $employeeId = $this->input->post('subordinateId');
+        $ticketStatus = 'Terdaftar';
        
         $data = array(
             'theaterId' => $theaterId,
-            'employeeId' => $employeeId
+            'employeeId' => $employeeId,
+            'theaterStatus' => $ticketStatus
         );
 
         $this->udel->insert('ticket', $data);

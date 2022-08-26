@@ -79,9 +79,7 @@ class User_Model extends CI_MODEL{
 
 
 // CRUD DATA
-    public function insertTheater($data){
-        $this->db->insert('theater', $data);
-    }
+
     public function updateTheater($table, $data, $where){
         $this->db->where('theaterId', $where);
         $this->db->update($table, $data);
