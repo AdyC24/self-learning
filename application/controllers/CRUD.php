@@ -39,6 +39,19 @@ class CRUD extends CI_Controller{
         
         $this->udel->updateTheater('theater',$data, $where);
         redirect('theater');
-  
+      }
+
+      public function register(){
+
+        $theaterId = $this->input->post('theaterId');
+        $employeeId = $this->input->post('subordinateId');
+       
+        $data = array(
+            'theaterId' => $theaterId,
+            'employeeId' => $employeeId
+        );
+
+        $this->udel->insert('ticket', $data);
+        redirect('ticket');
       }
 }
