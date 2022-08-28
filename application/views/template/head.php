@@ -30,7 +30,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+          <h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="<?= base_url('Page/home');?>">
               <img src="<?= base_url('assets');?>/dist/img/logo.jpeg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
             </a>

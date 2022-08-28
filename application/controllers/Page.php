@@ -75,7 +75,7 @@ class Page extends CI_Controller{
         $this->load->view('page/tickets', $data);
         $this->load->view('template/foot');
     }
-    public function subordinate(){
+    public function subordinates(){
         $id = $this->session->userdata('id');
 
         $data['title'] = 'Subordinates';
