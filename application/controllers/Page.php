@@ -62,10 +62,13 @@ class Page extends CI_Controller{
         $this->load->view('template/foot');
     }
     public function ticket(){
+        $id = $this->session->userdata('id');
+
         $data['title'] = 'Tickets';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
+        $data['tickets'] = $this->udel->getTicket($id);
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

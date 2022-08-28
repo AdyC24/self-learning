@@ -82,7 +82,7 @@
                                   <a class="dropdown-item" href="#" data-role="edit" data-id="<?= $theater['theaterId'];?>">
                                     Edit
                                   </a>
-                                  <a class="dropdown-item" href="#">
+                                  <a class="dropdown-item" href="#" data-role="delete" data-id="<?= $theater['theaterId'];?>">
                                     Delete
                                   </a>
                                 </div>
@@ -219,10 +219,33 @@
           </div>
         </div>
 
+        <!-- Delete Theater Modal -->
+        <div class="modal fade" id="deleteTheater"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Delete Theater</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+            <form action="" method="post">
+            <div class="modal-body"> 
+                <input type="hidden" id="deleteTheaterId">
+                <p class="text-center">Are you sure delete this theater?</p>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger" id="deleteTheaterButton">Delete</button>
+            </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
 <script type="text/javascript">
   $(document).ready(function(){
 
-    // siapkan value di input field di modal
+    // siapkan value di input field di modal edit
     $(document).on('click','a[data-role=edit]',function(){
       var id = $(this).data('id');
       var movieName = $('#'+id).children('td[data-target=movieName]').text();
@@ -231,6 +254,7 @@
       var datetime = $('#'+id).children('td[data-target=datetime]').text();
       var location = $('#'+id).children('td[data-target=location]').text();
 
+      // taruh value di id input masing-masing
       $('#movieName').val(movieName);
       $('#competenceName').val(competenceName);
       $('#editDatetime').val(datetime);
@@ -244,7 +268,7 @@
         var id = $('#theaterId').val();
         var datetime = $('#editDatetime').val();
         var location = $('#editLocation').val();
-
+        
         $.ajax({
             url     : '<?= base_url('CRUD/editTheater');?>',
             method  : 'post',
@@ -258,8 +282,34 @@
             } 
         })
       })
+    })
 
+    // siapkan value di input field di modal delete
+    $(document).on('click','a[data-role=delete]',function(){
+      var id = $(this).data('id');
+
+      // taruh value di id input theaterId id = 
+      $('#deleteTheaterId').val(id);
+      $('#deleteTheater').modal('toggle');
+
+      $('#deleteTheaterButton').click(function(){
+
+        var id = $('#deleteTheaterId').val();
+
+        $.ajax({
+          url     : '<?= base_url('CRUD/deleteTheater');?>',
+          method  : 'post',
+          data    : {
+            theaterId   : id
+          },
+          success : function(response){
+            console.log(response);
+          }
+      })
+      })
     })
   });
+
+
     
 </script>

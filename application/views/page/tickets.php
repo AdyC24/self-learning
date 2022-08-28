@@ -51,48 +51,26 @@
                         </tr>
                       </thead>
                       <tbody>
+
+                      <?php $no = 1;?>
+                      <?php foreach($tickets as $ticket) :?>
                         <tr>
-                          <td><span class="text-muted">1</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Subordinate 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
-                          <td>20-9-2022 13:00:00</td>
-                          <td>Ruang Jawa -  Bigshop</td>
-                          <td><span class="badge bg-warning me-1"></span> Registered</td>
+                          <td><span class="text-muted"><?= $no;?></span></td>
+                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
+                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
+                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['competenceName'];?></a></td>
+                          <td><?= $ticket['theaterTime'];?></td>
+                          <td><?= $ticket['theaterLocation'];?></td>
+                          <td><span class="badge bg-warning me-1"></span> <?= $ticket['ticketStatus'];?></td>
                           <td class="text-end">
                             <span>
                               <button class="btn align-text-top" data-bs-boundary="viewport">Delete</button>  
                             </span>
                           </td>
                         </tr>
-                        <tr>
-                          <td><span class="text-muted">1</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Subordinate 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
-                          <td>20-9-2022 13:00:00</td>
-                          <td>Ruang Jawa -  Bigshop</td>
-                          <td><span class="badge bg-success me-1"></span> Attended</td>
-                          <td class="text-end">
-                            <span>
-                              <button class="btn align-text-top" data-bs-boundary="viewport">Delete</button>  
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><span class="text-muted">1</span></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Subordinate 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Movie 1</a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1">Communication</a></td>
-                          <td>20-9-2022 13:00:00</td>
-                          <td>Ruang Jawa -  Bigshop</td>
-                          <td><span class="badge bg-secondary me-1"></span> Not Attended</td>
-                          <td class="text-end">
-                            <span>
-                              <button class="btn align-text-top" data-bs-boundary="viewport">Delete</button>  
-                            </span>
-                          </td>
-                        </tr>
+                      <?php $no++ ;?>
+                      <?php endforeach; ?>
+
                       </tbody>
                     </table>
                   </div>
