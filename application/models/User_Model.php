@@ -86,6 +86,9 @@ class User_Model extends CI_MODEL{
         $this->db->where('KAR_ATASAN', $id);
         return $this->db->get()->result_array();
     }
+    public function getGenre(){
+        return $this->db->get('genre')->result_array();
+    }
 
 
 // CRUD DATA

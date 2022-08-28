@@ -23,10 +23,10 @@
                     </div>
                   </div>
                   <?php if($role == 'hr'){
-                    echo '<a href="#" class="btn btn-primary">';
+                    echo '<button href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovie">';
                     echo '<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>';
                     echo 'Add movie';
-                    echo '</a>';
+                    echo '</button>';
                   };?>
                 </div>
               </div>
@@ -98,22 +98,82 @@
           </div>
         </div>
 
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $('#movieSearch').keyup(function(){
-              $.ajax({
-                url: '<?= base_url('Ajax/movieSearch');?>',
-                type: 'POST',
-                data: {
-                  search: $(this).val()
-                },
-                success: function(data){
-                  $('#movieShow').html(data)
-                } 
-              })
-            })
+<!-- Modal -->
+  <!-- Add Theater Modal -->
+        <div class="modal fade" id="addMovie" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Movie</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="<?= base_url('CRUD/insertMovie');?>" method="post">
+                <div class="modal-body">
+                    <fieldset class="form-fieldset">
+                      <div class="mb-3">
+                        <label class="form-label required">Movie Title</label>
+                        <input type="text" class="form-control" placeholder="Set movie's title" id="movieName" name="movieName" required>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Competency Name</label>
+                        <select type="text" class="form-select" id="select-tags" id="CompetencyName" name="CompetencyName"> 
+                          <option value=""></option>
+                          <?php foreach($competences as $competence) : ?>
+                          <option value="<?= $competence['competenceId'];?>"><?= $competence['competenceName'];?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Genre</label>
+                        <select type="text" class="form-select" id="select-tags" id="genreName" name="genreName">
+                          <option value=""></option>
+                          <?php foreach($genres as $genre) : ?>
+                          <option value="<?= $genre['genreId'];?>"><?= $genre['genreName'];?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">IMDb Rank</label>
+                        <input type="text" class="form-control" placeholder="eg. 7.3 (use . as comma)" id="IMDb rank" name="IMDb rank">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Duration</label>
+                        <input type="text" class="form-control" placeholder="eg. 2j 14m" id="movieDuration" name="movieDuration">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Publish Year</label>
+                        <input type="text" class="form-control" placeholder="eg. 2010" id="movieYear" name="movieYear">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Synopsis</label>
+                        <textarea class="form-control" aria-label="Synopsis" id="movieSynopsis" name="movieSynopsis"></textarea>
+                      </div>
+                    </fieldset>  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
-          });
-          
-        </script>
+<!-- Javascript -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#movieSearch').keyup(function(){
+        $.ajax({
+          url: '<?= base_url('Ajax/movieSearch');?>',
+          type: 'POST',
+          data: {
+            search: $(this).val()
+          },
+          success: function(data){
+            $('#movieShow').html(data)
+          } 
+        })
+      })
+    });  
+  </script>
         

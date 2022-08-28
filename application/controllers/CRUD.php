@@ -19,11 +19,9 @@ class CRUD extends CI_Controller{
             'theaterActive' => 'Ya',
             'theaterPIC' => $createdBy,
         );
-
         $this->udel->insert('theater',$data);
         redirect('theater');
     }
-
     public function editTheater(){    
         $theaterId = $this->input->post('theaterId');
         $datetime = $this->input->post('datetime');
@@ -33,14 +31,11 @@ class CRUD extends CI_Controller{
           'theaterTime' => $datetime,
           'theaterLocation' => $location
         );
-        
         $where = $theaterId;
-        
         $this->udel->updateTheater('theater',$data, $where);
         redirect('theater');
-      }
-
-      public function register(){
+    }
+    public function register(){
         $theaterId = $this->input->post('theaterId');
         $employeeId = $this->input->post('subordinateId');
         $ticketStatus = 'Terdaftar';
@@ -50,16 +45,15 @@ class CRUD extends CI_Controller{
             'employeeId' => $employeeId,
             'ticketStatus' => $ticketStatus
         );
-
         $this->udel->insert('ticket', $data);
         redirect('ticket');
-      }
-
-      public function deleteTheater(){
+    }
+    public function deleteTheater(){
         $where = $this->input->post('theaterId');      
 
         $this->udel->delete('theater', $where);
         redirect('theater');
-      }
+    }
+    
 
 }

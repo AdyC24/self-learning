@@ -23,6 +23,8 @@ class Page extends CI_Controller{
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['movies'] = $this->udel->getMovies();
+        $data['competences'] = $this->udel->getCompetences();
+        $data['genres'] = $this->udel->getGenre();
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
