@@ -10,6 +10,7 @@
                   Tickets
                 </h2>
               </div>
+              
             </div>
           </div>
         </div>
@@ -32,9 +33,14 @@
                             </div>
                           </div>
                         </div>
+                        
                       </div>
                     </div>
+                    <div class="d-flex justify-content-center text-danger">
+                    <?= $this->session->flashdata('failed');?>
                   </div>
+                  </div>
+                  
                   <div class="table-responsive">
                     <table class="table card-table table-vcenter text-nowrap datatable">
                       <thead>

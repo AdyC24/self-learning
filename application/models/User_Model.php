@@ -90,6 +90,11 @@ class User_Model extends CI_MODEL{
     public function getGenre(){
         return $this->db->get('genre')->result_array();
     }
+    public function checkTicket($theaterId, $employeeId){
+        $this->db->where('theaterId', $theaterId);
+        $this->db->where('employeeId', $employeeId);
+        return $this->db->get('ticket')->num_rows();
+    }
 
 
 // CRUD DATA

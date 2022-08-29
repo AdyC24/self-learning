@@ -41,6 +41,8 @@ class CRUD extends CI_Controller{
             redirect('theater');
         }
     }
+
+
     public function register(){
         $theaterId = $this->input->post('theaterId');
         $employeeId = $this->input->post('subordinateId');
@@ -51,9 +53,20 @@ class CRUD extends CI_Controller{
             'employeeId' => $employeeId,
             'ticketStatus' => $ticketStatus
         );
-        $this->udel->insert('ticket', $data);
-        redirect('ticket');
+
+        $checkTicket = $this->udel->checkTicket($theaterId, $employeeId);
+        
+
+        if($checkTicket >= 1){
+            $this->session->set_flashdata('failed','Not Success: Ticket has been already created on this theater');
+            redirect('ticket');
+        } else {
+            $this->udel->insert('ticket', $data);
+            redirect('ticket');
+        }
     }
+
+
     public function deleteTheater(){
         $movieId = $this->uri->segment('3');  
         $where = $this->input->post('theaterId');      
