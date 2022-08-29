@@ -77,7 +77,12 @@
                               <table class="table card-table table-vcenter text-nowrap datatable">
                                 <thead>
                                   <tr>
-                                    <th>Action</th>
+                                    <?php if($role != 'lvl12'){
+                                      echo '<th>Action</th>';
+                                    } else{
+                                      echo '<th></th>';
+                                    };?>
+                                    
                                     <th>Date/ Time</th>
                                     <th>Location</th>
 
@@ -112,11 +117,13 @@
                                         </span>
                                       <?php };?>
                                     <?php };?>
-                                    <?php if($role != 'hr'){?>
+                                    <?php if($role != 'hr'):?>
+                                      <?php if($role != 'lvl12'):?>
                                       <span>
                                         <a class="btn align-text-top" data-bs-boundary="viewport" data-role="register" data-id="<?= $theater['theaterId'];?>">Register</a>
                                       </span>
-                                    <?php };?>
+                                    <?php endif;?>
+                                    <?php endif;?>
                                     </td>
                                     <td hidden data-target="movieName"><?= $movie['movieName'];?></td>
                                     <td hidden data-target="competenceName"><?= $movie['competenceName'];?></td>
