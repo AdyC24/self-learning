@@ -22,7 +22,8 @@ class CRUD extends CI_Controller{
         $this->udel->insert('theater',$data);
         redirect('theater');
     }
-    public function editTheater(){    
+    public function editTheater(){  
+        $movieId = $this->uri->segment('3');  
         $theaterId = $this->input->post('theaterId');
         $datetime = $this->input->post('datetime');
         $location = $this->input->post('location');
@@ -33,7 +34,12 @@ class CRUD extends CI_Controller{
         );
         $where = $theaterId;
         $this->udel->updateTheater('theater',$data, $where);
-        redirect('theater');
+
+        if($movieId >= 1){
+            redirect('Page/movieDetail/'.$movieId);
+        } else {
+            redirect('theater');
+        }
     }
     public function register(){
         $theaterId = $this->input->post('theaterId');
@@ -49,10 +55,15 @@ class CRUD extends CI_Controller{
         redirect('ticket');
     }
     public function deleteTheater(){
+        $movieId = $this->uri->segment('3');  
         $where = $this->input->post('theaterId');      
 
         $this->udel->delete('theater', $where);
-        redirect('theater');
+        if($movieId >= 1){
+            redirect('Page/movieDetail/'.$movieId);
+        } else {
+            redirect('theater');
+        }
     }
     public function insertMovie(){
         $competenceId = $this->input->post('competencyId');
