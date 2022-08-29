@@ -71,6 +71,7 @@ class Page extends CI_Controller{
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['tickets'] = $this->udel->getTicket($id);
+        $data['subtickets'] = $this->udel->getTicketBySubordinate($id);
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

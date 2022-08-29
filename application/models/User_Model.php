@@ -87,6 +87,15 @@ class User_Model extends CI_MODEL{
         $this->db->order_by('ticketId', 'DESC');
         return $this->db->get()->result_array();
     }
+    public function getTicketBySubordinate($id){
+        $this->db->from('ticket as t');
+        $this->db->join('bumalati_sld.karyawan as k', 't.employeeId = k.KAR_ID', 'LEFT');
+        $this->db->join('theater as h','t.theaterId = h.theaterId', 'LEFT');
+        $this->db->join('movie as m', 'h.movieId = m.movieId', 'LEFT');
+        $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+        $this->db->where('employeeId', $id);
+        return $this->db->get()->result_array();
+    }
     public function getGenre(){
         return $this->db->get('genre')->result_array();
     }

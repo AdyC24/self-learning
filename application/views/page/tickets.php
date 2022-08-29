@@ -58,8 +58,29 @@
                       </thead>
                       <tbody>
 
+                      <?php if($role != 'lvl12'):?>
                       <?php $no = 1;?>
                       <?php foreach($tickets as $ticket) :?>
+                        <tr>
+                          <td><span class="text-muted"><?= $no;?></span></td>
+                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
+                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
+                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['competenceName'];?></a></td>
+                          <td><?= $ticket['theaterTime'];?></td>
+                          <td><?= $ticket['theaterLocation'];?></td>
+                          <td><span class="badge bg-warning me-1"></span> <?= $ticket['ticketStatus'];?></td>
+                          <td class="text-end">
+                            <span>
+                              <a class="btn align-text-top" data-bs-boundary="viewport" data-role="delete" data-id="<?= $ticket['ticketId'];?>">Delete</a>  
+                            </span>
+                          </td>
+                        </tr>
+                      <?php $no++ ;?>
+                      <?php endforeach; ?>
+                      <?php endif;?>
+                      
+                      <?php $no = 1;?>
+                      <?php foreach($subtickets as $ticket) :?>
                         <tr>
                           <td><span class="text-muted"><?= $no;?></span></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
