@@ -36,11 +36,12 @@
                         <a class="dropdown-item" href="<?= base_url('Page/movie');?>" >
                           Movies 
                         </a>
+                        <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >
+                          Theaters
+                        </a>
                         <?php if($role != 'lvl345'){ ?>
                           <?php if($role != 'lvl12') { ?>
-                            <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >
-                              Theaters
-                            </a>
+                            
                             <a class="dropdown-item" href="#" >
                               Quiz
                             </a>
