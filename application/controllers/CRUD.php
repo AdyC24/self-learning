@@ -65,6 +65,13 @@ class CRUD extends CI_Controller{
             redirect('theater');
         }
     }
+    public function deleteTicket(){
+        $where = $this->input->post('ticketId');      
+
+        $this->udel->deleteTicket('ticket', $where);
+            redirect('ticket');
+   
+    }
     public function insertMovie(){
         $competenceId = $this->input->post('competencyId');
         $genreId = $this->input->post('genreId');

@@ -109,4 +109,8 @@ class User_Model extends CI_MODEL{
         $this->db->where('theaterId', $where);
         $this->db->delete($table);
     }
+    public function deleteTicket($table, $where){
+        $this->db->where('ticketId', $where);
+        $this->db->delete($table);
+    }
 }

@@ -64,7 +64,7 @@
                           <td><span class="badge bg-warning me-1"></span> <?= $ticket['ticketStatus'];?></td>
                           <td class="text-end">
                             <span>
-                              <button class="btn align-text-top" data-bs-boundary="viewport">Delete</button>  
+                              <a class="btn align-text-top" data-bs-boundary="viewport" data-role="delete" data-id="<?= $ticket['ticketId'];?>">Delete</a>  
                             </span>
                           </td>
                         </tr>
@@ -102,4 +102,57 @@
             </div>
           </div>
         </div>
-        
+
+<!-- Modal -->
+        <!-- Delete Ticket Modal -->
+        <div class="modal fade" id="deleteTicket"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Delete Ticket</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+            <form action="" method="post">
+            <div class="modal-body"> 
+                <input type="hidden" id="deleteTicketId">
+                <p class="text-center">Are you sure delete this Ticket?</p>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger" id="deleteTicketButton">Delete</button>
+            </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // siapkan value di input field di modal delete
+    $(document).on('click','a[data-role=delete]',function(){
+      var id = $(this).data('id');
+
+      // taruh value di id input theaterId id = 
+      $('#deleteTicketId').val(id);
+      $('#deleteTicket').modal('toggle');
+
+      $('#deleteTicketButton').click(function(){
+
+        var id = $('#deleteTicketId').val();
+
+        $.ajax({
+          url     : '<?= base_url('CRUD/deleteTicket');?>',
+          method  : 'post',
+          data    : {
+            ticketId   : id
+          },
+          success : function(response){
+            console.log(response);
+          }
+      })
+      })
+    })
+  });
+</script>
