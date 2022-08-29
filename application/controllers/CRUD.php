@@ -54,6 +54,47 @@ class CRUD extends CI_Controller{
         $this->udel->delete('theater', $where);
         redirect('theater');
     }
+    public function insertMovie(){
+        $competenceId = $this->input->post('competencyId');
+        $genreId = $this->input->post('genreId');
+        $movieName = $this->input->post('movieName');
+        $movieSynopsis = $this->input->post('movieSynopsis');
+        $movieRank = $this->input->post('IMDbRank');
+        $movieDuration = $this->input->post('movieDuration');
+        $moviePicture = 'no_image.png';
+        $movieActive = 'Ya';
+        $movieYear = $this->input->post('movieYear');
+        $movieLanguage = $this->input->post('movieLanguage');
+
+        $data = array (
+            'competenceId' => $competenceId,
+            'genreId' => $genreId,
+            'movieName' => $movieName,
+            'movieSynopsis' => $movieSynopsis,
+            'movieRank' => $movieRank,
+            'movieDuration' => $movieDuration,
+            'moviePicture' => $moviePicture,
+            'movieActive' => $movieActive,
+            'movieYear' => $movieYear,
+            'movieLanguage' => $movieLanguage,
+        );
+
+        $this->udel->insert('movie', $data);
+        redirect('movie');
+    }
+    public function movieActivation(){
+        $movieId = $this->uri->segment('3');
+        $movieActive = $this->uri->segment('4');
+        
+        $data = array (
+            'movieActive' => $movieActive
+        );
+
+        $where = $movieId;
+
+        $this->udel->updateMovieActivation('movie', $data, $where);
+        redirect('Page/movieDetail/'.$movieId);
+    }
     
 
 }

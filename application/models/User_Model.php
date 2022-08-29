@@ -97,6 +97,10 @@ class User_Model extends CI_MODEL{
         $this->db->where('theaterId', $where);
         $this->db->update($table, $data);
     }
+    public function updateMovieActivation($table, $data, $where){
+        $this->db->where('movieId', $where);
+        $this->db->update($table, $data);
+    }
     public function insert($table, $data){
         $this->db->insert($table, $data);
     }

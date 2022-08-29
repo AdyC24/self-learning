@@ -14,12 +14,8 @@ class Ajax extends CI_Controller
 
         $this->load->view('ajax/movie', $data);
       } else {
-        redirect('movie');
+        $data['movies'] = $this->udel->getMovies();
+        $this->load->view('ajax/movie', $data);
       }
-    }       
-    public function showMovie(){
-      $data['movies'] = $this->udel->getMovies();
-      $this->load->view('ajax/movie', $data);
-    }
-    
+    }   
 }

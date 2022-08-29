@@ -116,7 +116,7 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-label required">Competency Name</label>
-                        <select type="text" class="form-select" id="select-tags" id="CompetencyName" name="CompetencyName"> 
+                        <select type="text" class="form-select" id="select-tags" id="competencyId" name="competencyId"> 
                           <option value=""></option>
                           <?php foreach($competences as $competence) : ?>
                           <option value="<?= $competence['competenceId'];?>"><?= $competence['competenceName'];?></option>
@@ -125,7 +125,7 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-label required">Genre</label>
-                        <select type="text" class="form-select" id="select-tags" id="genreName" name="genreName">
+                        <select type="text" class="form-select" id="select-tags" id="genreId" name="genreId">
                           <option value=""></option>
                           <?php foreach($genres as $genre) : ?>
                           <option value="<?= $genre['genreId'];?>"><?= $genre['genreName'];?></option>
@@ -134,7 +134,7 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-label required">IMDb Rank</label>
-                        <input type="text" class="form-control" placeholder="eg. 7.3 (use . as comma)" id="IMDb rank" name="IMDb rank">
+                        <input type="text" class="form-control" placeholder="eg. 7.3 (use . as comma)" id="IMDbRank" name="IMDbRank">
                       </div>
                       <div class="mb-3">
                         <label class="form-label required">Duration</label>
@@ -143,6 +143,10 @@
                       <div class="mb-3">
                         <label class="form-label required">Publish Year</label>
                         <input type="text" class="form-control" placeholder="eg. 2010" id="movieYear" name="movieYear">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label required">Language</label>
+                        <input type="text" class="form-control" placeholder="eg. Bahasa Inggris" id="movieLanguage" name="movieLanguage">
                       </div>
                       <div class="mb-3">
                         <label class="form-label required">Synopsis</label>

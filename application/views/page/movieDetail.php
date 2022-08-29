@@ -23,19 +23,39 @@
                             <img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" alt="<?= $movie['movieName'];?>">
                         </div>
                         <div class="col-lg-9 col-sm-12 px-4">
-                            <div class="mt-3">
-                                <h1>
-                                    <?= $movie['movieName'];?>
-                                    <?php if($movie['movieActive'] != 'Tidak'){?>
-                                        <span class="badge bg-yellow">Active</span></h1>
-                                    <?php } else {?>
-                                        <span class="badge bg-red">Inactive</span>
-                                    <?php };?>
-                                </h1>
-                                <span><?= $movie['movieYear'];?> . <?= $movie['movieDuration'];?></span>
-                                <hr>
-                            </div>
-                            <div">
+                          <div class="d-flex">
+                            <div class="mt-3 col-6">
+                                  <h1>
+                                      <?= $movie['movieName'];?>
+                                      <?php if($movie['movieActive'] != 'Tidak'){?>
+                                          <span class="badge bg-yellow">Active</span></h1>
+                                      <?php } else {?>
+                                          <span class="badge bg-red">Inactive</span>
+                                      <?php };?>
+                                  </h1>
+                                  <span><?= $movie['movieYear'];?> . <?= $movie['movieDuration'];?></span>
+                                
+                              </div>
+                              <div class="mt-3 col-6 d-flex justify-content-end">
+                                  <span class="dropdown">
+                                      <button class="btn" data-bs-boundary="viewport" data-bs-toggle="dropdown">
+                                        Activation
+                                      </button>
+                                      <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="<?= base_url('CRUD/movieActivation/').$movie['movieId'].'/Ya';?>">
+                                          Active
+                                        </a>
+                                        <a class="dropdown-item" href="<?= base_url('CRUD/movieActivation/').$movie['movieId'].'/Tidak';?>">
+                                          Not Active
+                                        </a>                                         
+                                    </div>
+                                  </span>
+                              </div>
+                          </div>
+                            
+                            <hr>
+                            
+                            <div>
                                 <h2>Details</h2>
                                 <p><strong>Genre : </strong><?= $movie['genreName'];?></p>
                                 <p><strong>IMDb Rating : </strong><?= $movie['movieRank'];?> / 10</p>
