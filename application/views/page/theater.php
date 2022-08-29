@@ -38,11 +38,13 @@
                               </span>
                             </div>
                           </div>
-                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTheater">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
-                            Add Theater
-                          </button>
+                          <?php if($role == 'hr'){
+                            echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTheater">';
+                            echo '<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>';
+                            echo 'Add Theater';
+                            echo '</button>';
+                          };?>
+                          
                         </div>
                       </div>
                     </div>
@@ -59,7 +61,9 @@
                           <th>Created By</th>
                           <th>Registered</th>
                           <th>Status</th>
-                          <th>Action</th>
+                          <?php if($role == 'hr'){
+                            echo '<th>Action</th>';
+                          };?>
                           <th></th>
                         </tr>
                       </thead>
@@ -75,6 +79,7 @@
                             <td data-target="karName"><?= $theater['KAR_NAME'];?></td>
                             <td>15/20 tickets</td>
                             <td><span class="badge bg-success me-1"></span> Open</td>
+                            <?php if($role == 'hr'): ?>
                             <td class="text-end">
                               <span class="dropdown">
                                 <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
@@ -88,6 +93,7 @@
                                 </div>
                               </span>
                             </td>
+                            <?php endif ;?>
                           </tr>
                         <?php endforeach;?>
                         
