@@ -84,6 +84,7 @@ class User_Model extends CI_MODEL{
         $this->db->join('movie as m', 'h.movieId = m.movieId', 'LEFT');
         $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
         $this->db->where('KAR_ATASAN', $id);
+        $this->db->order_by('ticketId', 'DESC');
         return $this->db->get()->result_array();
     }
     public function getGenre(){
