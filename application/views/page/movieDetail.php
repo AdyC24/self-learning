@@ -134,8 +134,13 @@
                                           <td><?= $theater['KAR_NAME'];?></td>
                                       <?php };?>
                                     <?php };?>
-                                    <td>20/20 tickets</td>
-                                    <td><span class="badge bg-danger me-1"></span> Full</td>
+                                    <td><?= $theater['theaterTicketCount'];?>/20 tickets</td>
+                                    <td> 
+                                    <?php if($theater['theaterTicketCount'] <= 19){
+                                      echo '<span class="badge bg-success me-1"></span> Open';
+                                    }else {
+                                      echo '<span class="badge bg-danger me-1"></span> Full';
+                                    };?></td>
                                   </tr>
                                   <?php endforeach;?>
 
