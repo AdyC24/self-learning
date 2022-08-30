@@ -45,7 +45,7 @@
                             <a class="dropdown-item" href="#" >
                               Quiz
                             </a>
-                            <a class="dropdown-item" href="#" >
+                            <a class="dropdown-item" href="<?= base_url('Page/absense');?>" >
                               Absense
                             </a>
                           <?php };?>

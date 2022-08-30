@@ -105,6 +105,21 @@ class Page extends CI_Controller{
         $this->load->view('page/competences', $data);
         $this->load->view('template/foot');
     }
+    public function absense(){
+        $data['title'] = 'Absense';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['movies'] = $this->udel->getMovies();
+        $data['PICs'] = $this->udel->getPIC();
+        $data['theaters'] = $this->udel->getTheaters();
+        
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/absense', $data);
+        $this->load->view('template/foot');
+    }
 
 
     
