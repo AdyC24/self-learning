@@ -55,7 +55,13 @@ class CRUD extends CI_Controller{
         );
 
         $checkTicket = $this->udel->checkTicket($theaterId, $employeeId);
+        $countTicket = $this->udel->countTicket($theaterId);
         
+        $dataTicket = array(
+            'theaterTicketCount' => $countTicket
+        ); 
+        
+        $this->udel->updateCountTicket('theater', $dataTicket, $theaterId);
 
         if($checkTicket >= 1){
             $this->session->set_flashdata('failed','Not Success: Ticket has been already created on this theater');

@@ -104,6 +104,10 @@ class User_Model extends CI_MODEL{
         $this->db->where('employeeId', $employeeId);
         return $this->db->get('ticket')->num_rows();
     }
+    public function countTicket($theaterId){
+        $this->db->where('theaterId', $theaterId);
+        return $this->db->get('ticket')->num_rows();
+    }
 
 
 // CRUD DATA
@@ -114,6 +118,10 @@ class User_Model extends CI_MODEL{
     }
     public function updateMovieActivation($table, $data, $where){
         $this->db->where('movieId', $where);
+        $this->db->update($table, $data);
+    }
+    public function updateCountTicket($table, $data, $where){
+        $this->db->where('theaterId', $where);
         $this->db->update($table, $data);
     }
     public function insert($table, $data){

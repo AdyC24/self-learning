@@ -77,8 +77,13 @@
                             <td data-target="datetime"><?= $theater['theaterTime'];?></td>
                             <td data-target="location"><?= $theater['theaterLocation'];?></td>
                             <td data-target="karName"><?= $theater['KAR_NAME'];?></td>
-                            <td>15/20 tickets</td>
-                            <td><span class="badge bg-success me-1"></span> Open</td>
+                            <td><?= $theater['theaterTicketCount'];?>/20 tickets</td>
+                            <td> 
+                            <?php if($theater['theaterTicketCount'] <= 19){
+                              echo '<span class="badge bg-success me-1"></span> Open';
+                            }else {
+                              echo '<span class="badge bg-danger me-1"></span> Full';
+                            };?></td>
                             <?php if($role == 'hr'): ?>
                             <td class="text-end">
                               <span class="dropdown">
@@ -315,7 +320,10 @@
       })
     })
   });
-
-
     
 </script>
+
+<script type="text/javascript">
+
+</script>
+

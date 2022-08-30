@@ -168,7 +168,6 @@
                       <div class="mb-3">
                         <label class="form-label required">Subordinate</label>
                         <select type="text" class="form-select" name="subordinateId" id="subordianteId">
-                          <option value=""></option>
                           <?php foreach($subordinates as $subordinate):?>
                           <option value="<?= $subordinate['KAR_ID'];?>"><?= $subordinate['KAR_NIK'];?> / <?= $subordinate['KAR_NAME'];?></option>
                           <?php endforeach;?>
