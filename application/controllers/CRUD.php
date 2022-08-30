@@ -61,6 +61,11 @@ class CRUD extends CI_Controller{
             'theaterTicketCount' => $countTicket
         ); 
         
+        if($countTicket == 20){
+            $this->session->set_flashdata('failed','Not Success: This theater has been full');
+            redirect('ticket');
+        }
+
         $this->udel->updateCountTicket('theater', $dataTicket, $theaterId);
 
         if($checkTicket >= 1){
