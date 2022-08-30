@@ -45,8 +45,8 @@
                             <a class="dropdown-item" href="#" >
                               Quiz
                             </a>
-                            <a class="dropdown-item" href="<?= base_url('Page/absense');?>" >
-                              Absense
+                            <a class="dropdown-item" href="<?= base_url('Page/absence');?>" >
+                              Absence
                             </a>
                           <?php };?>
                         <?php };?>

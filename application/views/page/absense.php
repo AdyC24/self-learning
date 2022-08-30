@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <h2 class="page-title">
-                  Absense
+                  Absence
                 </h2>
               </div>
             </div>
@@ -59,7 +59,7 @@
                             <?php if($role == 'hr'): ?>
                             <td class="text-end">
                               <span class="dropdown">
-                                <button class="btn align-text-top" data-bs-boundary="viewport">Absense</button>
+                                <a href="<?= base_url('Page/absenceDetail');?>" class="btn align-text-top" data-bs-boundary="viewport">Absence</a>
                               </span>
                             </td>
                             <?php endif ;?>

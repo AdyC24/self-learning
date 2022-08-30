@@ -105,7 +105,7 @@ class Page extends CI_Controller{
         $this->load->view('page/competences', $data);
         $this->load->view('template/foot');
     }
-    public function absense(){
+    public function absence(){
         $data['title'] = 'Absense';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
@@ -118,6 +118,21 @@ class Page extends CI_Controller{
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
         $this->load->view('page/absense', $data);
+        $this->load->view('template/foot');
+    }
+    public function absenceDetail(){
+        $movieId = $this->uri->segment('3');
+        $id = $this->session->userdata('id');
+
+        $data['title'] = 'Absence Details';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['movie'] = $this->udel->getMovie($movieId);
+       
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/absenceDetail', $data);
         $this->load->view('template/foot');
     }
 
