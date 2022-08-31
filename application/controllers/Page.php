@@ -34,13 +34,14 @@ class Page extends CI_Controller{
     public function movieDetail(){
         $movieId = $this->uri->segment('3');
         $id = $this->session->userdata('id');
+        $theaterStatus = 'Ya';
 
         $data['title'] = 'Movie Details';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['movie'] = $this->udel->getMovie($movieId);
-        $data['theaters'] = $this->udel->getTheater($movieId);
+        $data['theaters'] = $this->udel->getTheater($movieId, $theaterStatus);
         $data['subordinates'] = $this->udel->getSubordinate($id);
        
         $this->load->view('template/head', $data);

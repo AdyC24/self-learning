@@ -77,10 +77,11 @@ class User_Model extends CI_MODEL{
         $this->db->where('theaterActive', $theaterActive);
         return $this->db->get()->result_array();
     }
-    public function getTheater($movieId){
+    public function getTheater($movieId, $theaterStatus){
         $this->db->from('theater as t');
         $this->db->join('bumalati_sld.karyawan as k', 't.theaterPIC = k.KAR_ID', 'LEFT');
         $this->db->where('movieId', $movieId);
+        $this->db->where('theateractive', $theaterStatus);
         $this->db->order_by('theaterTime', 'ASC');
         return $this->db->get()->result_array();
     }
