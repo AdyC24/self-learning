@@ -22,6 +22,7 @@
                             <img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" alt="<?= $movie['movieName'];?>">
                         </div>
                         <div class="col-lg-9 col-sm-12 px-4">
+                          
                           <div class="mb-2 col-12 d-flex justify-content-center">
                             <strong>(at <span class="text-danger"><?= $theaterId['theaterTime'];?></span> on <span class="text-danger"><?= $theaterId['theaterLocation'];?></span> charged by <span class="text-danger"><?= $theaterId['KAR_NAME'];?></span>)</strong>
                           </div>
@@ -36,13 +37,19 @@
                                       <?php };?>
                                   </h1>
                                   <span><?= $movie['movieYear'];?> . <?= $movie['movieDuration'];?></span>
+                            </div>
+                            <div class="col-2">
+                              <div class="mb-2 d-flex justify-content-center">
+                                <?php if ($theaterId['theaterActive'] == 'Ya'):?>
+                                  <strong class="badge bg-yellow">( Theater is Active )</strong>
+                                  <?php else:?>
+                                  <strong class="badge bg-danger">( Theater is Disactive )</strong>
+                                  <?php endif;?>
                               </div>
-                             <div class="col-2">
-                                
-                                <div class="row">
+                              <div class="row">
                                 <a href="<?= base_url('CRUD/updateTheaterStatus/').$movie['movieId'].'/'.$theater;?>" class="btn btn-outline-danger" data-bs-boundary="viewport">Close Theater</a>
-                                </div>
-                              </div> 
+                              </div>
+                            </div> 
                           </div>    
                             <hr>
                             <div>
@@ -81,11 +88,20 @@
                                       <?php foreach ($ticketIds as $ticketId) :?>
                                         <tr id="<?= $ticketId['ticketId'];?>">
                                           
+                                        <?php if($theaterId['theaterActive'] == 'Tidak'):?>
                                           <?php if($ticketId['ticketStatus'] == 'Hadir'):?>
-                                          <td><input class="form-check-input" type="checkbox" id="ticketId[]" name="ticketId[]" value="<?= $ticketId['ticketId'];?>" checked></td>
+                                          <td><input class="form-check-input" type="checkbox" id="ticketId[]" name="ticketId[]" value="<?= $ticketId['ticketId'];?>" checked disabled></td>
                                           <?php else:?>
-                                          <td><input class="form-check-input" type="checkbox" id="ticketId[]" name="ticketId[]" value="<?= $ticketId['ticketId'];?>"></td>
+                                          <td><input class="form-check-input" type="checkbox" id="ticketId[]" name="ticketId[]" value="<?= $ticketId['ticketId'];?>" disabled></td>
                                           <?php endif;?>
+                                        <?php else:?>
+                                          <?php if($ticketId['ticketStatus'] == 'Hadir'):?>
+                                          <td><input class="form-check-input" type="checkbox" id="ticketId[]" name="ticketId[]" value="<?= $ticketId['ticketId'];?>" checked readonly></td>
+                                          <?php else:?>
+                                          <td><input class="form-check-input" type="checkbox" id="ticketId[]" name="ticketId[]" value="<?= $ticketId['ticketId'];?>" readonly></td>
+                                          <?php endif;?>
+                                        <?php endif;?>
+
                                           <td><?= $no;?></td>
                                           <td><?= $ticketId['KAR_NIK']?></td>
                                           <td><?= $ticketId['KAR_NAME']?></td>
@@ -102,9 +118,11 @@
                                     </tbody>
                                     
                                 </table>
-                                <div class="card-footer form-group d-flex justify-content-center py-3">
+                                  <?php if($theaterId['theaterActive'] == 'Ya'):?>
+                                    <div class="card-footer form-group d-flex justify-content-center py-3">
                                         <button name="update_multiTicketId" class="btn  btn-outline-primary">Update</button>
                                     </div>
+                                  <?php endif;?>
                               </div>
                             </form>
                         </div>
