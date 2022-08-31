@@ -154,6 +154,17 @@ class CRUD extends CI_Controller{
             redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
         };
     }
-    
+    public function updateTheaterStatus(){
+        $movieId = $this->uri->segment('3');
+        $theaterId = $this->uri->segment('4');
+
+        $data = array (
+            'theaterActive' => 'Tidak'
+        );
+
+        $this->udel->updateTheaterStatus('theater', $data, $theaterId);
+        redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
+    }
+
 
 }

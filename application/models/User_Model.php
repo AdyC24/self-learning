@@ -117,6 +117,12 @@ class User_Model extends CI_MODEL{
         $this->db->where('theaterId', $theaterId);
         return $this->db->get()->result_array();
     }
+    public function getTheatersById($theaterId){
+        $this->db->from('theater as t');
+        $this->db->join('bumalati_sld.karyawan as k', 't.theaterPIC = k.KAR_ID', 'LEFT');
+        $this->db->where('theaterId', $theaterId);
+        return $this->db->get()->row_array();
+    }
    
 
 
@@ -136,6 +142,10 @@ class User_Model extends CI_MODEL{
     }
     public function updateTicketStatus($table, $data, $where){
         $this->db->where('ticketId', $where);
+        $this->db->update($table, $data);
+    }
+    public function updateTheaterStatus($table, $data, $where){
+        $this->db->where('theaterId', $where);
         $this->db->update($table, $data);
     }
     public function insert($table, $data){

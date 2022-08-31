@@ -22,6 +22,9 @@
                             <img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" alt="<?= $movie['movieName'];?>">
                         </div>
                         <div class="col-lg-9 col-sm-12 px-4">
+                          <div class="mb-2 col-12 d-flex justify-content-center">
+                            <strong>(at <span class="text-danger"><?= $theaterId['theaterTime'];?></span> on <span class="text-danger"><?= $theaterId['theaterLocation'];?></span> charged by <span class="text-danger"><?= $theaterId['KAR_NAME'];?></span>)</strong>
+                          </div>
                           <div class="d-flex justify-content-between">
                             <div class="mt-3 col-6">
                                   <h1>
@@ -33,17 +36,15 @@
                                       <?php };?>
                                   </h1>
                                   <span><?= $movie['movieYear'];?> . <?= $movie['movieDuration'];?></span>
-                                  <br>
-                                  
                               </div>
-                              <div>
-                                <div class="mb-3">jam on lokasi by PIC</div>
-                                <button class="btn btn-outline-danger" data-bs-boundary="viewport">Close Theater</button>
-                              </div>
-                          </div>
-                            
+                             <div class="col-2">
+                                
+                                <div class="row">
+                                <a href="<?= base_url('CRUD/updateTheaterStatus/').$movie['movieId'].'/'.$theater;?>" class="btn btn-outline-danger" data-bs-boundary="viewport">Close Theater</a>
+                                </div>
+                              </div> 
+                          </div>    
                             <hr>
-                            
                             <div>
                                 <h2>Details</h2>
                                 <p><strong>Genre : </strong><?= $movie['genreName'];?></p>
