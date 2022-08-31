@@ -106,13 +106,15 @@ class Page extends CI_Controller{
         $this->load->view('template/foot');
     }
     public function absence(){
+        $theaterActive = 'Ya';
+
         $data['title'] = 'Absense';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['movies'] = $this->udel->getMovies();
         $data['PICs'] = $this->udel->getPIC();
-        $data['theaters'] = $this->udel->getTheaters();
+        $data['theaters'] = $this->udel->getTheatersByStatus($theaterActive);
         
 
         $this->load->view('template/head', $data);
