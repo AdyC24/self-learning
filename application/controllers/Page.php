@@ -122,6 +122,7 @@ class Page extends CI_Controller{
     }
     public function absenceDetail(){
         $movieId = $this->uri->segment('3');
+        $theaterId = $this->uri->segment('4');
         $id = $this->session->userdata('id');
 
         $data['title'] = 'Absence Details';
@@ -129,7 +130,9 @@ class Page extends CI_Controller{
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['movie'] = $this->udel->getMovie($movieId);
-       
+        $data['ticketIds'] = $this->udel->getTicketbyId($theaterId);
+        $data['theater'] = $this->uri->segment('4');
+      
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
         $this->load->view('page/absenceDetail', $data);

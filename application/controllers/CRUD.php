@@ -137,6 +137,23 @@ class CRUD extends CI_Controller{
         $this->udel->updateMovieActivation('movie', $data, $where);
         redirect('Page/movieDetail/'.$movieId);
     }
+    public function updateTicket(){
+        $movieId = $this->uri->segment('3');
+        $theaterId = $this->uri->segment('4');
+        $ticketIds = $this->input->post('ticketId');
+       
+        foreach($ticketIds as $ticketId){
+
+            $id = $ticketId;
+            
+            $data = array (
+                'ticketStatus' => 'Hadir'
+            );
+
+            $this->udel->updateTicketStatus('ticket', $data, $id);
+            redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
+        };
+    }
     
 
 }

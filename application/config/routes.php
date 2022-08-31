@@ -59,4 +59,5 @@ $route['movies'] = 'Ajax/showMovie';
 $route['theater'] = 'Page/theater';
 $route['ticket'] = 'Page/ticket';
 $route['movie'] = 'Page/movie';
+$route['absence'] = 'Page/absence';
 

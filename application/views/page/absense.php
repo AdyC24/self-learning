@@ -59,7 +59,7 @@
                             <?php if($role == 'hr'): ?>
                             <td class="text-end">
                               <span class="dropdown">
-                                <a href="<?= base_url('Page/absenceDetail');?>" class="btn align-text-top" data-bs-boundary="viewport">Absence</a>
+                                <a href="<?= base_url('Page/absenceDetail/').$theater['movieId'].'/'.$theater['theaterId']?>" class="btn align-text-top" data-bs-boundary="viewport">Absence</a>
                               </span>
                             </td>
                             <?php endif ;?>
