@@ -46,9 +46,11 @@
                                   <strong class="badge bg-danger">( Theater is Disactive )</strong>
                                   <?php endif;?>
                               </div>
+                              <?php if($role != 'lvl12'):?>
                               <div class="row">
                                 <a href="<?= base_url('CRUD/updateTheaterStatus/').$movie['movieId'].'/'.$theater;?>" class="btn btn-outline-danger" data-bs-boundary="viewport">Close Theater</a>
                               </div>
+                              <?php endif;?>
                             </div> 
                           </div>    
                             <hr>

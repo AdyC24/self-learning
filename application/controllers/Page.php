@@ -128,7 +128,7 @@ class Page extends CI_Controller{
     public function absence(){
         $theaterActive = 'Ya';
 
-        $data['title'] = 'Absense';
+        $data['title'] = 'Absence';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');

@@ -17,7 +17,7 @@
                     </span>
                   </a>
                 </li>
-                <?php if($title == 'Movies' || $title == 'Theaters' || $title == 'Movie Details' || $title == 'Tickets' || $title == 'Archive'){
+                <?php if($title == 'Movies' || $title == 'Theaters' || $title == 'Movie Details' || $title == 'Tickets' || $title == 'Archive' || $title= 'Absence'){
                   echo '<li class="nav-item dropdown active">';
                 } else {
                   echo '<li class="nav-item dropdown">';
@@ -112,7 +112,7 @@
                 </li>
                   <?php };?>
                 <?php };?>
-                <?php if($role != 'hr'){?>
+                <?php if($role == 'lvl345'){?>
                   <?php if($title == 'Subordinates'){
                     echo '<li class="nav-item active">';
                   } else {
