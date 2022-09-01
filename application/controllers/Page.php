@@ -50,18 +50,37 @@ class Page extends CI_Controller{
         $this->load->view('template/foot');
     }
     public function theater(){
+        $theaterActive = 'Ya';
+
         $data['title'] = 'Theaters';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['movies'] = $this->udel->getMovies();
         $data['PICs'] = $this->udel->getPIC();
-        $data['theaters'] = $this->udel->getTheaters();
+        $data['theaters'] = $this->udel->getTheatersByStatus($theaterActive);
         
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
         $this->load->view('page/theater', $data);
+        $this->load->view('template/foot');
+    }
+    public function theatersArchive(){
+        $theaterActive = 'Tidak';
+
+        $data['title'] = 'Archive';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['movies'] = $this->udel->getMovies();
+        $data['PICs'] = $this->udel->getPIC();
+        $data['theaters'] = $this->udel->getTheatersByStatus($theaterActive);
+        
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/theatersArchive', $data);
         $this->load->view('template/foot');
     }
     public function ticket(){

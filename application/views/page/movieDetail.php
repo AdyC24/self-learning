@@ -35,6 +35,7 @@
                                   <span><?= $movie['movieYear'];?> . <?= $movie['movieDuration'];?></span>
                                 
                               </div>
+                              <?php if($role == 'hr'):?>
                               <div class="mt-3 col-6 d-flex justify-content-end">
                                   <span class="dropdown">
                                       <button class="btn" data-bs-boundary="viewport" data-bs-toggle="dropdown">
@@ -50,6 +51,7 @@
                                     </div>
                                   </span>
                               </div>
+                              <?php endif;?>
                           </div>
                             
                             <hr>
@@ -147,6 +149,9 @@
                               </table>
 
                           </div>
+                          <div class="card-footer d-flex align-items-center">
+
+                  </div>
                         </div>
                     </div>
                 </div>

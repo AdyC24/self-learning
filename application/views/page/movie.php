@@ -6,9 +6,9 @@
             <div class="row align-items-center">
               <div class="col">
                 <h2 class="page-title">
-                  Movies
+                  Movies 
                 </h2>
-                <div class="text-muted mt-1">1-3 of <?= count($movies);?> movies</div>
+                <span class="text-muted" style="font-size: 13px"> (List of <?= count($movies);?> movies)</span>
               </div>
               <!-- Page title actions -->
               <div class="col-auto ms-auto d-print-none">

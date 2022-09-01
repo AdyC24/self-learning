@@ -20,13 +20,7 @@
                 <div class="card">
                   <div class="card-body border-bottom py-3">
                     <div class="d-flex">
-                      <div class="text-muted">
-                        Show
-                        <div class="mx-2 d-inline-block">
-                          <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
-                        </div>
-                        entries
-                      </div>
+                     
                       <div class="col-auto ms-auto d-print-none">
                         <div class="d-flex">
                           <div class="me-3">
@@ -59,7 +53,7 @@
                           <th>Date/ Time</th>
                           <th>Location</th>
                           <th>Created By</th>
-                          <th>Registered</th>
+                          <th>Registered</th> 
                           <th>Status</th>
                           <?php if($role == 'hr'){
                             echo '<th>Action</th>';
@@ -79,10 +73,10 @@
                             <td data-target="karName"><?= $theater['KAR_NAME'];?></td>
                             <td><?= $theater['theaterTicketCount'];?>/20 tickets</td>
                             <td> 
-                            <?php if($theater['theaterTicketCount'] <= 19){
+                            <?php if($theater['theaterActive'] == 'Ya'){
                               echo '<span class="badge bg-success me-1"></span> Open';
                             }else {
-                              echo '<span class="badge bg-danger me-1"></span> Full';
+                              echo '<span class="badge bg-secondary me-1"></span> Close';
                             };?></td>
                             <?php if($role == 'hr'): ?>
                             <td class="text-end">
@@ -106,27 +100,8 @@
                     </table>
                   </div>
                   <div class="card-footer d-flex align-items-center">
-                    <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries</p>
-                    <ul class="pagination m-0 ms-auto">
-                      <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>
-                          prev
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#">5</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>
-                        </a>
-                      </li>
-                    </ul>
+                    <a href="<?= base_url('Page/theatersArchive');?>">See Theaters Archive</a>
+
                   </div>
                 </div>
               </div>
