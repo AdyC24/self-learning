@@ -100,10 +100,10 @@
                   <div class="dropdown-menu">
                     <div class="dropdown-menu-columns">
                       <div class="dropdown-menu-column">
-                        <a class="dropdown-item" href="./layout-horizontal.html" >
+                        <a class="dropdown-item" href="<?= base_url('Page/employee');?>" >
                           Employees
                         </a>
-                        <a class="dropdown-item" href="./layout-vertical.html" >
+                        <a class="dropdown-item" href="" >
                           Relations
                         </a>
                       </div>

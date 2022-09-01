@@ -160,6 +160,17 @@ class Page extends CI_Controller{
         $this->load->view('page/absenceDetail', $data);
         $this->load->view('template/foot');
     }
+    public function employee(){
+        $data['title'] = 'Employees';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/employees', $data);
+        $this->load->view('template/foot');
+    }
 
 
     
