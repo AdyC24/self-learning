@@ -1,28 +1,4 @@
 
-    <div class="wrapper">
-      <div class="page-wrapper">
-        <div class="container-xl">
-          <!-- Page title -->
-          <div class="page-header d-print-none">
-            <div class="row align-items-center">
-              <div class="col-7">
-                <h2 class="page-title">
-                  Subordinates
-                </h2>
-                
-              </div>
-              <!-- Page title actions -->
-              <div class="col-sm-5 col-md-auto ms-auto d-print-none">
-                <div class="d-flex">
-                  <input id="subordinateSearch" type="search" class="form-control d-inline-block w-9 me-3" placeholder="Search user…"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="page-body">
-          <div class="container-xl">
-            <div class="row row-cards" id="subordinateShow">
                <?php foreach($subordinates as $subordinate){?>
               <div class="col-md-6 col-lg-3">
                 <div class="card">
@@ -58,25 +34,4 @@
                 </div>
               </div>
               <?php };?>            
-            </div>
-            
-          </div>
-        </div>
-
-<!-- Javascript -->
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('#subordinateSearch').keyup(function(){
-        $.ajax({
-          url: '<?= base_url('Ajax/subordinateSearch');?>',
-          type: 'POST',
-          data: {
-            search: $(this).val()
-          },
-          success: function(data){
-            $('#subordinateShow').html(data)
-          } 
-        })
-      })
-    });  
-  </script>
+           

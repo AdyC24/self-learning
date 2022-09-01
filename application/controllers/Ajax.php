@@ -19,4 +19,21 @@ class Ajax extends CI_Controller
         $this->load->view('ajax/movie', $data);
       }
     }   
+
+    public function subordinateSearch(){
+      $id = $this->session->userdata('id');
+      $val = $this->input->post('search');
+      
+      if($val){
+        $data['subordinates'] = $this->udel->getSubordinateSearch($id, $val);
+        
+        
+          $this->load->view('ajax/subordinates', $data);
+        
+        
+      } else {
+        $data['subordinates'] = $this->udel->getSubordinate($id);
+        $this->load->view('ajax/subordinates', $data);
+      }
+    }
 }

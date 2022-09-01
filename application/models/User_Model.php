@@ -38,6 +38,17 @@ class User_Model extends CI_MODEL{
         $db1->where('KAR_ATASAN', $id);
         return $db1->get()->result_array();
     }
+    public function getSubordinateSearch($id, $val){
+        $db1 = $this->load->database('db2', TRUE);
+
+        $db1->from('relasi as r');
+        $db1->join('karyawan as k', 'r.KAR_BAWAHAN = k.KAR_ID', 'LEFT');
+        $db1->join('jabatan as j', 'k.JAB_ID = j.JAB_ID', 'LEFT');
+        $db1->where('KAR_ATASAN', $id);
+        $db1->like('KAR_NAME', $val);
+
+        return $db1->get()->result_array();
+    }
     public function getMovies(){
         $this->db->from('movie as m');
         $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
@@ -105,6 +116,7 @@ class User_Model extends CI_MODEL{
         $this->db->where('employeeId', $id);
         return $this->db->get()->result_array();
     }
+    
     public function getGenre(){
         return $this->db->get('genre')->result_array();
     }

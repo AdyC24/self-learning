@@ -93,6 +93,11 @@
                               </span>
                             </td>
                             <?php endif ;?>
+                            <td class="text-end">
+                              <span class="dropdown">
+                                <a href="<?= base_url('Page/movieDetail/').$theater['movieId'];?>" class="btn align-text-top" data-bs-boundary="viewport">Register</a>
+                              </span>
+                            </td>
                           </tr>
                         <?php endforeach;?>
                         
