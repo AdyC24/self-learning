@@ -19,7 +19,12 @@
     <link href="<?= base_url('assets');?>/dist/css/tabler-payments.min.css" rel="stylesheet"/>
     <link href="<?= base_url('assets');?>/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="<?= base_url('assets');?>/dist/css/demo.min.css" rel="stylesheet"/>
+
+    <link href="<?= base_url('assets');?>/dist/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
     <script src="<?= base_url('assets');?>/dist/js/jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url('assets');?>/dist/js/jquery-3.5.1.js"></script>
+    <script src="<?= base_url('assets');?>/dist/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('assets');?>/dist/js/dataTables.bootstrap5.min.js"></script>
   </head>
   <body >
 

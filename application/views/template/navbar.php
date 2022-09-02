@@ -17,11 +17,12 @@
                     </span>
                   </a>
                 </li>
-                <?php if($title == 'Movies' || $title == 'Theaters' || $title == 'Movie Details' || $title == 'Tickets' || $title == 'Archive' || $title= 'Absence'){
-                  echo '<li class="nav-item dropdown active">';
-                } else {
-                  echo '<li class="nav-item dropdown">';
-                };?>
+                <?php if($title == 'Movies' || $title == 'Theaters' || $title == 'Movie Details' || $title == 'Tickets' || $title == 'Archive' || $title == 'Absence'): ?>
+                  <li class="nav-item dropdown active">
+                <?php else:?>
+                  <li class="nav-item dropdown">
+                <?php endif;?>
+           
                   <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
@@ -88,7 +89,11 @@
 
                 <?php if($role != 'lvl345'){?>
                   <?php if($role != 'lvl12') { ?>
-                    <li class="nav-item dropdown">
+                    <?php if($title == 'Employees'):?>
+                      <li class="nav-item dropdown active">
+                    <?php else :?>
+                      <li class="nav-item dropdown">
+                    <?php endif;?>
                   <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="6" height="5" rx="2" /><rect x="4" y="13" width="6" height="7" rx="2" /><rect x="14" y="4" width="6" height="7" rx="2" /><rect x="14" y="15" width="6" height="5" rx="2" /></svg>
