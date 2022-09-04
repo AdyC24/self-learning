@@ -144,6 +144,13 @@ class User_Model extends CI_MODEL{
         $this->db->where('theaterId', $theaterId);
         return $this->db->get()->row_array();
     }
+    public function getEmployee(){
+        $this->db->from('bumalati_sld.karyawan as k');
+        $this->db->join('bumalati_sld.code_sld as c', 'c.CODE_ID = k.CODE_ID', 'LEFT');
+        $this->db->join('bumalati_sld.section as s', 's.SEC_ID = c.SEC_ID', 'LEFT');
+        $this->db->join('bumalati_sld.jabatan as j', 'k.JAB_ID = j.JAB_ID', 'LEFT');
+        return $this->db->get()->result_array();
+    }
    
 
 
