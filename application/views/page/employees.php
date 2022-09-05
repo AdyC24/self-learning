@@ -23,6 +23,7 @@
             <tr>
                 <Th></Th>
                 <th>No</th>
+                <th>NIK</th>
                 <th>Nama</th>
                 <th>Section</th>
                 <th>Position</th>
@@ -37,6 +38,7 @@
             <tr>
                 <td></td>
                 <td><?= $no;?></td>
+                <td><?= $employee['KAR_NIK']?></td>
                 <td><?= $employee['KAR_NAME']?></td>
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
@@ -55,6 +57,7 @@
             <tr>
                 <th></th>
                 <th>No</th>
+                <th>NIK</th>
                 <th>Nama</th>
                 <th>Section</th>
                 <th>Position</th>
