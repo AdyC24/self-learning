@@ -108,7 +108,7 @@
                         <a class="dropdown-item" href="<?= base_url('Page/employee');?>" >
                           Employees
                         </a>
-                        <a class="dropdown-item" href="" >
+                        <a class="dropdown-item" href="#" >
                           Relations
                         </a>
                       </div>
