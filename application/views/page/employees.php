@@ -5,7 +5,11 @@
           <!-- Page title -->
           <div class="page-header d-print-none">
             <div class="row align-items-center">
+            <div class="page-pretitle">
+                  Settings
+                </div>
               <div class="col d-flex justify-content-between">
+              
                 <h2 class="page-title">
                   Employees
                 </h2>

@@ -6,6 +6,9 @@
           <div class="page-header d-print-none">
             <div class="row align-items-center">
               <div class="col">
+              <div class="page-pretitle">
+                  Self Learning
+                </div>
                 <h2 class="page-title"><a href="<?= base_url('Page/movie');?>">Movies</a> / <?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)
                 </h2>
               </div>
