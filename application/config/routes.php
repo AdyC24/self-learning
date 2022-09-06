@@ -60,4 +60,5 @@ $route['theater'] = 'Page/theater';
 $route['ticket'] = 'Page/ticket';
 $route['movie'] = 'Page/movie';
 $route['absence'] = 'Page/absence';
+$route['employee'] = 'Page/employee';
 

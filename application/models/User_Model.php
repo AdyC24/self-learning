@@ -154,6 +154,16 @@ class User_Model extends CI_MODEL{
         $this->db->or_where('employeeStatus', 'Ya');
         return $this->db->get()->result_array();
     }
+    public function getEmpCompById($employeeId, $competency){
+        $this->db->where('employeeId', $employeeId);
+        $this->db->where('competenceId', $competency);
+        return $this->db->get('emp_comp')->num_rows();
+    }
+    public function getCompCount($employeeId){
+        $this->db->where('employeeId', $employeeId);
+        $this->db->where('empcompStatus', 'Ya');
+        return $this->db->get('emp_comp')->num_rows();
+    }
    
 
 
@@ -178,6 +188,18 @@ class User_Model extends CI_MODEL{
     public function updateTheaterStatus($table, $data, $where){
         $this->db->where('theaterId', $where);
         $this->db->update($table, $data);
+    }
+    public function updateEmpCompStatus($table, $data, $employeeId, $competency){
+        $this->db->where('employeeId', $employeeId);
+        $this->db->where('competenceId', $competency);
+        $this->db->update($table, $data);
+    }
+    public function updateCompCountById($table, $data, $employeeId){
+        $this->db->where('employeeId', $employeeId);
+        $this->db->update($table, $data);
+    }
+    public function insertEmpComp($table, $data){
+        $this->db->insert($table, $data);
     }
     public function insert($table, $data){
         $this->db->insert($table, $data);

@@ -33,13 +33,13 @@
         <tbody>
             <?php $no = 1;?>
             <?php foreach($employees as $employee):?>
-            <tr id="<?= $employee['KAR_ID'];?>">
+            <tr id="<?= $employee['employeeId'];?>">
                 <td><?= $no;?></td>
                 <td data-target="employeeNIK"><?= $employee['KAR_NIK']?></td>
                 <td data-target="employeeName"><?= $employee['KAR_NAME']?></td>
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
-                <td><a href="#" data-role="empComp" data-id="<?= $employee['KAR_ID'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>
+                <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>
                 <?php if($employee['KAR_SLD'] = 'Tidak'):?>
                 <td><a href="#" class="link-dark"><span class="badge bg-danger me-1"></span>Non Active</a></td>
                 <?php else:?>
@@ -74,89 +74,89 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title"><?= $employee['KAR_NIK'];?> / <?= $employee['KAR_NAME'];?></h5>
+                <h5 class="modal-title">Competency Adjustment</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="" method="post" enctype="multipart/form-data" id="ModalForm"> 
+              <form action="<?= base_url('CRUD/updateInsertEmpComp')?>" method="post" enctype="multipart/form-data" id="ModalForm"> 
                 <div class="modal-body">
                   <div class="mb-3">
 
                     <div class="form-selectgroup form-selectgroup-pills">
                       <input type="hidden" name="employeeId" id="employeeId">
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="achievementDrive" value="1" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="1" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Achivement Drive</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="accountableForSHE" value="2" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="2" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Accountable for SHE</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="continousImprovement" value="3" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="3" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Continous Improvement</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="integrity" value="4" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="4" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Integrity</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="teamworkAndCollaboration" value="5" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="5" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Teamwork and Collaboration</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="buildingPartnership" value="6" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="6" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Building Partnership</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="businessSense" value="7" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="7" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Business Sense</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="decisiveness" value="8" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="8" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Decisiveness</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="developingPeople" value="9" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="9" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Developing People</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="teamLeadership" value="10" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="10" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Team Leadership</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="analyticalThinking" value="11" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="11" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Analytical Thinking</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="conseptualThinking" value="12" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="12" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Conseptual Thinking</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="adaptability" value="13" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="13" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Adaptability</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="communicationSkill" value="14" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="14" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Communication Skill</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="managingConflict" value="15" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="15" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Managing Conflict</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="planningOrganizingControlling" value="16" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="16" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Planning, Organizing & Controlling</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="managingAndLeadingChange" value="17" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="17" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Managing and Leading Change</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="humanResourcesPlanning" value="18" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="18" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Human Resources Planning</span>
                       </label>
                       <label class="form-selectgroup-item">
-                        <input type="checkbox" name="organzationalSavvy" value="19" class="form-selectgroup-input">
+                        <input type="checkbox" name="competency[]" value="19" class="form-selectgroup-input">
                         <span class="form-selectgroup-label">Organizational Savvy</span>
                       </label>
                     </div>
@@ -179,6 +179,7 @@ $(document).ready(function () {
   // empComp
     $(document).on('click','a[data-role=empComp]',function(){
       var id = $(this).data('id');
+
 
       $('#employeeId').val(id);
       $('#empCompEdit').modal('toggle');

@@ -166,5 +166,52 @@ class CRUD extends CI_Controller{
         redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
     }
 
+    public function updateInsertEmpComp(){
+        $employeeId = $this->input->post('employeeId');
+        $competencies = $this->input->post('competency');
+        $competenceList = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);      
+        $competenceNotList = array_diff($competenceList, $competencies);
+        
+       
+    //update/ insert + status "ya" 
+        foreach($competencies as $competency){
+            $empCompCheck = $this->udel->getEmpCompById($employeeId, $competency);
+            
+            if($empCompCheck > 0){
+                // update
+                $data = array (
+                    'empcompStatus' => 'Ya'
+                );
+                $this->udel->updateEmpCompStatus('emp_comp', $data, $employeeId, $competency);
+            } else {
+                // insert
+                $data = array (
+                    'employeeId' => $employeeId,
+                    'competenceId' => $competency,
+                    'empcompStatus' => 'Ya'
+                );
+                $this->udel->insertEmpComp('emp_comp', $data);
+            }  
+        }
+
+    // update status "tidak"
+        foreach($competenceNotList as $competecyNotList){
+            $data = array (
+                'empcompStatus' => 'Tidak'
+            );
+            $this->udel->updateEmpCompStatus('emp_comp', $data, $employeeId, $competecyNotList);
+        }
+
+    // updateCompetencyCount
+        $empCompCount = $this->udel->getCompCount($employeeId);
+
+        $data = array (
+            'employeeCompetencyCount' => $empCompCount
+        );
+        $this->udel->updateCompCountById('employee', $data, $employeeId);
+
+        redirect('employee');
+        
+    }
 
 }
