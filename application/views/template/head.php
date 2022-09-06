@@ -58,7 +58,6 @@
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-card">
                 <div class="card">
                   <div class="card-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad amet consectetur exercitationem fugiat in ipsa ipsum, natus odio quidem quod repudiandae sapiente. Amet debitis et magni maxime necessitatibus ullam.
                   </div>
                 </div>
               </div>
@@ -72,9 +71,7 @@
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Set status</a>
                 <a href="#" class="dropdown-item">Profile & account</a>
-                <a href="#" class="dropdown-item">Feedback</a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">Settings</a>
                 <a href="<?=base_url('Auth/logout');?>" class="dropdown-item">Logout</a>
