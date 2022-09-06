@@ -37,7 +37,7 @@
           </button>
           <h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="<?= base_url('Page/home');?>">
-              <img src="<?= base_url('assets');?>/dist/img/logo.jpeg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+              <img src="<?= base_url('assets');?>/dist/img/logo.jpeg" width="110" height="32" alt="Tabler" class="navbar-brand-image rounded">
             </a>
           </h1>
           <div class="navbar-nav flex-row order-md-last">

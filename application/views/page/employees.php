@@ -5,10 +5,11 @@
           <!-- Page title -->
           <div class="page-header d-print-none">
             <div class="row align-items-center">
-              <div class="col">
+              <div class="col d-flex justify-content-between">
                 <h2 class="page-title">
                   Employees
                 </h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployee">Add Employees</button>
               </div>
             </div>
           </div>
@@ -17,7 +18,6 @@
           <div class="container-xl">
             <div class="row row-cards">
               <div class="col-12">
-
               <table id="employees" class="table" style="width:100%">
         <thead>
             <tr>
@@ -34,9 +34,10 @@
             <?php $no = 1;?>
             <?php foreach($employees as $employee):?>
             <tr id="<?= $employee['employeeId'];?>">
+            
                 <td><?= $no;?></td>
                 <td data-target="employeeNIK"><?= $employee['KAR_NIK']?></td>
-                <td data-target="employeeName"><?= $employee['KAR_NAME']?></td>
+                <td><?= $employee['KAR_NAME']?></td>
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
                 <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>
@@ -44,7 +45,7 @@
                 <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Ya/').$employee['employeeId'];?>" class="link-dark"><span class="badge bg-danger me-1"></span>Non Active</a></td>
                 <?php else:?>
                 <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Tidak/').$employee['employeeId'];?>" class="link-dark"><span class="badge bg-success me-1"></span>Active</a></td>
-                <?php endif;?>
+                <?php endif;?>   
             </tr>
             <?php $no++;?>
             <?php endforeach;?>
@@ -69,6 +70,29 @@
         </div>
 
 <!-- Modal -->
+        <!-- Add Employee -->
+        <div class="modal fade" id="addEmployee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hiddem="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="#" method="post">
+                <div class="modal-body">
+                    
+                      
+                     
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
         <!-- Edit Theater Modal -->
         <div class="modal fade" id="empCompEdit"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hiddem="true">
           <div class="modal-dialog">
