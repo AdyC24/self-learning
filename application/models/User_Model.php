@@ -30,13 +30,13 @@ class User_Model extends CI_MODEL{
         return $db1->get()->row_array();
     }
     public function getSubordinate($id){
-        $db1 = $this->load->database('db2', TRUE);
 
-        $db1->from('relasi as r');
-        $db1->join('karyawan as k', 'r.KAR_BAWAHAN = k.KAR_ID', 'LEFT');
-        $db1->join('jabatan as j', 'k.JAB_ID = j.JAB_ID', 'LEFT');
-        $db1->where('KAR_ATASAN', $id);
-        return $db1->get()->result_array();
+        $this->db->from('bumalati_sld.relasi as r');
+        $this->db->join('bumalati_sld.karyawan as k', 'r.KAR_BAWAHAN = k.KAR_ID', 'LEFT');
+        $this->db->join('bumalati_sld.jabatan as j', 'k.JAB_ID = j.JAB_ID', 'LEFT');
+        $this->db->join('employee as e', 'e.employeeNIK = k.KAR_NIK', 'LEFT' );
+        $this->db->where('KAR_ATASAN', $id);
+        return $this->db->get()->result_array();
     }
     public function getSubordinateSearch($id, $val){
         $db1 = $this->load->database('db2', TRUE);

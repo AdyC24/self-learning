@@ -5,11 +5,13 @@
           <!-- Page title -->
           <div class="page-header d-print-none">
             <div class="row align-items-center">
-              <div class="col-7">
-                <h2 class="page-title">
+              <div class="col">
+              <div class="page-pretitle">
                   Subordinates
+                </div>
+                <h2 class="page-title">
+                  Subordinates List
                 </h2>
-                
               </div>
               <!-- Page title actions -->
               <div class="col-sm-5 col-md-auto ms-auto d-print-none">
@@ -28,10 +30,10 @@
                 <div class="card">
                   <div class="card-body p-4 text-center">
                     <span class="avatar avatar-xl mb-3 avatar-rounded" style="background-image: url(https://sld.bumalati.com/assets/img/<?= $this->session->userdata('photo')?>)"></span>
-                    <h3 class="m-0 mb-1"><a href="<?= base_url('Page/subordinate');?>"><?= $subordinate['KAR_NAME'];?></a></h3>
+                    <h3 class="m-0 mb-1"><a href="<?= base_url('Page/subordinate/').$subordinate['KAR_NIK'];?>"><?= $subordinate['KAR_NAME'];?></a></h3>
                     <div class="text-muted"><?= $subordinate['JAB_NAME'];?></div>
                     <div class="mt-3">
-                        <?php if($subordinate['KAR_ACTIVE_SLD'] !== 'Ya'){?>
+                        <?php if($subordinate['employeeStatus'] !== 'Ya'){?>
                             <span class="badge bg-danger-lt">Not Active</span>
                         <?php } else {?>
                             <span class="badge bg-success-lt">Active</span>

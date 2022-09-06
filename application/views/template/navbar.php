@@ -123,7 +123,7 @@
                   <?php };?>
                 <?php };?>
                 <?php if($role == 'lvl345'){?>
-                  <?php if($title == 'Subordinates'){
+                  <?php if($title == 'Subordinates' || $title == 'Subordinate Details'){
                     echo '<li class="nav-item active">';
                   } else {
                     echo '<li class="nav-item">';
