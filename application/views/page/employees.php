@@ -26,7 +26,7 @@
                 <th>Nama</th>
                 <th>Section</th>
                 <th>Position</th>
-                <th>Competency</th>
+                <th>Development Plan</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -40,10 +40,10 @@
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
                 <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>
-                <?php if($employee['KAR_SLD'] = 'Tidak'):?>
-                <td><a href="#" class="link-dark"><span class="badge bg-danger me-1"></span>Non Active</a></td>
+                <?php if($employee['employeeStatus'] == 'Tidak'):?>
+                <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Ya/').$employee['employeeId'];?>" class="link-dark"><span class="badge bg-danger me-1"></span>Non Active</a></td>
                 <?php else:?>
-                <td><a href="#" class="link-dark"><span class="badge bg-success me-1"></span>Active</a></td>
+                <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Tidak/').$employee['employeeId'];?>" class="link-dark"><span class="badge bg-success me-1"></span>Active</a></td>
                 <?php endif;?>
             </tr>
             <?php $no++;?>
@@ -56,7 +56,7 @@
                 <th>Nama</th>
                 <th>Section</th>
                 <th>Position</th>
-                <th>Competency</th>
+                <th>Development Plan</th>
                 <th>Status</th>
             </tr>
         </tfoot>

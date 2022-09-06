@@ -77,7 +77,6 @@ class CRUD extends CI_Controller{
         }
     }
 
-
     public function deleteTheater(){
         $movieId = $this->uri->segment('3');  
         $where = $this->input->post('theaterId');      
@@ -127,13 +126,11 @@ class CRUD extends CI_Controller{
     public function movieActivation(){
         $movieId = $this->uri->segment('3');
         $movieActive = $this->uri->segment('4');
-        
+
         $data = array (
             'movieActive' => $movieActive
         );
-
         $where = $movieId;
-
         $this->udel->updateMovieActivation('movie', $data, $where);
         redirect('Page/movieDetail/'.$movieId);
     }
@@ -145,11 +142,9 @@ class CRUD extends CI_Controller{
         foreach($ticketIds as $ticketId){
 
             $id = $ticketId;
-            
             $data = array (
                 'ticketStatus' => 'Hadir'
             );
-
             $this->udel->updateTicketStatus('ticket', $data, $id);
             redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
         };
@@ -161,7 +156,6 @@ class CRUD extends CI_Controller{
         $data = array (
             'theaterActive' => 'Tidak'
         );
-
         $this->udel->updateTheaterStatus('theater', $data, $theaterId);
         redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
     }
@@ -172,7 +166,6 @@ class CRUD extends CI_Controller{
         $competenceList = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);      
         $competenceNotList = array_diff($competenceList, $competencies);
         
-       
     //update/ insert + status "ya" 
         foreach($competencies as $competency){
             $empCompCheck = $this->udel->getEmpCompById($employeeId, $competency);
@@ -210,8 +203,19 @@ class CRUD extends CI_Controller{
         );
         $this->udel->updateCompCountById('employee', $data, $employeeId);
 
-        redirect('employee');
+        redirect('employee'); 
+    }
+
+    public function updateEmployeeStatus(){
+        $employeeStatus = $this->uri->segment('3'); 
+        $employeeId = $this->uri->segment('4');
+
+        $data = array (
+            'employeeStatus' => $employeeStatus
+        );
+        $this->udel->updateEmployeeStatus('employee', $data, $employeeId);     
         
+        redirect('employee');
     }
 
 }

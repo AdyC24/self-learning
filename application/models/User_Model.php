@@ -198,6 +198,10 @@ class User_Model extends CI_MODEL{
         $this->db->where('employeeId', $employeeId);
         $this->db->update($table, $data);
     }
+    public function updateEmployeeStatus($table, $data, $employeeId){
+        $this->db->where('employeeId', $employeeId);
+        $this->db->update($table, $data);
+    }
     public function insertEmpComp($table, $data){
         $this->db->insert($table, $data);
     }
