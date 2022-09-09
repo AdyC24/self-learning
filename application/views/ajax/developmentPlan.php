@@ -49,6 +49,7 @@
                    
                   </ul>
                 </div>
+                <?php if($subordinate['employeeStatus'] == 'Ya') :?>
                 <div class="card-body">
                   <?php if($role == 'hr'):?>
                   <div class="mb-2  px-3 d-flex flex-row-reverse">
@@ -68,6 +69,7 @@
                   
                   </ol>
                 </div>
+                <?php endif;?>
 
 <!-- Javascript -->
 <script type="text/javascript">

@@ -73,6 +73,7 @@
           <div class="page-body">
             <div class="col-12">
               <div class="card" id="showCard">
+              
                 <div class="card-header">
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
@@ -124,6 +125,7 @@
                    
                   </ul>
                 </div>
+                <?php if($subordinate['employeeStatus'] == 'Ya') :?>
                 <div class="card-body">
                   <?php if($role == 'hr'):?>
                   <div class="mb-2  px-3 d-flex flex-row-reverse">
@@ -143,10 +145,12 @@
                   
                   </ol>
                 </div>
+                <?php endif;?>
               </div>
             </div>
           </div>
         </div>
+        
 
 <?php else:?>
 

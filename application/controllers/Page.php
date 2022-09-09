@@ -7,6 +7,7 @@ class Page extends CI_Controller{
         $this->load->model('User_model', 'udel');
     }
     public function home(){
+        
         $karId = $this->session->userdata('id');
         $employeeId = $this->udel->getEmployeeIdById($karId);
        
@@ -18,8 +19,8 @@ class Page extends CI_Controller{
         $data['direct'] = $this->udel->getDirect($karId);
         $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
         $data['competenceCount'] = $this->udel->getCompetencyById($employeeId['employeeId'])->num_rows();
-        
-
+       
+       
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
         $this->load->view('page/home', $data);
@@ -102,7 +103,7 @@ class Page extends CI_Controller{
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['tickets'] = $this->udel->getTicket($id);
-        $data['subtickets'] = $this->udel->getTicketBySubordinate($id);
+        $data['subtickets'] = $this->udel->getTicketBySubordinate($id)->result_array();
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

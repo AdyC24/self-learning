@@ -52,6 +52,7 @@ class Ajax extends CI_Controller
 
       $data['role'] = $this->session->userdata('role');
       $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
+      $data['subordinate'] = $this->udel->getSubordinateById($karId);
 
       $this->load->view('ajax/developmentPlan', $data);
     }
