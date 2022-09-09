@@ -21,7 +21,7 @@
         <div class="page-body">
           <div class="container-xl">
             <div class="row row-cards">
-              <div class="col-12">
+              <div class="col-12 table-responsive">
               <table id="employees" class="table" style="width:100%">
         <thead>
             <tr>
@@ -41,7 +41,7 @@
             
                 <td><?= $no;?></td>
                 <td data-target="employeeNIK"><?= $employee['KAR_NIK']?></td>
-                <td><?= $employee['KAR_NAME']?></td>
+                <td><a class="link-dark" href="<?= base_url('Page/subordinate/').$employee['KAR_NIK'];?>"><?= $employee['KAR_NAME']?></a></td>
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
                 <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>
