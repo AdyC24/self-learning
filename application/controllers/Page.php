@@ -191,7 +191,7 @@ class Page extends CI_Controller{
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
-        $data['subordinate'] = $this->udel->getUser($karId);
+        $data['subordinate'] = $this->udel->getSubordinateById($karId);
         $data['direct'] = $this->udel->getDirect($karId);
         $data['competences'] = $this->udel->getCompetencyById($employeeId);
         

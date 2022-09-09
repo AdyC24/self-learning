@@ -124,6 +124,10 @@
                   </ul>
                 </div>
                 <div class="card-body">
+                  <div class="mb-2  px-3 d-flex flex-row-reverse">
+                    <button href="#" class="btn btn-primary">Edit Development Plan</button>
+                  </div>
+                  
                   <ol class="list-group list-group-numbered">
                     <?php foreach($competences as $competence) :?>
                     <li class="list-group-item d-flex justify-content-between align-items-start">

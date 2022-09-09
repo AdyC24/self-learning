@@ -5,9 +5,20 @@ class User_Model extends CI_MODEL{
         parent::__construct();
     }
 
-// DISPLAY DATA
-    public function getUser($id){
+// AUTHENTIFICAITION
+    public function getUser($nik){
 
+        $this->db->from('bumalati_sld.karyawan as k');
+        $this->db->join('bumalati_sld.jabatan as j','k.JAB_ID = j.JAB_ID','LEFT');
+        $this->db->join('bumalati_sld.code_sld as c','k.CODE_ID = c.CODE_ID','LEFT');
+        $this->db->join('bumalati_sld.section as s','s.SEC_ID = s.SEC_ID','LEFT');
+
+        $this->db->where('KAR_NIK', $nik);
+        return $this->db->get()->row_array();
+    }
+
+// DISPLAY DATA
+    public function getSubordinateById($id){
         $this->db->from('bumalati_sld.karyawan as k');
         $this->db->join('bumalati_sld.jabatan as j','k.JAB_ID = j.JAB_ID','LEFT');
         $this->db->join('bumalati_sld.code_sld as c','k.CODE_ID = c.CODE_ID','LEFT');
