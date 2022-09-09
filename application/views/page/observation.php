@@ -1,7 +1,7 @@
 
 
       <div class="page-wrapper">
-        <div class="container-xl">
+        <div class="container-xl"  style="margin-bottom:100px;">
           <!-- Page title -->
           <div class="page-header d-print-none">
             <div class="row align-items-center">
