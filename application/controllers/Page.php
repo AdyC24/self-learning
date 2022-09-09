@@ -7,22 +7,33 @@ class Page extends CI_Controller{
         $this->load->model('User_model', 'udel');
     }
     public function home(){
-        $data['title'] = 'Home';
+        $karId = $this->session->userdata('id');
+        $employeeId = $this->udel->getEmployeeIdById($karId);
+       
+        $data['title'] = 'Subordinate Details';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
+        $data['subordinate'] = $this->udel->getSubordinateById($karId);
+        $data['direct'] = $this->udel->getDirect($karId);
+        $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
+        $data['competenceCount'] = $this->udel->getCompetencyById($employeeId['employeeId'])->num_rows();
+        
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
-        $this->load->view('page/home');
+        $this->load->view('page/home', $data);
         $this->load->view('template/foot');
     }
     public function movie(){
+        $employeeId = $this->uri->segment('3');
+
         $data['title'] = 'Movies';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['movies'] = $this->udel->getMovies();
+        $data['moviesById'] = $this->udel->getMoviesById($employeeId);
         $data['competences'] = $this->udel->getCompetences();
         $data['genres'] = $this->udel->getGenre();
 

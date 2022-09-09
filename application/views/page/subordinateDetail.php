@@ -43,7 +43,7 @@
                   </div>
                 </div>
                 <div>
-                  <h3><a href="<?= base_url('Page/movie');?>">Self Learnings</a></h3>
+                  <h3><a href="<?= base_url('Page/movie/').$subordinate['employeeId'];?>">Self Learnings</a></h3>
                 </div>
               </div>
               <div>

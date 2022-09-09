@@ -28,6 +28,12 @@ class User_Model extends CI_MODEL{
         $this->db->where('KAR_ID', $id);
         return $this->db->get()->row_array();
     }
+    public function getEmployeeIdById($karId){
+        $this->db->from('employee as e');
+        $this->db->join('bumalati_sld.karyawan as k', 'k.KAR_NIK = e.employeeNIK', 'LEFT'); 
+        $this->db->where('KAR_ID', $karId);
+        return $this->db->get()->row_array();
+    }
     public function getPIC(){
         $db1 = $this->load->database('db2', TRUE);
         $db1->where('KAR_PIC', 'Ya');   
@@ -64,6 +70,14 @@ class User_Model extends CI_MODEL{
     public function getMovies(){
         $this->db->from('movie as m');
         $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+
+        return $this->db->get()->result_array();
+    }
+    public function getMoviesById($employeeId){
+        $this->db->from('movie as m');
+        $this->db->join('emp_comp as e','e.competenceId =  m.competenceId', 'LEFT');
+        $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+        $this->db->where('employeeId', $employeeId);
         return $this->db->get()->result_array();
     }
     public function getMovie($id){
