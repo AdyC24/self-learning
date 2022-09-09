@@ -24,13 +24,7 @@
                       <div class="col-auto ms-auto d-print-none">
                         <div class="d-flex">
                           <div class="me-3">
-                            <div class="input-icon">
-                              <input type="text" class="form-control" placeholder="Search…">
-                              <span class="input-icon-addon">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/search -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
-                              </span>
-                            </div>
+                         
                           </div>
                         </div>
                         
@@ -45,6 +39,7 @@
                     <table class="table card-table table-vcenter text-nowrap datatable">
                       <thead>
                         <tr>
+                          <th></th>
                           <th class="w-1">No</th>
                           <th>Subordinate Name</th>
                           <th>Movie Title</th>
@@ -52,7 +47,9 @@
                           <th>Date/ Time</th>
                           <th>Location</th>
                           <th>Status</th>
+                          <?php if($role != 'lvl12'):?>
                           <th>Action</th>
+                          <?php endif;?>
                           <th></th>
                         </tr>
                       </thead>
@@ -62,6 +59,7 @@
                       <?php $no = 1;?>
                       <?php foreach($tickets as $ticket) :?>
                         <tr>
+                          <td></td>
                           <td><span class="text-muted"><?= $no;?></span></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
@@ -86,6 +84,7 @@
                       <?php $no = 1;?>
                       <?php foreach($subtickets as $ticket) :?>
                         <tr>
+                          <td></td>
                           <td><span class="text-muted"><?= $no;?></span></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
@@ -97,11 +96,6 @@
                           <?php else:?>
                           <td><span class="badge bg-success me-1"></span> Hadir</td>
                           <?php endif;?>
-                          <td class="text-end">
-                            <span>
-                              <a class="btn align-text-top" data-bs-boundary="viewport" data-role="delete" data-id="<?= $ticket['ticketId'];?>">Delete</a>  
-                            </span>
-                          </td>
                         </tr>
                       <?php $no++ ;?>
                       <?php endforeach; ?>

@@ -70,7 +70,7 @@
                         <tr>
                           <td><span class="text-muted"><?= $no;?></span></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
-                          <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
+                          <td><a href="<?= base_url('Page/movieDetail/').$ticket['movieId'];?>" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['competenceName'];?></a></td>
                           <td><?= $ticket['theaterTime'];?></td>
                           <td><?= $ticket['theaterLocation'];?></td>

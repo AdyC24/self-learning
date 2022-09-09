@@ -37,12 +37,21 @@ class Ajax extends CI_Controller
       }
     }
 
-    public function ticket(){
+    public function ticketOnHome(){
       $id = $this->session->userdata('id');
 
       $data['role'] = $this->session->userdata('role');
       $data['subtickets'] = $this->udel->getTicketBySubordinate($id)->result_array();
+     
+      $this->load->view('ajax/ticket', $data);
+    }
+    
+    public function ticketOnSubordinate(){
+      $karId = $this->uri->segment('3');
 
+      $data['role'] = $this->session->userdata('role');
+      $data['subtickets'] = $this->udel->getTicketBySubordinate($karId)->result_array();
+     
       $this->load->view('ajax/ticket', $data);
     }
 

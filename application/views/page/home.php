@@ -181,7 +181,7 @@
   $(document).ready(function(){
     $('#tickets').click(function(){
       $.ajax({
-        url : '<?= base_url('Ajax/ticket')?>',
+        url : '<?= base_url('Ajax/ticketOnHome')?>',
         type : 'POST',
         success : function(result){
           $('#showCard').html(result)
