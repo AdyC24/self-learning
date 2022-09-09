@@ -185,6 +185,7 @@ class Page extends CI_Controller{
     }
     public function subordinate(){
         $karId = $this->uri->segment('3');
+        $employeeId = $this->uri->segment('4');
 
         $data['title'] = 'Subordinate Details';
         $data['name'] = $this->session->userdata('name');
@@ -192,6 +193,7 @@ class Page extends CI_Controller{
         $data['role'] = $this->session->userdata('role');
         $data['subordinate'] = $this->udel->getUser($karId);
         $data['direct'] = $this->udel->getDirect($karId);
+        $data['competences'] = $this->udel->getCompetencyById($employeeId);
         
 
         $this->load->view('template/head', $data);

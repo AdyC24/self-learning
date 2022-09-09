@@ -41,7 +41,7 @@
             
                 <td><?= $no;?></td>
                 <td data-target="employeeNIK"><?= $employee['KAR_NIK']?></td>
-                <td><a class="link-dark" href="<?= base_url('Page/subordinate/').$employee['KAR_ID'];?>"><?= $employee['KAR_NAME']?></a></td>
+                <td><a class="link-dark" href="<?= base_url('Page/subordinate/').$employee['KAR_ID'].'/'.$employee['employeeId'];?>"><?= $employee['KAR_NAME']?></a></td>
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
                 <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>

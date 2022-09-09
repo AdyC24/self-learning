@@ -85,7 +85,7 @@
                           <line x1="10.16" y1="10.62" x2="12.5" y2="13.5"></line>
                           <path d="M15.088 13.328l2.837 -4.586"></path>
                         </svg>
-                        Development Plant
+                        Development Plans
                       </a>
                     </li>
                     <li class="nav-item">
@@ -125,24 +125,15 @@
                 </div>
                 <div class="card-body">
                   <ol class="list-group list-group-numbered">
+                    <?php foreach($competences as $competence) :?>
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                       <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading</div>
-                        Cras justo odio
+                        <div class="fw-bold"><?= $competence['competenceName'];?></div>
+                        <?= $competence['competenceDescription'];?>
                       </div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading</div>
-                        Cras justo odio
-                      </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading</div>
-                        Cras justo odio
-                      </div>
-                    </li>
+                    <?php endforeach;?>
+                  
                   </ol>
                 </div>
               </div>
