@@ -10,7 +10,7 @@ class Page extends CI_Controller{
         $karId = $this->session->userdata('id');
         $employeeId = $this->udel->getEmployeeIdById($karId);
        
-        $data['title'] = 'Subordinate Details';
+        $data['title'] = 'Home';
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');

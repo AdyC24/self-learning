@@ -36,4 +36,23 @@ class Ajax extends CI_Controller
         $this->load->view('ajax/subordinates', $data);
       }
     }
+
+    public function ticket(){
+      $id = $this->session->userdata('id');
+
+      $data['role'] = $this->session->userdata('role');
+      $data['subtickets'] = $this->udel->getTicketBySubordinate($id);
+
+      $this->load->view('ajax/ticket', $data);
+    }
+
+    public function developmentPlan(){
+      $karId = $this->session->userdata('id');
+      $employeeId = $this->udel->getEmployeeIdById($karId);
+
+      $data['role'] = $this->session->userdata('role');
+      $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
+
+      $this->load->view('ajax/developmentPlan', $data);
+    }
 }
