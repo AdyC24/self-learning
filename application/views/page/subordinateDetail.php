@@ -127,7 +127,7 @@
                 <div class="card-body">
                   <?php if($role == 'hr'):?>
                   <div class="mb-2  px-3 d-flex flex-row-reverse">
-                    <button href="#" class="btn btn-primary">Edit Development Plan</button>
+                    <a href="<?= base_url('Page/employee');?>" class="btn btn-primary">Edit Development Plan</a>
                   </div>
                   <?php endif;?>
                   
