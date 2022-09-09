@@ -18,13 +18,20 @@
                   <span><strong>NIK : </strong><?= $subordinate['KAR_NIK']?></span><br>
                   <span><strong>Position : </strong><?= $subordinate['JAB_NAME']?></span><br>
                   <span><strong>Section : </strong><?= $subordinate['SEC_NAME']?></span><br>
-                  <span><strong>Direct : </strong><?=$name;?></span>
+                  <?php if($direct['KAR_NAME'] == '') : ?>
+                    <span><strong>Direct : </strong> - </span>
+                  <?php else : ?>
+                    <span><strong>Direct : </strong><?=$direct['KAR_NAME'];?></span>
+                  <?php endif ; ?>
                 </div>
               </div>
             </div>
             <div class="mx-4">
-              <p class="bg-yellow px-3 py-2 rounded"> Active </p>
-     
+              <?php if($subordinate['employeeStatus'] == 'Ya') :?>
+                <p class="bg-yellow px-3 py-2 rounded"> Active </p>
+              <?php else :?>
+                <p class="bg-danger px-3 py-2 rounded"> Inactive </p>
+              <?php endif;?>
             </div>
           </div>
            <hr>

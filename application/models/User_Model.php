@@ -6,15 +6,16 @@ class User_Model extends CI_MODEL{
     }
 
 // DISPLAY DATA
-    public function getUser($nik){
-        $db1 = $this->load->database('db2', TRUE);
+    public function getUser($id){
 
-        $db1->from('karyawan as k');
-        $db1->join('jabatan as j','k.JAB_ID = j.JAB_ID','LEFT');
-        $db1->join('code_sld as c','k.CODE_ID = c.CODE_ID','LEFT');
-        $db1->join('section as s','s.SEC_ID = s.SEC_ID','LEFT');
-        $db1->where('KAR_NIK', $nik);
-        return $db1->get()->row_array();
+        $this->db->from('bumalati_sld.karyawan as k');
+        $this->db->join('bumalati_sld.jabatan as j','k.JAB_ID = j.JAB_ID','LEFT');
+        $this->db->join('bumalati_sld.code_sld as c','k.CODE_ID = c.CODE_ID','LEFT');
+        $this->db->join('bumalati_sld.section as s','s.SEC_ID = s.SEC_ID','LEFT');
+        $this->db->join('employee as e', 'e.employeeNIK = k.KAR_NIK', 'LEFT');
+
+        $this->db->where('KAR_ID', $id);
+        return $this->db->get()->row_array();
     }
     public function getPIC(){
         $db1 = $this->load->database('db2', TRUE);
