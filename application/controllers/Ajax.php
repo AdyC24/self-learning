@@ -41,7 +41,7 @@ class Ajax extends CI_Controller
       $id = $this->session->userdata('id');
 
       $data['role'] = $this->session->userdata('role');
-      $data['subtickets'] = $this->udel->getTicketBySubordinate($id);
+      $data['subtickets'] = $this->udel->getTicketBySubordinate($id)->result_array();
 
       $this->load->view('ajax/ticket', $data);
     }

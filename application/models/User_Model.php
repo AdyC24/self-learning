@@ -140,7 +140,7 @@ class User_Model extends CI_MODEL{
         $this->db->join('movie as m', 'h.movieId = m.movieId', 'LEFT');
         $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
         $this->db->where('employeeId', $id);
-        return $this->db->get()->result_array();
+        return $this->db->get();
     }
     
     public function getGenre(){

@@ -13,11 +13,11 @@
                 <ul class="list-inline list-inline-dots mb-0">
                   <li class="list-inline-item">
                     Copyright &copy; 2022
-                    <a href="." class="link-secondary">Stage Level Development</a>.
+                    <a href="#" class="link-secondary">Stage Level Development</a>.
                     All rights reserved.
                   </li>
                   <li class="list-inline-item">
-                    <a href="./changelog.html" class="link-secondary" rel="noopener">
+                    <a href="#" class="link-secondary" rel="noopener">
                       v2.0.0
                     </a>
                   </li>

@@ -19,6 +19,7 @@ class Page extends CI_Controller{
         $data['direct'] = $this->udel->getDirect($karId);
         $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
         $data['competenceCount'] = $this->udel->getCompetencyById($employeeId['employeeId'])->num_rows();
+        $data['subticketCount'] = $this->udel->getTicketBySubordinate($karId)->num_rows();
        
        
         $this->load->view('template/head', $data);

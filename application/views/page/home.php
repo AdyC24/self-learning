@@ -40,7 +40,7 @@
               <div>
                 <div class="d-flex justify-content-around">
                   <div>
-                    <h1>4</h1>
+                    <h1><?= $subticketCount;?></h1>
                   </div>
                 </div>
                 <div>
@@ -50,7 +50,7 @@
               <div>
                 <div class="d-flex justify-content-around">
                   <div>
-                    <h1>4</h1>
+                    <h1>0</h1>
                   </div>
                 </div>
                 <div>
