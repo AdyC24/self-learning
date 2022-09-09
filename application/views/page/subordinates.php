@@ -30,7 +30,7 @@
                 <div class="card">
                   <div class="card-body p-4 text-center">
                     <span class="avatar avatar-xl mb-3 avatar-rounded" style="background-image: url(https://sld.bumalati.com/assets/img/<?= $this->session->userdata('photo')?>)"></span>
-                    <h3 class="m-0 mb-1"><a href="<?= base_url('Page/subordinate/').$subordinate['KAR_NIK'];?>"><?= $subordinate['KAR_NAME'];?></a></h3>
+                    <h3 class="m-0 mb-1"><a href="<?= base_url('Page/subordinate/').$subordinate['KAR_ID'].'/'.$subordinate['employeeId'];?>"><?= $subordinate['KAR_NAME'];?></a></h3>
                     <div class="text-muted"><?= $subordinate['JAB_NAME'];?></div>
                     <div class="mt-3">
                         <?php if($subordinate['employeeStatus'] !== 'Ya'){?>

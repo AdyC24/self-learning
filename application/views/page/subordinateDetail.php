@@ -43,7 +43,7 @@
                   </div>
                 </div>
                 <div>
-                  <h3>Self Learnings</h3>
+                  <h3><a href="<?= base_url('Page/movie');?>">Self Learnings</a></h3>
                 </div>
               </div>
               <div>
@@ -59,7 +59,7 @@
               <div>
                 <div class="d-flex justify-content-around">
                   <div>
-                    <h1>10/14</h1>
+                    <h1>0/<?= $competenceCount;?></h1>
                   </div>
                 </div>
                 <div>
@@ -124,9 +124,11 @@
                   </ul>
                 </div>
                 <div class="card-body">
+                  <?php if($role == 'hr'):?>
                   <div class="mb-2  px-3 d-flex flex-row-reverse">
                     <button href="#" class="btn btn-primary">Edit Development Plan</button>
                   </div>
+                  <?php endif;?>
                   
                   <ol class="list-group list-group-numbered">
                     <?php foreach($competences as $competence) :?>

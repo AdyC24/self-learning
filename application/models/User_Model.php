@@ -181,7 +181,7 @@ class User_Model extends CI_MODEL{
         $this->db->join('competence as c', 'c.competenceId = e.competenceId', 'LEFT');
         $this->db->where('empcompStatus', 'Ya');
         $this->db->where('employeeId', $employeeId);
-        return $this->db->get()->result_array();
+        return $this->db->get();
     }
    
 
