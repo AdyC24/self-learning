@@ -51,17 +51,19 @@ class Ajax extends CI_Controller
 
       $data['role'] = $this->session->userdata('role');
       $data['subtickets'] = $this->udel->getTicketBySubordinate($karId)->result_array();
+      $data['id'] = $this->uri->segment('3');
      
       $this->load->view('ajax/ticket', $data);
     }
 
     public function developmentPlan(){
-      $karId = $this->session->userdata('id');
+      $karId = $this->uri->segment('3');
       $employeeId = $this->udel->getEmployeeIdById($karId);
 
       $data['role'] = $this->session->userdata('role');
       $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
       $data['subordinate'] = $this->udel->getSubordinateById($karId);
+      $data['id'] = $this->uri->segment('3');
 
       $this->load->view('ajax/developmentPlan', $data);
     }
