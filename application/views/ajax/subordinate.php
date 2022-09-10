@@ -1,81 +1,7 @@
-<div class="wrapper">
-      <div class="page-wrapper">
-        <div class="container-xl">
-          <!-- Page title -->
-          <div class="page-header">
-            <div class="d-flex justify-content-between">
-            <div class="d-flex">
-              <div>
-                <img class="" style="width:175px; border-radius:50%;" src="https://sld.bumalati.com/assets/img/<?= $subordinate['KAR_PHOTO']?>" alt="<?= $subordinate['KAR_PHOTO']?>">
-              </div>
-              <div class="px-4">
-                <div class="pt-4 pb-3">
-                  <h2 style="margin-bottom:-2px"><?= $subordinate['KAR_NAME']?></h2>
-                </div>
-               
-                <div>
-                  <span><strong>NIK : </strong><?= $subordinate['KAR_NIK']?></span><br>
-                  <span><strong>Position : </strong><?= $subordinate['JAB_NAME']?></span><br>
-                  <span><strong>Section : </strong><?= $subordinate['SEC_NAME']?></span><br>
-                  <?php if($direct['KAR_NAME'] == '') : ?>
-                    <span><strong>Direct : </strong> - </span><br>
-                  <?php else : ?>
-                    <span><strong>Direct : </strong><?=$direct['KAR_NAME'];?></span><br>
-                  <?php endif ; ?>
-                </div>
-              </div>
-            </div>
-            <div class="mx-4">
-              <?php if($subordinate['employeeStatus'] == 'Ya') :?>
-                <p class="bg-yellow px-3 py-2 rounded"> Active </p>
-              <?php else :?>
-                <p class="bg-danger px-3 py-2 rounded"> Inactive </p>
-              <?php endif;?>
-            </div>
-            </div>
-           <hr>
-            <div class="d-flex justify-content-evenly">
-              <div>
-                <div class="d-flex justify-content-around">
-                  <div>
-                    <h1><?= $subticketCount;?></h1>
-                  </div>
-                </div>
-                <div>
-                  <h3><a href="<?= base_url('Page/movie/').$subordinate['employeeId'];?>">Self Learnings</a></h3>
-                </div>
-              </div>
-              <div>
-                <div class="d-flex justify-content-around">
-                  <div>
-                    <h1>0</h1>
-                  </div>
-                </div>
-                <div>
-                  <h3>Special Tasks</h3>
-                </div>
-              </div>
-              <div>
-                <div class="d-flex justify-content-around">
-                  <div>
-                    <h1>0/<?= $competenceCount;?></h1>
-                  </div>
-                </div>
-                <div>
-                  <h3>Observations</h3>
-                </div>
-              </div>
-            </div>
-            <hr>
-          </div>
-          <div class="page-body">
-            <div class="col-12">
-              <div class="card" id="showCard">
-              
-                <div class="card-header">
+<div class="card-header">
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">
+                      <a class="nav-link" href="#" id="developmentPlan">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-dots" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                           <path d="M3 3v18h18"></path>
@@ -104,13 +30,13 @@
                       Tickets
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="specialTask">
                       <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 11 12 14 20 6" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
                       Special Tasks
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="observation">
                         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -120,8 +46,8 @@
                       Observation
                       </a>
                     </li>
-                    <li class="nav-item" id="subordinates">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hierarchy-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                           <circle cx="12" cy="5" r="2"></circle>
@@ -140,57 +66,61 @@
                       Subordinates
                       </a>
                     </li>
-                   
                   </ul>
                 </div>
-                <?php if($subordinate['employeeStatus'] == 'Ya') :?>
                 <div class="card-body">
-                  <?php if($role == 'hr'):?>
-                  <div class="mb-2  px-3 d-flex flex-row-reverse">
-                    <a href="<?= base_url('Page/employee');?>" class="btn btn-primary">Edit Development Plan</a>
-                  </div>
-                  <?php endif;?>
-                  
-                  <ol class="list-group list-group-numbered">
-                    <?php foreach($competences as $competence) :?>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold"><?= $competence['competenceName'];?></div>
-                        <?= $competence['competenceDescription'];?>
-                      </div>
-                    </li>
-                    <?php endforeach;?>
-                  
-                  </ol>
-                </div>
-                <?php endif;?>
-              </div>
-            </div>
-          </div>
-        </div>
+                    <div class="col-12 table-responsive">
+                        <table id="employees" class="table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No</th>
+                                    <th>NIK</th>
+                                    <th>Nama</th>
+                                    <th>Position</th>
+                                    <th>Section</th>
+                                    <th class="text-center">Action</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php $no = 1;?>
+                        
+                                <tr id="">
+                                    <td></td>
+                                    <td><?= $no;?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-center"><a href="#" class="btn btn-danger align-text-top" data-bs-boundary="viewport">Delete</a></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>  
+                        </table> 
+                    </div>
 
+                    
 <!-- Javascript -->
 <script type="text/javascript">
   $(document).ready(function(){
+    $('#developmentPlan').click(function(){
+      $.ajax({
+        url : '<?= base_url('Ajax/developmentPlan/').$id?>',
+        type : 'POST',
+        success : function(result){
+          $('#showCard').html(result)
+        }
+      })
+    })
     $('#tickets').click(function(){
-      $.ajax({
-        url : '<?= base_url('Ajax/ticketOnSubordinate/').$subordinate['KAR_ID']?>',
-        type : 'POST',
-        success : function(result){
-          $('#showCard').html(result)
-        }
-      })
+        $.ajax({
+            url : '<?= base_url('Ajax/ticketOnSubordinate/').$id?>',
+            type : 'POST',
+            success : function(result){
+                $('#showCard').html(result)
+            }
+        })
     })
-    $('#subordinates').click(function(){
-      $.ajax({
-        url : '<?= base_url('Ajax/subordinate/').$subordinate['KAR_ID']?>',
-        type : 'POST',
-        success : function(result){
-          $('#showCard').html(result)
-        }
-      })
-    })
-
-
   })
 </script>

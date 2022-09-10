@@ -67,4 +67,10 @@ class Ajax extends CI_Controller
 
       $this->load->view('ajax/developmentPlan', $data);
     }
+
+    public function subordinate(){
+      $data['id'] = $this->uri->segment('3');
+
+      $this->load->view('ajax/subordinate', $data);
+    }
 }
