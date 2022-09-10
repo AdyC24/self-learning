@@ -18,9 +18,9 @@
                   <span><strong>Position : </strong><?= $subordinate['JAB_NAME']?></span><br>
                   <span><strong>Section : </strong><?= $subordinate['SEC_NAME']?></span><br>
                   <?php if($direct['KAR_NAME'] == '') : ?>
-                    <span><strong>Direct : </strong> - </span>
+                    <span><strong>Direct : </strong> - </span><br>
                   <?php else : ?>
-                    <span><strong>Direct : </strong><?=$direct['KAR_NAME'];?></span>
+                    <span><strong>Direct : </strong><?=$direct['KAR_NAME'];?></span><br>
                   <?php endif ; ?>
                 </div>
               </div>
@@ -118,6 +118,26 @@
                         <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7"></path>
                         </svg>
                       Observation
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hierarchy-3" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                          <circle cx="12" cy="5" r="2"></circle>
+                          <circle cx="8" cy="12" r="2"></circle>
+                          <circle cx="12" cy="19" r="2"></circle>
+                          <circle cx="20" cy="19" r="2"></circle>
+                          <circle cx="4" cy="19" r="2"></circle>
+                          <circle cx="16" cy="12" r="2"></circle>
+                          <path d="M5 17l2 -3"></path>
+                          <path d="M9 10l2 -3"></path>
+                          <path d="M13 7l2 3"></path>
+                          <path d="M17 14l2 3"></path>
+                          <path d="M15 14l-2 3"></path>
+                          <path d="M9 14l2 3"></path>
+                        </svg>
+                      Subordinates
                       </a>
                     </li>
                    

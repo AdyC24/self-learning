@@ -221,6 +221,7 @@ class Page extends CI_Controller{
         $data['name'] = $this->session->userdata('name');
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
+        $data['relations'] = $this->udel->getRelation();
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

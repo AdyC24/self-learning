@@ -197,6 +197,9 @@ class User_Model extends CI_MODEL{
         $this->db->where('employeeId', $employeeId);
         return $this->db->get();
     }
+    public function getRelation(){
+        return $this->db->get('bumalati_sld.relasi')->result_array();
+    }
    
 
 
