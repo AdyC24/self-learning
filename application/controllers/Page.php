@@ -38,6 +38,7 @@ class Page extends CI_Controller{
         $data['moviesById'] = $this->udel->getMoviesById($employeeId);
         $data['competences'] = $this->udel->getCompetences();
         $data['genres'] = $this->udel->getGenre();
+        $data['id'] = $this->uri->segment('3');
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
@@ -65,6 +66,7 @@ class Page extends CI_Controller{
         $movieId = $this->uri->segment('3');
         $id = $this->session->userdata('id');
         $theaterStatus = 'Ya';
+            
 
         $data['title'] = 'Movie Details';
         $data['name'] = $this->session->userdata('name');
@@ -73,6 +75,7 @@ class Page extends CI_Controller{
         $data['movie'] = $this->udel->getMovie($movieId);
         $data['theaters'] = $this->udel->getTheater($movieId, $theaterStatus);
         $data['subordinates'] = $this->udel->getSubordinate($id);
+        $data['id'] = $this->uri->segment('4');
        
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

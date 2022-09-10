@@ -9,7 +9,7 @@
               <div class="page-pretitle">
                   Self Learning
                 </div>
-                <h2 class="page-title"><a href="<?= base_url('Page/movie');?>">Movies</a> / <?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)
+                <h2 class="page-title"><a href="<?= base_url('Page/movie/').$id;?>">Movies</a> / <?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)
                 </h2>
               </div>
             </div>
