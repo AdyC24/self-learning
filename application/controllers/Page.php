@@ -38,7 +38,6 @@ class Page extends CI_Controller{
         $data['moviesById'] = $this->udel->getMoviesById($employeeId);
         $data['competences'] = $this->udel->getCompetences();
         $data['genres'] = $this->udel->getGenre();
-        $data['id'] = $this->uri->segment('3');
 
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

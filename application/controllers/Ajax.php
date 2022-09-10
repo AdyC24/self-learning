@@ -11,8 +11,16 @@ class Ajax extends CI_Controller
       $val = $this->input->post('search');
       if($val){
         $data['movies'] = $this->udel->getMoviesSearch($val);
-        
-
+        $this->load->view('ajax/movie', $data);
+      } else {
+        $data['movies'] = $this->udel->getMovies();
+        $this->load->view('ajax/movie', $data);
+      }
+    }   
+    public function movieSearchById(){
+      $val = $this->input->post('search');
+      if($val){
+        $data['movies'] = $this->udel->getMoviesSearch($val);
         $this->load->view('ajax/movie', $data);
       } else {
         $data['movies'] = $this->udel->getMovies();

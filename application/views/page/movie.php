@@ -17,7 +17,11 @@
                 <div class="d-flex">
                   <div class="me-3">
                     <div class="input-icon">
+                      <?php if($id = ''):?>
                       <input type="text" id="movieSearch" class="form-control" placeholder="Search…">
+                      <?php else:?>
+                        <input type="text" id="movieSearchById" class="form-control" placeholder="Search…">
+                      <?php endif;?>
                       <span class="input-icon-addon">
                         <!-- Download SVG icon from http://tabler-icons.io/i/search -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
@@ -76,7 +80,7 @@
                 <?php foreach($moviesById as $movie){?>
                 <div class="col-sm-6 col-lg-4 mb-4">
                   <div class="card card-sm">
-                    <a href="<?= base_url('Page/movieDetail/').$movie['movieId'].'/'.$id?>" class="d-block"><img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" class="card-img-top"></a>
+                    <a href="<?= base_url('Page/movieDetail/').$movie['movieId'].'/'.$this->uri->segment('3');?>" class="d-block"><img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" class="card-img-top"></a>
                     <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div>
@@ -184,6 +188,18 @@
       $('#movieSearch').keyup(function(){
         $.ajax({
           url: '<?= base_url('Ajax/movieSearch');?>',
+          type: 'POST',
+          data: {
+            search: $(this).val()
+          },
+          success: function(data){
+            $('#movieShow').html(data)
+          } 
+        })
+      })
+      $('#movieSearchById').keyup(function(){
+        $.ajax({
+          url: '<?= base_url('Ajax/movieSearchById');?>',
           type: 'POST',
           data: {
             search: $(this).val()
