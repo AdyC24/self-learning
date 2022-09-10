@@ -98,6 +98,17 @@ class User_Model extends CI_MODEL{
             return $this->db->get()->result_array();
         }
     }
+    public function getMoviesSearchById($val, $employeeId){
+        if ($val != '') {
+            $this->db->from('movie as m');
+            $this->db->join('competence as c', 'm.competenceId = c.competenceId', 'LEFT');
+            $this->db->join('emp_comp as e', 'e.competenceId =  m.competenceId', 'LEFT');
+            $this->db->where('employeeId', $employeeId);
+            $this->db->like('movieName', $val);
+            $this->db->or_like('competenceName', $val);
+            return $this->db->get()->result_array();
+        }
+    }
     public function getCompetences(){
         return $this->db->get('competence')->result_array();
     }

@@ -52,7 +52,6 @@
                     <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div>
-
                           <?php if($movie['movieActive'] != 'Tidak'){?>
                             <span class="badge bg-yellow">Active</span>
                             <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
@@ -62,7 +61,6 @@
                             <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
                             <span class="text-muted"><?= $movie['competenceName'] ;?></span>
                           <?php };?>
-
                         </div>
                         <div class="ms-auto">
                           <a href="#" class="text-muted">
@@ -84,7 +82,6 @@
                     <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div>
-
                           <?php if($movie['movieActive'] != 'Tidak'){?>
                             <span class="badge bg-yellow">Active</span>
                             <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
@@ -94,7 +91,6 @@
                             <div><?= $movie['movieName'];?> (<?= $movie['movieYear'];?>)</div>
                             <span class="text-muted"><?= $movie['competenceName'] ;?></span>
                           <?php };?>
-
                         </div>
                         <div class="ms-auto">
                           <a href="#" class="text-muted">
@@ -199,7 +195,7 @@
       })
       $('#movieSearchById').keyup(function(){
         $.ajax({
-          url: '<?= base_url('Ajax/movieSearchById');?>',
+          url: '<?= base_url('Ajax/movieSearchById/').$this->uri->segment('3');?>',
           type: 'POST',
           data: {
             search: $(this).val()

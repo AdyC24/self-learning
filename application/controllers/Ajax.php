@@ -18,12 +18,13 @@ class Ajax extends CI_Controller
       }
     }   
     public function movieSearchById(){
+      $employeeId = $this->uri->segment('3');
       $val = $this->input->post('search');
       if($val){
-        $data['movies'] = $this->udel->getMoviesSearch($val);
+        $data['movies'] = $this->udel->getMoviesSearchById($val, $employeeId);
         $this->load->view('ajax/movie', $data);
       } else {
-        $data['movies'] = $this->udel->getMovies();
+        $data['movies'] = $this->udel->getMoviesById($employeeId);
         $this->load->view('ajax/movie', $data);
       }
     }   
