@@ -69,7 +69,10 @@ class Ajax extends CI_Controller
     }
 
     public function subordinate(){
+      $karId = $this->uri->segment('3');
+
       $data['id'] = $this->uri->segment('3');
+      $data['subordinates'] = $this->udel->getSubordinate($karId);
 
       $this->load->view('ajax/subordinate', $data);
     }
