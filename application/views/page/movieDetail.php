@@ -81,12 +81,15 @@
                               <table class="table card-table table-vcenter text-nowrap datatable">
                                 <thead>
                                   <tr>
+                                    <?php if($id != ''):?>
                                     <?php if($role != 'lvl12'){
                                       echo '<th>Action</th>';
                                     } else{
                                       echo '<th></th>';
                                     };?>
-                                    
+                                    <?php else:?>
+                                      <th></th>
+                                      <?php endif;?>
                                     <th>Date/ Time</th>
                                     <th>Location</th>
 
@@ -105,6 +108,7 @@
 
                                 <?php foreach($theaters as $theater):?>
                                   <tr id="<?= $theater['theaterId'];?>">
+                                    <?php if($id != '') :?>
                                     <td class="text-start">
                                       <?php if($role != 'lvl345'){?>
                                         <?php if($role != 'lvl12'){?>
@@ -123,12 +127,16 @@
                                     <?php };?>
                                     <?php if($role != 'hr'):?>
                                       <?php if($role != 'lvl12'):?>
+
                                       <span>
                                         <a class="btn align-text-top" data-bs-boundary="viewport" data-role="register" data-id="<?= $theater['theaterId'];?>">Register</a>
                                       </span>
                                     <?php endif;?>
                                     <?php endif;?>
                                     </td>
+                                    <?php else:?>
+                                      <td></td>
+                                      <?php endif;?>
                                     <td hidden data-target="movieName"><?= $movie['movieName'];?></td>
                                     <td hidden data-target="competenceName"><?= $movie['competenceName'];?></td>
                                     <td data-target="datetime"><?= $theater['theaterTime'];?></td>
