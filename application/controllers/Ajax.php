@@ -40,7 +40,7 @@ class Ajax extends CI_Controller
     public function ticketOnHome(){
       $id = $this->session->userdata('id');
 
-      $data['role'] = $this->session->userdata('role');
+      
       $data['subtickets'] = $this->udel->getTicketBySubordinate($id)->result_array();
      
       $this->load->view('ajax/ticket', $data);
@@ -49,7 +49,7 @@ class Ajax extends CI_Controller
     public function ticketOnSubordinate(){
       $karId = $this->uri->segment('3');
 
-      $data['role'] = $this->session->userdata('role');
+      
       $data['subtickets'] = $this->udel->getTicketBySubordinate($karId)->result_array();
       $data['id'] = $this->uri->segment('3');
      
@@ -71,6 +71,7 @@ class Ajax extends CI_Controller
     public function subordinate(){
       $karId = $this->uri->segment('3');
 
+      $data['role'] = $this->session->userdata('role');
       $data['id'] = $this->uri->segment('3');
       $data['subordinates'] = $this->udel->getSubordinate($karId);
 

@@ -69,8 +69,13 @@
                   </ul>
                 </div>
                 <div class="card-body">
+                <?php if($role == 'hr'):?>
+                  <div class="mb-2  px-3 d-flex flex-row-reverse">
+                    <button href="#" class="btn btn-primary">Add Relation</button>
+                  </div>
+                  <?php endif;?>
                     <div class="col-12 table-responsive">
-                        <table id="employees" class="table" style="width:100%">
+                        <table id="employees" class="table card-table table-vcenter text-nowrap datatable" style="width:100%">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -86,14 +91,14 @@
                             <tbody>
                             <?php $no = 1;?>
                             <?php foreach($subordinates as $subordinate):?>
-                                <tr id="<?= $subordinate['KAR_ID'] ;?>">
+                                <tr id="<?= $subordinate['KAR_ID'];?>">
                                     <td></td>
                                     <td><?= $no;?></td>
-                                    <td><?= $subordinate{'KAR_NIK'};?></td>
+                                    <td><?= $subordinate['KAR_NIK'];?></td>
                                     <td><?= $subordinate['KAR_NAME'];?></td>
-                                    <td><?= $subordinate{'JAB_NAME'};?></td>
-                                    <td><?= $subordinate{'SEC_NAME'};?></td>
-                                    <td class="text-center"><a href="#" class="btn btn-danger align-text-top" data-bs-boundary="viewport">Delete</a></td>
+                                    <td><?= $subordinate['JAB_NAME'];?></td>
+                                    <td><?= $subordinate['SEC_NAME'];?></td>
+                                    <td class="text-center"><a href="#" class="btn btn-outline-danger align-text-top" data-bs-boundary="viewport">Delete</a></td>
                                     <td></td>
                                 </tr>
                             <?php $no++;?>
