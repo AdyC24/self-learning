@@ -71,9 +71,7 @@
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Profile & account</a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">Settings</a>
+                <a href="#" class="dropdown-item">Change Password</a>
                 <a href="<?=base_url('Auth/logout');?>" class="dropdown-item">Logout</a>
               </div>
             </div>

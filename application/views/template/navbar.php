@@ -34,7 +34,7 @@
                   <div class="dropdown-menu">
                     <div class="dropdown-menu-columns">
                       <div class="dropdown-menu-column">
-                        <a class="dropdown-item" href="<?= base_url('Page/movie');?>" >
+                        <a class="dropdown-item" href="<?= base_url('Page/movies');?>" >
                           Movies 
                         </a>
                         <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >

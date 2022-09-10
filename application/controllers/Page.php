@@ -44,6 +44,23 @@ class Page extends CI_Controller{
         $this->load->view('page/movie', $data);
         $this->load->view('template/foot');
     }
+    public function movies(){
+        $employeeId = $this->uri->segment('3');
+
+        $data['title'] = 'Movies';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['movies'] = $this->udel->getMovies();
+        $data['moviesById'] = $this->udel->getMoviesById($employeeId);
+        $data['competences'] = $this->udel->getCompetences();
+        $data['genres'] = $this->udel->getGenre();
+
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/movies', $data);
+        $this->load->view('template/foot');
+    }
     public function movieDetail(){
         $movieId = $this->uri->segment('3');
         $id = $this->session->userdata('id');
@@ -60,6 +77,24 @@ class Page extends CI_Controller{
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);
         $this->load->view('page/movieDetail', $data);
+        $this->load->view('template/foot');
+    }
+    public function movieReview(){
+        $movieId = $this->uri->segment('3');
+        $id = $this->session->userdata('id');
+        $theaterStatus = 'Ya';
+
+        $data['title'] = 'Movie Details';
+        $data['name'] = $this->session->userdata('name');
+        $data['position'] = $this->session->userdata('position');
+        $data['role'] = $this->session->userdata('role');
+        $data['movie'] = $this->udel->getMovie($movieId);
+        $data['theaters'] = $this->udel->getTheater($movieId, $theaterStatus);
+        $data['subordinates'] = $this->udel->getSubordinate($id);
+       
+        $this->load->view('template/head', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('page/movieReview', $data);
         $this->load->view('template/foot');
     }
     public function theater(){
