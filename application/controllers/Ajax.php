@@ -35,11 +35,7 @@ class Ajax extends CI_Controller
       
       if($val){
         $data['subordinates'] = $this->udel->getSubordinateSearch($id, $val);
-        
-        
           $this->load->view('ajax/subordinates', $data);
-        
-        
       } else {
         $data['subordinates'] = $this->udel->getSubordinate($id);
         $this->load->view('ajax/subordinates', $data);
@@ -49,19 +45,16 @@ class Ajax extends CI_Controller
     public function ticketOnHome(){
       $id = $this->session->userdata('id');
 
-      
       $data['subtickets'] = $this->udel->getTicketBySubordinate($id)->result_array();
-     
+      $data['id'] = $id;
       $this->load->view('ajax/ticket', $data);
     }
     
     public function ticketOnSubordinate(){
       $karId = $this->uri->segment('3');
 
-      
       $data['subtickets'] = $this->udel->getTicketBySubordinate($karId)->result_array();
-      $data['id'] = $this->uri->segment('3');
-     
+      $data['id'] = $karId;
       $this->load->view('ajax/ticket', $data);
     }
 

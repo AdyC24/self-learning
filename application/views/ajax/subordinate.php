@@ -82,9 +82,12 @@
                                     <th>No</th>
                                     <th>NIK</th>
                                     <th>Nama</th>
-                                    <th>Position</th>
-                                    <th>Section</th>
+                                    <th>Self Learning</th>
+                                    <th>Special Task</th>
+                                    <th>Observations</th>
+                                    <?php if($role == 'hr'):?>
                                     <th class="text-center">Action</th>
+                                    <?php endif;?>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -96,9 +99,12 @@
                                     <td><?= $no;?></td>
                                     <td><?= $subordinate['KAR_NIK'];?></td>
                                     <td><?= $subordinate['KAR_NAME'];?></td>
-                                    <td><?= $subordinate['JAB_NAME'];?></td>
-                                    <td><?= $subordinate['SEC_NAME'];?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <?php if($role == 'hr'):?>
                                     <td class="text-center"><a href="#" class="btn btn-outline-danger align-text-top" data-bs-boundary="viewport">Delete</a></td>
+                                    <?php endif;?>
                                     <td></td>
                                 </tr>
                             <?php $no++;?>
