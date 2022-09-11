@@ -41,7 +41,7 @@
                               <?php if($role == 'hr'):?>
                               <div class="mt-3 col-6 d-flex justify-content-end">
                                   <span class="dropdown">
-                                      <button class="btn" data-bs-boundary="viewport" data-bs-toggle="dropdown">
+                                      <button class="btn dropdown-toggle" data-bs-boundary="viewport" data-bs-toggle="dropdown">
                                         Activation
                                       </button>
                                       <div class="dropdown-menu dropdown-menu-end">
