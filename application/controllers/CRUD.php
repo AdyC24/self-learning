@@ -45,36 +45,42 @@ class CRUD extends CI_Controller{
 
     public function register(){
         $theaterId = $this->input->post('theaterId');
-        $employeeId = $this->input->post('subordinateId');
+        $karId = $this->input->post('subordinateId');
+        $employee = $this->udel->getEmployeeIdById($karId);
+        $employeeId = $employee['employeeId'];
+
+        
         $ticketStatus = 'Terdaftar';
        
         $data = array(
             'theaterId' => $theaterId,
-            'employeeId' => $employeeId,
+            'employeeId' => $karId,
             'ticketStatus' => $ticketStatus
         );
 
-        $checkTicket = $this->udel->checkTicket($theaterId, $employeeId);
-        $countTicket = $this->udel->countTicket($theaterId);
+        $checkTicket = $this->udel->checkTicket($theaterId, $karId);
+        $countTicket = $this->udel->countTicket($theaterId) + 1;
+        $countTicketById = $this->udel->countTicketById($karId) + 1;
         
+        $data1 = array (
+            'employeeTicketCount' => $countTicketById
+        );
+        $where = $employeeId;
+
         $dataTicket = array(
             'theaterTicketCount' => $countTicket
         ); 
-        
         if($countTicket == 20){
             $this->session->set_flashdata('failed','Not Success: This theater has been full');
-            redirect('ticket');
         }
-
-        $this->udel->updateCountTicket('theater', $dataTicket, $theaterId);
-
         if($checkTicket >= 1){
             $this->session->set_flashdata('failed','Not Success: Ticket has been already created on this theater');
-            redirect('ticket');
         } else {
             $this->udel->insert('ticket', $data);
-            redirect('ticket');
         }
+        $this->udel->updateCountTicket('theater', $dataTicket, $theaterId);
+        $this->udel->updateCountTicketById('employee', $data1, $where);
+        redirect('ticket');
     }
 
     public function deleteTheater(){

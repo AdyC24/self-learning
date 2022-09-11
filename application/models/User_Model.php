@@ -168,6 +168,10 @@ class User_Model extends CI_MODEL{
         $this->db->where('theaterId', $theaterId);
         return $this->db->get('ticket')->num_rows();
     }
+    public function countTicketById($karId){
+        $this->db->where('employeeId', $karId);
+        return $this->db->get('ticket')->num_rows();
+    }
     public function getTicketbyId($theaterId){
         $this->db->from('ticket as t');
         $this->db->join('bumalati_sld.karyawan as k', 't.employeeId = k.KAR_ID', 'LEFT');
@@ -218,6 +222,10 @@ class User_Model extends CI_MODEL{
 
 // CRUD DATA
 
+    public function updateCountTicketById($table, $data, $where){
+        $this->db->where('employeeId', $where);
+        $this->db->update($table, $data);
+    }
     public function updateTheater($table, $data, $where){
         $this->db->where('theaterId', $where);
         $this->db->update($table, $data);
