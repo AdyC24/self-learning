@@ -17,6 +17,30 @@
                     </span>
                   </a>
                 </li>
+                <?php if($role == 'lvl345'){?>
+                  <?php if($title == 'Subordinates' || $title == 'Subordinate Details'){
+                    echo '<li class="nav-item active">';
+                  } else {
+                    echo '<li class="nav-item">';
+                  };?>
+                      <a class="nav-link" href="<?= base_url('Page/subordinates');?>" >
+                        <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-affiliate" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275"></path>
+                        <path d="M11.683 12.317l5.759 -5.759"></path>
+                        <circle cx="5.5" cy="5.5" r="1.5"></circle>
+                        <circle cx="18.5" cy="5.5" r="1.5"></circle>
+                        <circle cx="18.5" cy="18.5" r="1.5"></circle>
+                        <circle cx="8.5" cy="15.5" r="4.5"></circle>
+                      </svg>    
+                      </span>
+                        <span class="nav-link-title">
+                          Subordinates
+                        </span>
+                      </a>
+                    </li>
+                <?php };?>
                 <?php if($title == 'Movies' || $title == 'Theaters' || $title == 'Movie Details' || $title == 'Tickets' || $title == 'Archive' || $title == 'Absence'): ?>
                   <li class="nav-item dropdown active">
                 <?php else:?>
@@ -119,30 +143,7 @@
                 </li>
                   <?php };?>
                 <?php };?>
-                <?php if($role == 'lvl345'){?>
-                  <?php if($title == 'Subordinates' || $title == 'Subordinate Details'){
-                    echo '<li class="nav-item active">';
-                  } else {
-                    echo '<li class="nav-item">';
-                  };?>
-                      <a class="nav-link" href="<?= base_url('Page/subordinates');?>" >
-                        <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-affiliate" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275"></path>
-                        <path d="M11.683 12.317l5.759 -5.759"></path>
-                        <circle cx="5.5" cy="5.5" r="1.5"></circle>
-                        <circle cx="18.5" cy="5.5" r="1.5"></circle>
-                        <circle cx="18.5" cy="18.5" r="1.5"></circle>
-                        <circle cx="8.5" cy="15.5" r="4.5"></circle>
-                      </svg>    
-                      </span>
-                        <span class="nav-link-title">
-                          Subordinates
-                        </span>
-                      </a>
-                    </li>
-                <?php };?>
+                
                 
                 <?php if($title == 'Competences'){
                   echo '<li class="nav-item active">';
