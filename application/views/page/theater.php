@@ -244,6 +244,7 @@
       var datetime = $('#'+id).children('td[data-target=datetime]').text();
       var location = $('#'+id).children('td[data-target=location]').text();
 
+
       // taruh value di id input masing-masing
       $('#movieName').val(movieName);
       $('#competenceName').val(competenceName);

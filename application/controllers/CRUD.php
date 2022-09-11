@@ -61,15 +61,15 @@ class CRUD extends CI_Controller{
         $checkTicket = $this->udel->checkTicket($theaterId, $karId);
         $countTicket = $this->udel->countTicket($theaterId) + 1;
         $countTicketById = $this->udel->countTicketById($karId) + 1;
+        $where = $employeeId;
         
         $data1 = array (
             'employeeTicketCount' => $countTicketById
         );
-        $where = $employeeId;
-
         $dataTicket = array(
             'theaterTicketCount' => $countTicket
         ); 
+
         if($countTicket == 20){
             $this->session->set_flashdata('failed','Not Success: This theater has been full');
         }
@@ -88,16 +88,23 @@ class CRUD extends CI_Controller{
         $where = $this->input->post('theaterId');      
 
         $this->udel->delete('theater', $where);
-        if($movieId >= 1){
+        if($movieId >= 1){  
             redirect('Page/movieDetail/'.$movieId);
         } else {
             redirect('theater');
         }
     }
     public function deleteTicket(){
-        $where = $this->input->post('ticketId');      
+        $where = $this->input->post('ticketId'); 
+        $theaterId = $this->input->post('theaterId'); 
 
         $this->udel->deleteTicket('ticket', $where);
+
+        $countTicket = $this->udel->countTicket($theaterId); 
+        $dataTicket = array(
+            'theaterTicketCount' => $countTicket
+        ); 
+        $this->udel->updateCountTicket('theater', $dataTicket, $theaterId);
             redirect('ticket');
    
     }

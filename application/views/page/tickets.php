@@ -58,8 +58,9 @@
                       <?php if($role != 'lvl12'):?>
                       <?php $no = 1;?>
                       <?php foreach($tickets as $ticket) :?>
-                        <tr>
+                        <tr id="<?= $ticket['ticketId'];?>">
                           <td></td>
+                          <td hidden data-target="theaterId"><?= $ticket['theaterId'];?></td>
                           <td><span class="text-muted"><?= $no;?></span></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['KAR_NAME'];?></a></td>
                           <td><a href="#" class="text-reset" tabindex="-1"><?= $ticket['movieName'];?></a></td>
@@ -126,6 +127,7 @@
             <div class="modal-body"> 
                 <input type="hidden" id="deleteTicketId">
                 <p class="text-center">Are you sure delete this Ticket?</p>
+                <input type="hidden" id="">
             </div>
             <div class="modal-footer" >
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -142,20 +144,22 @@
     // siapkan value di input field di modal delete
     $(document).on('click','a[data-role=delete]',function(){
       var id = $(this).data('id');
+      var theaterId = $('#'+id).children('td[data-target=theaterId]').text();
 
       // taruh value di id input theaterId id = 
       $('#deleteTicketId').val(id);
       $('#deleteTicket').modal('toggle');
 
       $('#deleteTicketButton').click(function(){
-
+       
         var id = $('#deleteTicketId').val();
 
         $.ajax({
           url     : '<?= base_url('CRUD/deleteTicket');?>',
           method  : 'post',
           data    : {
-            ticketId   : id
+            ticketId   : id,
+            theaterId  : theaterId
           },
           success : function(response){
             console.log(response);
