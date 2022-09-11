@@ -98,7 +98,7 @@
                                     <td></td>
                                     <td><?= $no;?></td>
                                     <td><?= $subordinate['KAR_NIK'];?></td>
-                                    <td><?= $subordinate['KAR_NAME'];?></td>
+                                    <td><a href="<?= base_url('Page/subordinate/').$subordinate['KAR_ID'].'/'.$subordinate['employeeId'];?>" class=""><?= $subordinate['KAR_NAME'];?></a></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
