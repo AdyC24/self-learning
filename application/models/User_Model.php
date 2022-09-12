@@ -219,8 +219,17 @@ class User_Model extends CI_MODEL{
         $this->db->where('employeeId', $employeeId);
         return $this->db->get();
     }
-    public function getRelation(){
-        return $this->db->get('bumalati_sld.relasi')->result_array();
+    public function getKarIdByStatus(){
+        $this->db->select('KAR_ID');
+        $this->db->from('employee as e');
+        $this->db->join('bumalati_sld.karyawan as k','e.employeeNIK = k.KAR_NIK', 'LEFT');
+        $this->db->where('employeeStatus', 'Ya');
+        return $this->db->get()->result_array();
+    }
+    public function getCompetenceName($competenceId){
+        $this->db->select('competenceName');
+        $this->db->where('competenceId', $competenceId);
+        return $this->db->get('competence')->row_array();
     }
    
 

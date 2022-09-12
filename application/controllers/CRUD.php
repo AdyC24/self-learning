@@ -110,6 +110,7 @@ class CRUD extends CI_Controller{
     }
     public function insertMovie(){
         $competenceId = $this->input->post('competencyId');
+        $competenceName = $this->udel->getCompetenceName($competenceId);
         $genreId = $this->input->post('genreId');
         $movieName = $this->input->post('movieName');
         $movieSynopsis = $this->input->post('movieSynopsis');
@@ -119,6 +120,7 @@ class CRUD extends CI_Controller{
         $movieActive = 'Ya';
         $movieYear = $this->input->post('movieYear');
         $movieLanguage = $this->input->post('movieLanguage');
+        $KarIdByStatus = $this->udel->getKarIdByStatus();
 
         $data = array (
             'competenceId' => $competenceId,
@@ -134,6 +136,15 @@ class CRUD extends CI_Controller{
         );
 
         $this->udel->insert('movie', $data);
+
+        foreach($KarIdByStatus as $karId){
+
+            $data1 = array (
+                'notificationText' => 'Movie '.$movieName.' dengan kompetensi '.$competenceName['competenceName'].' telah ditambahkan',
+                'KAR_ID' => $karId['KAR_ID']
+            );
+            $this->udel->insert('notification', $data1);
+        };
         redirect('movie');
     }
     public function movieActivation(){
