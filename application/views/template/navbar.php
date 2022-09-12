@@ -59,10 +59,10 @@
                     <div class="dropdown-menu-columns">
                       <div class="dropdown-menu-column">
                         <a class="dropdown-item" href="<?= base_url('Page/movie');?>" >
-                          Movies 
+                          Movies List 
                         </a>
                         <a class="dropdown-item" href="<?=base_url('Page/theater');?>" >
-                          Theaters
+                          Theater Schedules
                         </a>
                         <?php if($role != 'lvl345'){ ?>
                           <?php if($role != 'lvl12') { ?>
