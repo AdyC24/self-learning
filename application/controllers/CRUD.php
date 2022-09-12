@@ -151,6 +151,9 @@ class CRUD extends CI_Controller{
         $movieId = $this->uri->segment('3');
         $theaterId = $this->uri->segment('4');
         $ticketIds = $this->input->post('ticketId');
+        $karId = $this->input->post('karId');
+        $employee = $this->udel->getEmployeeIdById($karId);
+        $employeeId = $employee['employeeId'];
        
         foreach($ticketIds as $ticketId){
 
@@ -159,8 +162,16 @@ class CRUD extends CI_Controller{
                 'ticketStatus' => 'Hadir'
             );
             $this->udel->updateTicketStatus('ticket', $data, $id);
-            redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
         };
+
+        $countTicketByStatus = $this->udel->countTicketByStatus($karId, 'Hadir');
+        
+        $data1 = array(
+            'employeeTicketWatches' => $countTicketByStatus
+        );
+
+        $this->udel->updateCountTicketByStatus('employee', $data1, $employeeId);
+        redirect('Page/absenceDetail/'.$movieId.'/'.$theaterId);
     }
     public function updateTheaterStatus(){
         $movieId = $this->uri->segment('3');

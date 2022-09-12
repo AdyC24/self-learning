@@ -25,7 +25,6 @@
                             <img src="<?=base_url('assets');?>/dist/img/<?= $movie['moviePicture'];?>" alt="<?= $movie['movieName'];?>">
                         </div>
                         <div class="col-lg-9 col-sm-12 px-4">
-                          
                           <div class="mb-2 col-12 d-flex justify-content-center">
                             <strong>(at <span class="text-danger"><?= $theaterId['theaterTime'];?></span> on <span class="text-danger"><?= $theaterId['theaterLocation'];?></span> charged by <span class="text-danger"><?= $theaterId['KAR_NAME'];?></span>)</strong>
                           </div>
@@ -41,12 +40,12 @@
                                   </h1>
                                   <span><?= $movie['movieYear'];?> . <?= $movie['movieDuration'];?></span>
                             </div>
-                            <div class="col-2">
+                            <div class="col-lg-2 col-sm-4">
                               <div class="mb-2 d-flex justify-content-center">
                                 <?php if ($theaterId['theaterActive'] == 'Ya'):?>
-                                  <strong class="badge bg-yellow">( Theater is Active )</strong>
+                                    <span class="badge bg-yellow">( Theater is Active )</span>
                                   <?php else:?>
-                                  <strong class="badge bg-danger">( Theater is Disactive )</strong>
+                                    <span class="badge bg-danger">( Theater is Disactive )</span>
                                   <?php endif;?>
                               </div>
                               <?php if($role != 'lvl12'):?>
@@ -92,6 +91,7 @@
                                       <?php $no = 1 ;?> 
                                       <?php foreach ($ticketIds as $ticketId) :?>
                                         <tr id="<?= $ticketId['ticketId'];?>">
+                                          <td hidden><input type="text" id="karId" name="karId" value="<?= $ticketId['KAR_ID'];?>"></td>
                                           
                                         <?php if($theaterId['theaterActive'] == 'Tidak'):?>
                                           <?php if($ticketId['ticketStatus'] == 'Hadir'):?>
@@ -107,6 +107,7 @@
                                           <?php endif;?>
                                         <?php endif;?>
 
+                                          
                                           <td><?= $no;?></td>
                                           <td><?= $ticketId['KAR_NIK']?></td>
                                           <td><?= $ticketId['KAR_NAME']?></td>

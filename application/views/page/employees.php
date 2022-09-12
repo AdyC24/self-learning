@@ -44,11 +44,11 @@
                 <td><a class="link-dark" href="<?= base_url('Page/subordinate/').$employee['KAR_ID'].'/'.$employee['employeeId'];?>"><?= $employee['KAR_NAME']?></a></td>
                 <td><?= $employee['SEC_NAME']?></td>
                 <td><?= $employee['JAB_NAME']?></td>
-                <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="link-dark"><?= $employee['employeeCompetencyCount']?></a></td>
+                <td><a href="#" data-role="empComp" data-id="<?= $employee['employeeId'];?>" class="text-reset"><?= $employee['employeeCompetencyCount']?></a></td>
                 <?php if($employee['employeeStatus'] == 'Tidak'):?>
-                <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Ya/').$employee['employeeId'];?>" class="link-dark"><span class="badge bg-danger me-1"></span>Non Active</a></td>
+                <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Ya/').$employee['employeeId'];?>" class="text-reset"><span class="badge bg-danger me-1"></span>Non Active</a></td>
                 <?php else:?>
-                <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Tidak/').$employee['employeeId'];?>" class="link-dark"><span class="badge bg-success me-1"></span>Active</a></td>
+                <td><a href="<?= base_url('CRUD/updateEmployeeStatus/Tidak/').$employee['employeeId'];?>" class="text-reset"><span class="badge bg-success me-1"></span>Active</a></td>
                 <?php endif;?>   
             </tr>
             <?php $no++;?>
@@ -84,9 +84,57 @@
               </div>
               <form action="#" method="post">
                 <div class="modal-body">
-                    
-                      
-                     
+                <form>
+                    <div class="form-group mb-3 ">
+                      <label class="form-label" required>NIK</label>
+                      <div >
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter NIK" required>
+                        <small class="form-hint">NIK is not editable, please enter correct NIK</small>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3 ">
+                      <label class="form-label" required>Name</label>
+                      <div >
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter Name" required>
+                        <small class="form-hint">Name is not editable, please enter correct Name</small>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3 ">
+                      <label class="form-label">Email address</label>
+                      <div >
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small class="form-hint">We will share important notification to this email.</small>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3 ">
+                      <label class="form-label">Select</label>
+                      <div >
+                        <select class="form-select">
+                          <option>Option 1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <label class="form-label">Checkboxes</label>
+                      <div >
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox" checked="">
+                          <span class="form-check-label">Option 1</span>
+                        </label>
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-label">Option 2</span>
+                        </label>
+                        <label class="form-check">
+                          <input class="form-check-input" type="checkbox" disabled="">
+                          <span class="form-check-label">Option 3</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

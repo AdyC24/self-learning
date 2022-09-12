@@ -99,9 +99,9 @@
                                     <td><?= $no;?></td>
                                     <td><?= $subordinate['KAR_NIK'];?></td>
                                     <td><a href="<?= base_url('Page/subordinate/').$subordinate['KAR_ID'].'/'.$subordinate['employeeId'];?>"  class="text-reset"><?= $subordinate['KAR_NAME'];?></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $subordinate['employeeTicketWatches'] / $subordinate['employeeTicketCount'] * 100?>%</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                     <?php if($role == 'hr'):?>
                                     <td class="text-center"><a href="#" class="btn btn-outline-danger align-text-top" data-bs-boundary="viewport">Delete</a></td>
                                     <?php endif;?>
