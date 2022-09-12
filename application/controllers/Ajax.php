@@ -8,7 +8,9 @@ class Ajax extends CI_Controller
         $this->load->model('User_model', 'udel');
     }
     public function movieSearch(){
+      $karId = $this->session->userdata('id');
       $val = $this->input->post('search');
+      $data['notifications'] = $this->udel->getNotification($karId);
       if($val){
         $data['movies'] = $this->udel->getMoviesSearch($val);
         $this->load->view('ajax/movie', $data);
@@ -18,8 +20,10 @@ class Ajax extends CI_Controller
       }
     }   
     public function movieSearchById(){
+      $karId = $this->session->userdata('id');
       $employeeId = $this->uri->segment('3');
       $val = $this->input->post('search');
+      $data['notifications'] = $this->udel->getNotification($karId);
       if($val){
         $data['movies'] = $this->udel->getMoviesSearchById($val, $employeeId);
         $this->load->view('ajax/movie', $data);
@@ -30,8 +34,10 @@ class Ajax extends CI_Controller
     }   
 
     public function subordinateSearch(){
+      $karId = $this->session->userdata('id');
       $id = $this->session->userdata('id');
       $val = $this->input->post('search');
+      $data['notifications'] = $this->udel->getNotification($karId);
       
       if($val){
         $data['subordinates'] = $this->udel->getSubordinateSearch($id, $val);
@@ -43,7 +49,9 @@ class Ajax extends CI_Controller
     }
 
     public function ticketOnHome(){
+      $karId = $this->session->userdata('id');
       $id = $this->session->userdata('id');
+      $data['notifications'] = $this->udel->getNotification($karId);
 
       $data['subtickets'] = $this->udel->getTicketBySubordinate($id)->result_array();
       $data['id'] = $id;
@@ -51,37 +59,44 @@ class Ajax extends CI_Controller
     }
     
     public function ticketOnSubordinate(){
-      $karId = $this->uri->segment('3');
+      $karId = $this->session->userdata('id');
+      $kar_Id = $this->uri->segment('3');
+      $data['notifications'] = $this->udel->getNotification($karId);
 
-      $data['subtickets'] = $this->udel->getTicketBySubordinate($karId)->result_array();
-      $data['id'] = $karId;
+      $data['subtickets'] = $this->udel->getTicketBySubordinate($kar_Id)->result_array();
+      $data['id'] = $kar_Id;
       $this->load->view('ajax/ticket', $data);
     }
 
     public function developmentPlan(){
-      $karId = $this->uri->segment('3');
-      $employeeId = $this->udel->getEmployeeIdById($karId);
+      $karId = $this->session->userdata('id');
+      $kar_Id = $this->uri->segment('3');
+      $employeeId = $this->udel->getEmployeeIdById($kar_Id);
+      $data['notifications'] = $this->udel->getNotification($karId);
 
       $data['role'] = $this->session->userdata('role');
       $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
-      $data['subordinate'] = $this->udel->getSubordinateById($karId);
+      $data['subordinate'] = $this->udel->getSubordinateById($kar_Id);
       $data['id'] = $this->uri->segment('3');
 
       $this->load->view('ajax/developmentPlan', $data);
     }
 
     public function subordinate(){
-      $karId = $this->uri->segment('3');
+      $karId = $this->session->userdata('id');
+      $kar_Id = $this->uri->segment('3');
+      $data['notifications'] = $this->udel->getNotification($karId);
 
       $data['role'] = $this->session->userdata('role');
       $data['id'] = $this->uri->segment('3');
-      $data['subordinates'] = $this->udel->getSubordinate($karId);
+      $data['subordinates'] = $this->udel->getSubordinate($kar_Id);
 
       $this->load->view('ajax/subordinate', $data);
     }
     public function updateNotification(){
       $karId = $this->session->userdata('id');
       $notificationId = $this->input->post('id');
+      $data['notifications'] = $this->udel->getNotification($karId);
 
       $data = array (
           'notificationRead' => 'Ya'
