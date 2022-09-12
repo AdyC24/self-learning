@@ -58,6 +58,7 @@
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-card">
                 <div class="card">
                   <div class="card-body">
+                    Disini looping notifikasi
                   </div>
                 </div>
               </div>
