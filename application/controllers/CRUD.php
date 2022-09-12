@@ -8,9 +8,12 @@ class CRUD extends CI_Controller{
     }
     public function insertTheater(){
         $movieId = $this->input->post('movie');
+        $movieName = $this->udel->getMovie($movieId);
         $datetime = $this->input->post('datetime');
         $location = $this->input->post('location');
         $createdBy = $this->input->post('createdBy');
+        $KarIdByStatus = $this->udel->getKarIdByStatus();
+        
 
         $data = array(
             'movieId' => $movieId,
@@ -20,6 +23,16 @@ class CRUD extends CI_Controller{
             'theaterPIC' => $createdBy,
         );
         $this->udel->insert('theater',$data);
+
+        foreach($KarIdByStatus as $karId){
+
+            $data1 = array (
+                'notificationText' => 'Jadwal '.$movieName['movieName'].' telah ditambahkan',
+                'KAR_ID' => $karId['KAR_ID'],
+                'notificationRead' => 'Tidak'
+            );
+            $this->udel->insert('notification', $data1);
+        };
         redirect('theater');
     }
     public function editTheater(){  
@@ -141,7 +154,8 @@ class CRUD extends CI_Controller{
 
             $data1 = array (
                 'notificationText' => 'Movie '.$movieName.' dengan kompetensi '.$competenceName['competenceName'].' telah ditambahkan',
-                'KAR_ID' => $karId['KAR_ID']
+                'KAR_ID' => $karId['KAR_ID'],
+                'notificationRead' => 'Tidak'
             );
             $this->udel->insert('notification', $data1);
         };
