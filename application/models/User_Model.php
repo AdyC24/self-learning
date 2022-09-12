@@ -231,11 +231,20 @@ class User_Model extends CI_MODEL{
         $this->db->where('competenceId', $competenceId);
         return $this->db->get('competence')->row_array();
     }
+    public function getNotification($karId){
+        $this->db->where('KAR_ID', $karId);
+        $this->db->order_by('notificationId', 'DESC');
+        return $this->db->get('notification')->result_array();
+    }
    
 
 
 // CRUD DATA
 
+    public function updateNotification($table, $data, $notificationId){
+        $this->db->where('notificationId', $notificationId);
+        $this->db->update($table, $data);
+    }
     public function updateCountTicketById($table, $data, $where){
         $this->db->where('employeeId', $where);
         $this->db->update($table, $data);

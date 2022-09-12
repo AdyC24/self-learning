@@ -79,4 +79,18 @@ class Ajax extends CI_Controller
 
       $this->load->view('ajax/subordinate', $data);
     }
+    public function updateNotification(){
+      $karId = $this->session->userdata('id');
+      $notificationId = $this->input->post('id');
+
+      $data = array (
+          'notificationRead' => 'Ya'
+      );
+
+      $this->udel->updateNotification('notification', $data, $notificationId);
+
+      $data['notifications'] = $this->udel->getNotification($karId);
+
+      $this->load->view('ajax/notification', $data);
+  }
 }

@@ -20,7 +20,7 @@ class Page extends CI_Controller{
         $data['competences'] = $this->udel->getCompetencyById($employeeId['employeeId'])->result_array();
         $data['competenceCount'] = $this->udel->getCompetencyById($employeeId['employeeId'])->num_rows();
         $data['subticketCount'] = $this->udel->getTicketBySubordinate($karId)->num_rows();
-       
+        $data['notifications'] = $this->udel->getNotification($karId);
        
         $this->load->view('template/head', $data);
         $this->load->view('template/navbar', $data);

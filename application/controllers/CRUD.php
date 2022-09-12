@@ -253,4 +253,6 @@ class CRUD extends CI_Controller{
         redirect('employee');
     }
 
+    
+
 }
