@@ -174,11 +174,11 @@ class CRUD extends CI_Controller{
     }
     public function updateTicket(){
         $movieId = $this->uri->segment('3');
+        $movieName = $this->udel->getMovie($movieId)['movieName'];
         $theaterId = $this->uri->segment('4');
         $ticketIds = $this->input->post('ticketId');
         $karId = $this->input->post('karId');
-        $employee = $this->udel->getEmployeeIdById($karId);
-        $employeeId = $employee['employeeId'];
+        $employeeId = $this->udel->getEmployeeIdById($karId)['employeeId'];
        
         foreach($ticketIds as $ticketId){
 
@@ -187,6 +187,26 @@ class CRUD extends CI_Controller{
                 'ticketStatus' => 'Hadir'
             );
             $this->udel->updateTicketStatus('ticket', $data, $id);
+            
+            $kar_Id = $this->udel->getKarIdInTicket($id)['employeeId'];
+           
+            $karName = $this->udel->getKarNameById($kar_Id)['KAR_NAME'];
+            $direct = $this->udel->getDirect($kar_Id)['KAR_ATASAN'];
+            
+            $data1 = array (
+                'notificationText' => $karName .' telah menyelesaikan movie ' . $movieName,
+                'KAR_ID' => $direct,
+                'notificationRead' => 'Tidak'
+            );
+
+            $data2 = array(
+                'notificationText' => 'Anda telah menyelesaikan movie ' . $movieName,
+                'KAR_ID' => $kar_Id,
+                'notificationRead' => 'Tidak'
+            );
+
+            $this->udel->insert('notification', $data1);
+            $this->udel->insert('notification', $data2);
         };
 
         $countTicketByStatus = $this->udel->countTicketByStatus($karId, 'Hadir');

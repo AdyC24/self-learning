@@ -42,6 +42,7 @@ class User_Model extends CI_MODEL{
     public function getDirect($id){
         $db1 = $this->load->database('db2', TRUE);
 
+        $db1->select('KAR_ATASAN, KAR_NIK, KAR_NAME');
         $db1->from('relasi as r');
 		$db1->join('karyawan as k','r.KAR_ATASAN = k.KAR_ID','LEFT');
         $db1->where('KAR_BAWAHAN', $id);
@@ -68,6 +69,11 @@ class User_Model extends CI_MODEL{
         $db1->like('KAR_NAME', $val);
 
         return $db1->get()->result_array();
+    }
+    public function getKarNameById($kar_Id){
+        $this->db->select('KAR_NAME');
+        $this->db->where('KAR_ID', $kar_Id);
+        return $this->db->get('bumalati_sld.karyawan')->row_array();
     }
     public function getMovies(){
         $this->db->from('movie as m');
@@ -235,6 +241,11 @@ class User_Model extends CI_MODEL{
         $this->db->where('KAR_ID', $karId);
         $this->db->order_by('notificationId', 'DESC');
         return $this->db->get('notification')->result_array();
+    }
+    public function getKarIdInTicket($id){
+        $this->db->select('employeeId');
+        $this->db->where('ticketId', $id);
+        return $this->db->get('ticket')->row_array();
     }
    
 
