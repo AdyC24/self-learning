@@ -9,7 +9,10 @@ class Page extends CI_Controller{
     public function home(){
         
         $karId = $this->session->userdata('id');
+        $employeeStatus = $this->session->userdata('status');
+        $nik = $this->session->userdata('nik');
         $employeeId = $this->udel->getEmployeeIdById($karId);
+       
        
         $data['title'] = 'Home';
         $data['name'] = $this->session->userdata('name');
@@ -22,13 +25,22 @@ class Page extends CI_Controller{
         $data['subticketCount'] = $this->udel->getTicketBySubordinate($karId)->num_rows();
         $data['notifications'] = $this->udel->getNotification($karId);
 
-        if($karId != ''){
+        if ($nik == 'b001hr'){
             $this->load->view('template/head', $data);
             $this->load->view('template/navbar', $data);
             $this->load->view('page/home', $data);
             $this->load->view('template/foot');
-        } else {
+        } elseif ($employeeStatus != 'Ya'){
+            $this->session->set_flashdata('message', 'SLD Anda belum AKTIF, silahkan hubungi HR untuk mengaktifkan'); 
             redirect('Auth');
+        } elseif ($karId == ''){
+            $this->session->set_flashdata('message', 'Sesi Anda berakhir, silahkan login kembali jika ingin melanjutkan'); 
+            redirect('Auth');
+        } else {
+            $this->load->view('template/head', $data);
+            $this->load->view('template/navbar', $data);
+            $this->load->view('page/home', $data);
+            $this->load->view('template/foot');
         }
        
         

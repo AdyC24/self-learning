@@ -22,7 +22,7 @@ class Auth extends CI_Controller{
         $emp = $this->input->post('nik');
         $pass = md5($this->input->post('password'));
         $user = $this->udel->getUser($emp);
-        
+      
         if(empty($user)){
             $this->session->set_flashdata('message', 'NIK tidak ditemukan'); 
             redirect('Auth');
@@ -47,6 +47,7 @@ class Auth extends CI_Controller{
                     'phone' => $user['KAR_HP'],
                     'position' => $user['JAB_NAME'],
                     'section' => $user['SEC_NAME'],
+                    'status' => $user['employeeStatus'],
                     'direct_name' => $dirName,
                     'direct_nik' => $dirNik
                 ];
