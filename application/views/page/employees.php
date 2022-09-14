@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-        </div>
+        
         <div class="page-body">
           <div class="container-xl">
             <div class="row row-cards">
@@ -71,6 +71,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
 
 <!-- Modal -->

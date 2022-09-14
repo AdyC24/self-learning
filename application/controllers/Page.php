@@ -31,7 +31,7 @@ class Page extends CI_Controller{
             $this->load->view('page/home', $data);
             $this->load->view('template/foot');
         } elseif ($employeeStatus != 'Ya'){
-            $this->session->set_flashdata('message', 'SLD Anda belum AKTIF, silahkan hubungi HR untuk mengaktifkan'); 
+            $this->session->set_flashdata('message', 'Anda tidak mempunyai akses SLD'); 
             redirect('Auth');
         } elseif ($karId == ''){
             $this->session->set_flashdata('message', 'Sesi Anda berakhir, silahkan login kembali jika ingin melanjutkan'); 

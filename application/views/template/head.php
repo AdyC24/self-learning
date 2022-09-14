@@ -79,7 +79,7 @@
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Change Password</a>
+                <a href="#" class="dropdown-item disabled">Change Password</a>
                 <a href="<?=base_url('Auth/logout');?>" class="dropdown-item">Logout</a>
               </div>
             </div>
