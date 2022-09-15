@@ -270,6 +270,7 @@ class Page extends CI_Controller{
         $data['position'] = $this->session->userdata('position');
         $data['role'] = $this->session->userdata('role');
         $data['notifications'] = $this->udel->getNotification($karId);
+        $data['observations'] = $this->udel->getObservations();
 
         if($karId != ''){
             $this->load->view('template/head', $data);

@@ -25,25 +25,30 @@
                           <th>No</th>
                           <th>NIK</th>
                           <th>Nama</th>
-                          <th>Section</th>
-                          <th>Position</th>
-                          <th>Development Plan</th>
+                          <th>Competence</th>
+                          <th>HR Score</th>
+                          <th>HR Comment</th>
+                          <th>Direct Score</th>
+                          <th>Direct Comment</th>
                           <th>Status</th>
                       </tr>
                   </thead>
                   <tbody>
                       <?php $no = 1;?>
-                    
+                      <?php foreach($observations as $observation):?>
                       <tr>
                           <td><?= $no;?></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td><?= $observation['KAR_NIK']?></td>
+                          <td><a class="link-dark" href="<?= base_url('Page/subordinate/').$observation['KAR_ID'].'/'.$observation['employeeId'];?>"><?= $observation['KAR_NAME']?></td>
+                          <td><?= $observation['competenceName']?></td>
+                          <td class="editable-col" contenteditable="true" id="3" value="<?= $observation['observationHRScore']?>"><?= $observation['observationHRScore']?></td>
+                          <td class="editable-col" contenteditable="true" id="5" value="<?= $observation['observationHRComment']?>"><?= $observation['observationHRComment']?></td>
+                          <td class="editable-col" contenteditable="true" id="4" value="<?= $observation['observationDirectScore']?>"><?= $observation['observationDirectScore']?></td>
+                          <td class="editable-col" contenteditable="true" id="6" value="<?= $observation['observationDirectComment']?>"><?= $observation['observationDirectComment']?></td>
+                          <td><?= $observation['observationStatus']?></td>
                       </tr>
                       <?php $no++;?>
+                      <?php endforeach;?>
                   </tbody>
                 </table>
               </div>

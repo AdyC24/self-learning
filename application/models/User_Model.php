@@ -249,6 +249,14 @@ class User_Model extends CI_MODEL{
         $this->db->where('ticketId', $id);
         return $this->db->get('ticket')->row_array();
     }
+    public function getObservations(){
+        $this->db->select('observationId, KAR_ID, observationHRScore, observationDirectScore, observationHRComment, observationDirectComment, observationStatus, observationEnd, KAR_NIK, KAR_NAME, competenceName, employeeId');
+        $this->db->from('observation as o');
+        $this->db->join('bumalati_sld.karyawan as k', 'k.KAR_ID = o.karId', 'LEFT');
+        $this->db->join('competence as c', 'c.competenceId = o.competenceId', 'LEFT');
+        $this->db->join('employee as e', 'e.employeeNIK = k.KAR_NIK', 'LEFT');
+        return $this->db->get()->result_array();
+    }
    
 
 
